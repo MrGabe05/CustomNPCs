@@ -1,0 +1,5 @@
+Args: "--inJar", "D:\Users\Gabriel\IdeaProjects\CustomNPCs\build\fg_cache\net\minecraftforge\forge\1.16.5-36.2.34\forge-1.16.5-36.2.34-injected.jar", "--outJar", "D:\Users\Gabriel\IdeaProjects\CustomNPCs\build\fg_cache\net\minecraftforge\forge\1.16.5-36.2.34_mapped_official_1.16.5\forge-1.16.5-36.2.34_mapped_official_1.16.5.jar", "--logFile", "accesstransform.log", "--atFile", "D:\Users\Gabriel\IdeaProjects\CustomNPCs\src\main\resources\META-INF\accesstransformer.cfg", "--atFile", "D:\Users\Gabriel\IdeaProjects\CustomNPCs\build\_atJar_5\parent_at.cfg"
+Classpath: C:\Users\Gabriel\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\1.0.5\accesstransformers-1.0.5-fatjar.jar
+WorkDir: D:\Users\Gabriel\IdeaProjects\CustomNPCs\build\_atJar_5
+Main: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================
