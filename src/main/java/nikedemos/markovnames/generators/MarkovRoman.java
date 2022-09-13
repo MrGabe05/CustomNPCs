@@ -22,30 +22,21 @@ public class MarkovRoman extends MarkovGenerator {
 	@Override
 	public String feminize(String element, boolean flag) {
 		// change "us" into "a" and "o" at the end into "a"
-		if (element.endsWith("us")) {
+		if (element.endsWith("us") || element.endsWith("o")) {
 			element = element.substring(0, element.length() - 2) + "a";
-		} 
-		else if (element.endsWith("o")) {
-			element = element.substring(0, element.length() - 2) + "a";
-		}		
+		}
 
 		return element;
 	}
 
 	@Override
 	public String fetch(int gender) {
-
 		String seq1 = markov.generateWord();
 		String seq2 = markov2.generateWord();
 		String seq3 = markov3.generateWord();
 
-		// check the gender.
-		// 0 = random gender, 1 = male, 2 = female
-		// if there's no gender specified (0),
-		// now it's time to pick it at random
-		//
 		if (gender == 0) {
-			gender = MarkovDictionary.rng.nextBoolean() == true ? 1 : 2;
+			gender = MarkovDictionary.rng.nextBoolean() ? 1 : 2;
 		}
 
 		// now if it's 2 - a lady - feminize the 3 sequences
@@ -55,6 +46,6 @@ public class MarkovRoman extends MarkovGenerator {
 			seq3 = feminize(seq3, true);
 		}
 
-		return (new StringBuilder(seq1).append(" ").append(seq2).append(" ").append(seq3).toString());
+		return (seq1 + " " + seq2 + " " + seq3);
 	}
 }

@@ -1,8 +1,5 @@
 package nikedemos.markovnames.generators;
 
-import java.util.Random;
-
-import net.minecraft.util.text.TranslationTextComponent;
 import nikedemos.markovnames.MarkovDictionary;
 
 public class MarkovGenerator {

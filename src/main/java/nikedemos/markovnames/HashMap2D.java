@@ -7,12 +7,8 @@ public class HashMap2D<T1, T2, T3> {
 
 public final Map<T1, Map<T2, T3>> mMap;
 
-/*
- https://stackoverflow.com/a/10299689/9355344
- */
-
 public HashMap2D() {
-    mMap = new HashMap<T1, Map<T2, T3>>();
+    mMap = new HashMap<>();
 }
 
 /**
@@ -33,7 +29,7 @@ public T3 put(T1 key1, T2 key2, T3 value) {
     if (mMap.containsKey(key1)) {
         map = mMap.get(key1);
     } else {
-        map = new HashMap<T2, T3>();
+        map = new HashMap<>();
         mMap.put(key1, map);
     }
 
@@ -77,5 +73,4 @@ public boolean containsKeys(T1 key1, T2 key2) {
 public void clear() {
     mMap.clear();
 }
-
 }

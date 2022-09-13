@@ -1,7 +1,5 @@
 package nikedemos.markovnames;
 
-import java.util.Random;
-
 //used exclusively by the Spanish surname dictionary - because the capitalization is a little bit different
 public class MarkovDictionarySPA extends MarkovDictionary {
 
@@ -17,7 +15,6 @@ public class MarkovDictionarySPA extends MarkovDictionary {
 
 	public String getCapitalizedSPA(String str) {
 		// for spanish capitalization
-
 		String[] parts = str.split("#");
 
 		StringBuilder build = new StringBuilder("");

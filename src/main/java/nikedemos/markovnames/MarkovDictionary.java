@@ -1,5 +1,9 @@
 package nikedemos.markovnames;
 
+import net.minecraft.resources.IResource;
+import net.minecraft.util.ResourceLocation;
+import noppes.npcs.CustomNpcs;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,19 +15,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import java.util.Random;
-
-import net.minecraft.resources.IResource;
-import net.minecraft.resources.IResourceManager;
-import net.minecraft.util.ResourceLocation;
-import noppes.npcs.CustomNpcs;
 
 public class MarkovDictionary {
 	public static final Random rng = new Random();
 	private int sequenceLen = 3;
 
-	private HashMap2D<String, String, Integer> occurrences = new HashMap2D<String, String, Integer>();
+	private final HashMap2D<String, String, Integer> occurrences = new HashMap2D<>();
 
 	public MarkovDictionary(String dictionary, int seqlen) {
 		try {
@@ -54,10 +52,10 @@ public class MarkovDictionary {
 		// so for instance, "_DUP_AUX", "_TOTAL" will count how many "DUP" seqCurrs we have
 		if (occurrences.containsKeys(str1, str2)) 
 		{
-			int curr = occurrences.get(str1, str2).intValue();
-			occurrences.put(str1, str2, Integer.valueOf(curr + 1));
+			int curr = occurrences.get(str1, str2);
+			occurrences.put(str1, str2, curr + 1);
 		} else {
-			occurrences.put(str1, str2, Integer.valueOf(1));
+			occurrences.put(str1, str2, 1);
 		}
 	}
 
@@ -72,11 +70,8 @@ public class MarkovDictionary {
 		int allEntries = 0;
 
 		// first iteration: we count top level entries. There's just no other way.
-		Iterator<Entry<String, Map<String, Integer>>> i = occurrences.mMap.entrySet().iterator();
 
-		while (i.hasNext()) {
-			Map.Entry<String, Map<String, Integer>> pair = (Entry<String, Map<String, Integer>>) i.next();
-
+		for (Entry<String, Map<String, Integer>> pair : occurrences.mMap.entrySet()) {
 			String k = pair.getKey();
 			if (k.startsWith("_[") && k.endsWith("_")) // dealing with meta entry here
 			{
@@ -95,10 +90,10 @@ public class MarkovDictionary {
 
 		Iterator<Entry<String, Map<String, Integer>>> it = occurrences.mMap.entrySet().iterator();
 
-		StringBuilder sequence = new StringBuilder("");
+		StringBuilder sequence = new StringBuilder();
 
 		while (it.hasNext()) {
-			Map.Entry<String, Map<String, Integer>> pair = (Entry<String, Map<String, Integer>>) it.next();
+			Map.Entry<String, Map<String, Integer>> pair = it.next();
 
 			String k = pair.getKey();
 
@@ -107,7 +102,7 @@ public class MarkovDictionary {
 				topLevelEntries = occurrences.get(k, "_TOTAL_");
 
 				if (randomNumber < topLevelEntries) {
-					sequence.append(k.substring(1, sequenceLen + 1)); // removing the underscores
+					sequence.append(k, 1, sequenceLen + 1); // removing the underscores
 					break;
 				} else {
 					// keep going
@@ -118,7 +113,7 @@ public class MarkovDictionary {
 		// great! now that we have the first element, time for some generic iterations.
 		// in a very similar manner. Basically - perform this loop till you encounter
 		// "]" at the end
-		StringBuilder word = new StringBuilder("");
+		StringBuilder word = new StringBuilder();
 
 		word.append(sequence); // now we're gonna use firstElement to keep the sequence
 		while (sequence.charAt(sequence.length() - 1) != ']') {
@@ -128,10 +123,7 @@ public class MarkovDictionary {
 			// and count their total occurrences
 			int subSize = 0;
 
-			Iterator<Map.Entry<String, Integer>> j = occurrences.mMap.get(sequence.toString()).entrySet().iterator();
-
-			while (j.hasNext()) {
-				Map.Entry<String, Integer> entry = j.next();
+			for (Entry<String, Integer> entry : occurrences.mMap.get(sequence.toString()).entrySet()) {
 				subSize += entry.getValue();
 			}
 
@@ -180,7 +172,7 @@ public class MarkovDictionary {
 		ResourceLocation resource = new ResourceLocation("customnpcs","markovnames/" + dictionaryFile);
 		try(IResource ir = CustomNpcs.Server.getDataPackRegistries().getResourceManager().getResource(resource)){
 			InputStream stream = ir.getInputStream();
-			BufferedReader readIn = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+			BufferedReader readIn = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
 			// Thread.currentThload().getContextClassLoader().getResourceAsStream("path/to/resource/file.ext");
 
 			for (String line = readIn.readLine(); line != null; line = readIn.readLine()) {
@@ -210,10 +202,10 @@ public class MarkovDictionary {
 			incrementSafe(seqCurr, seqNext);
 			// aux counters
 
-			StringBuilder meta = new StringBuilder("_").append(seqCurr).append("_");
-
 			// String aux1="_"+seqCurr+"_";
-			incrementSafe(meta.toString(), "_TOTAL_");
+			incrementSafe("_" + seqCurr + "_"
+					// String aux1="_"+seqCurr+"_";
+					, "_TOTAL_");
 			// String aux2="_"+seqNext+"_";
 			// incrementSafe(aux1, aux2);
 

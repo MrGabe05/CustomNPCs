@@ -1,8 +1,5 @@
 package nikedemos.markovnames.generators;
 
-import java.util.Random;
-
-import net.minecraft.util.text.TranslationTextComponent;
 import nikedemos.markovnames.MarkovDictionary;
 
 public class MarkovAztec extends MarkovGenerator {
@@ -18,8 +15,7 @@ public class MarkovAztec extends MarkovGenerator {
 	}
 
 	@Override
-	public String fetch(int gender) //Aztec names are genderless
-	{
+	public String fetch(int gender) {
 		return markov.generateWord();
 	}
 }
