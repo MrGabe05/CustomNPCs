@@ -6,56 +6,56 @@ import noppes.npcs.api.item.IItemStack;
 
 public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 
-	public float getHealth();
+	float getHealth();
 	
-	public void setHealth(float health);
+	void setHealth(float health);
 	
-	public float getMaxHealth();
+	float getMaxHealth();
 	
-	public void setMaxHealth(float health);
+	void setMaxHealth(float health);
 	
-	public boolean isAttacking();
+	boolean isAttacking();
 	
-	public void setAttackTarget(IEntityLiving living);
+	void setAttackTarget(IEntityLiving living);
 	
-	public IEntityLiving getAttackTarget();
+	IEntityLiving getAttackTarget();
 	
 	/**
 	 * @return Returns the last Entity this Entity attacked
 	 */
-	public IEntityLiving getLastAttacked();
+	IEntityLiving getLastAttacked();
 
 	/**
 	 * @return Returns the age of this entity when it was last attacked
 	 */
-	public int getLastAttackedTime();
+	int getLastAttackedTime();
 	
-	public boolean canSeeEntity(IEntity entity);
+	boolean canSeeEntity(IEntity entity);
 
-	public void swingMainhand();
+	void swingMainhand();
 
-	public void swingOffhand();
+	void swingOffhand();
 	
-	public IItemStack getMainhandItem();
+	IItemStack getMainhandItem();
 
-	public void setMainhandItem(IItemStack item);
+	void setMainhandItem(IItemStack item);
 
-	public IItemStack getOffhandItem();
+	IItemStack getOffhandItem();
 
-	public void setOffhandItem(IItemStack item);
+	void setOffhandItem(IItemStack item);
 	
 	/**
 	 * Note not all Living Entities support this
 	 * @param slot Slot of what armor piece to get, 0:boots, 1:pants, 2:body, 3:head
 	 * @return The item in the given slot
 	 */
-	public IItemStack getArmor(int slot);
+	IItemStack getArmor(int slot);
 	
 	/**
 	 * @param slot Slot of what armor piece to set, 0:boots, 1:pants, 2:body, 3:head
 	 * @param item Item to be set
 	 */
-	public void setArmor(int slot, IItemStack item);
+	void setArmor(int slot, IItemStack item);
 	
 	/**
 	 * Works the same as the <a href="http://minecraft.gamepedia.com/Commands#effect">/effect command</a>
@@ -64,32 +64,32 @@ public interface IEntityLiving<T extends LivingEntity> extends IEntity<T>{
 	 * @param strength The amplifier of the potion effect
 	 * @param hideParticles Whether or not you want to hide potion particles
 	 */
-	public void addPotionEffect(int effect, int duration, int strength, boolean hideParticles);
+	void addPotionEffect(int effect, int duration, int strength, boolean hideParticles);
 	
-	public void clearPotionEffects();
+	void clearPotionEffects();
 	
-	public int getPotionEffect(int effect);
+	int getPotionEffect(int effect);
 	
-	public IMark addMark(int type);
+	IMark addMark(int type);
 	
-	public void removeMark(IMark mark);
+	void removeMark(IMark mark);
 	
-	public IMark[] getMarks();
+	IMark[] getMarks();
 	
-	public boolean isChild();
+	boolean isChild();
 
 	@Override
-	public T getMCEntity();
+	T getMCEntity();
 
-	public float getMoveForward();
+	float getMoveForward();
 
-	public void setMoveForward(float move);
+	void setMoveForward(float move);
 
-	public float getMoveStrafing();
+	float getMoveStrafing();
 
-	public void setMoveStrafing(float move);
+	void setMoveStrafing(float move);
 
-	public float getMoveVertical();
+	float getMoveVertical();
 
-	public void setMoveVertical(float move);
+	void setMoveVertical(float move);
 }

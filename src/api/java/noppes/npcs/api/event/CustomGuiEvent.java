@@ -7,7 +7,6 @@ import noppes.npcs.api.item.IItemStack;
 
 public class CustomGuiEvent extends CustomNPCsEvent {
 
-
 	public final IPlayer player;
     public final ICustomGui gui;
 
@@ -20,11 +19,9 @@ public class CustomGuiEvent extends CustomNPCsEvent {
      * customGuiClosed
      */
     public static class CloseEvent extends CustomGuiEvent {
-
         public CloseEvent(IPlayer player, ICustomGui gui) {
             super(player,gui);
         }
-
     }
 
     /**
@@ -37,7 +34,6 @@ public class CustomGuiEvent extends CustomNPCsEvent {
             super(player,gui);
             this.buttonId = buttonId;
         }
-
     }
 
     /**
@@ -52,7 +48,6 @@ public class CustomGuiEvent extends CustomNPCsEvent {
             this.slotId = slotId;
             this.stack = stack;
         }
-
     }
 
     /**
@@ -93,7 +88,5 @@ public class CustomGuiEvent extends CustomNPCsEvent {
             this.doubleClick = doubleClick;
             this.scrollIndex = scrollIndex;
         }
-
     }
-
 }

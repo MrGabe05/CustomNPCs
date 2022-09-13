@@ -4,37 +4,37 @@ import net.minecraft.item.ItemStack;
 
 public interface IRecipe {
 	
-	public String getName();
+	String getName();
 	
 	
-	public boolean isGlobal();
+	boolean isGlobal();
 	
-	public void setIsGlobal(boolean bo);
+	void setIsGlobal(boolean bo);
 	
-	public boolean getIgnoreNBT();
+	boolean getIgnoreNBT();
 	
-	public void setIgnoreNBT(boolean bo);
+	void setIgnoreNBT(boolean bo);
 	
-	public boolean getIgnoreDamage();
+	boolean getIgnoreDamage();
 	
-	public void setIgnoreDamage(boolean bo);
+	void setIgnoreDamage(boolean bo);
 	
-	public int getWidth();
+	int getWidth();
 	
-	public int getHeight();
+	int getHeight();
 	
-	public ItemStack getResult();
+	ItemStack getResult();
 	
-	public ItemStack[] getRecipe();
+	ItemStack[] getRecipe();
 	
 	/**
 	 * @param bo Whether or not the recipe saves with customnpcs recipes
 	 */
-	public void saves(boolean bo);
+	void saves(boolean bo);
 	
-	public boolean saves();
+	boolean saves();
 	
-	public void save();
+	void save();
 	
-	public void delete();
+	void delete();
 }

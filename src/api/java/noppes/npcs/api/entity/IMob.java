@@ -8,12 +8,12 @@ public interface IMob<T extends MobEntity> extends IEntityLiving<T> {
 	/**
 	 * @return Whether or not this entity is navigating somewhere
 	 */
-	public boolean isNavigating();
+	boolean isNavigating();
 	
 	/**
 	 * Stop navigating wherever this npc was walking to
 	 */
-	public void clearNavigation();
+	void clearNavigation();
 	
 	/**
 	 * Start path finding toward this target
@@ -21,13 +21,13 @@ public interface IMob<T extends MobEntity> extends IEntityLiving<T> {
 	 * @param y Destination x position
 	 * @param z Destination x position
 	 */
-	public void navigateTo(double x, double y, double z, double speed);
+	void navigateTo(double x, double y, double z, double speed);
 
-	public void jump();
+	void jump();
 
 	@Override
-	public T getMCEntity();
+	T getMCEntity();
 
-	public IPos getNavigationPath();
+	IPos getNavigationPath();
 	
 }

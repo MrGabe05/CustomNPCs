@@ -8,11 +8,11 @@ public interface IPixelmonPlayerData {
 	/**
 	 * Returns <a href="https://reforged.gg/docs/com/pixelmonmod/pixelmon/api/storage/PartyStorage.html">PartyStorage</a>
 	 */
-	public Object getParty();
+    Object getParty();
 
 	/**
 	 * Returns <a href="https://reforged.gg/docs/com/pixelmonmod/pixelmon/api/storage/PCStorage.html">PCStorage</a>
 	 */
-	public Object getPC();
+    Object getPC();
 	
 }

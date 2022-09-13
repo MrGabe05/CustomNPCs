@@ -4,19 +4,19 @@ import net.minecraft.util.text.ITextComponent;
 
 public interface IQuestObjective {
 
-	public int getProgress();
+	int getProgress();
 	
 	/**
 	 * Does not work for Item or Dialog quests
 	 * @param progress Progress of the objective
 	 */
-	public void setProgress(int progress);
+	void setProgress(int progress);
 	
-	public int getMaxProgress();
+	int getMaxProgress();
 	
-	public boolean isCompleted();
+	boolean isCompleted();
 
-	public String getText();
+	String getText();
 
-	public ITextComponent getMCText();
+	ITextComponent getMCText();
 }

@@ -9,49 +9,49 @@ import net.minecraft.nbt.INBT;
  */
 public interface INbt {
 	
-	public void remove(String key);
+	void remove(String key);
 
-	public boolean has(String key);
+	boolean has(String key);
 
-	public boolean getBoolean(String key);
+	boolean getBoolean(String key);
 
-	public void setBoolean(String key, boolean value);
+	void setBoolean(String key, boolean value);
 
-	public short getShort(String key);
+	short getShort(String key);
 
-	public void setShort(String key, short value);
+	void setShort(String key, short value);
 
-	public int getInteger(String key);
+	int getInteger(String key);
 
-	public void setInteger(String key, int value);
+	void setInteger(String key, int value);
 
-	public byte getByte(String key);
+	byte getByte(String key);
 
-	public void setByte(String key, byte value);
+	void setByte(String key, byte value);
 
-	public long getLong(String key);
+	long getLong(String key);
 
-	public void setLong(String key, long value);
+	void setLong(String key, long value);
 
-	public double getDouble(String key);
+	double getDouble(String key);
 
-	public void setDouble(String key, double value);
+	void setDouble(String key, double value);
 
-	public float getFloat(String key);
+	float getFloat(String key);
 
-	public void setFloat(String key, float value);
+	void setFloat(String key, float value);
 
-	public String getString(String key);
+	String getString(String key);
 
-	public void putString(String key, String value);
+	void putString(String key, String value);
 
-	public byte[] getByteArray(String key);
+	byte[] getByteArray(String key);
 
-	public void setByteArray(String key, byte[] value);
+	void setByteArray(String key, byte[] value);
 
-	public int[] getIntegerArray(String key);
+	int[] getIntegerArray(String key);
 
-	public void setIntegerArray(String key, int[] value);
+	void setIntegerArray(String key, int[] value);
 
 	/**
 	 * @param key
@@ -59,50 +59,50 @@ public interface INbt {
 	 *             10:INbt, 11:Integer[]
 	 * @return
 	 */
-	public Object[] getList(String key, int type);
+	Object[] getList(String key, int type);
 
 	/**
 	 * @param key
 	 * @return 3:Integer, 5:Float, 6:Double, 8:String, 10:INbt, 11:Integer[]
 	 */
-	public int getListType(String key);
+	int getListType(String key);
 
-	public void setList(String key, Object[] value);
+	void setList(String key, Object[] value);
 
-	public INbt getCompound(String key);
+	INbt getCompound(String key);
 
-	public void setCompound(String key, INbt value);
+	void setCompound(String key, INbt value);
 
-	public String[] getKeys();
+	String[] getKeys();
 
 	/**
 	 * @param key
 	 * @return 1:Byte, 2:Short 3:Integer, 4:Long, 5:Float, 6:Double, 7:Byte[],
 	 *         8:String, 9:List, 10:INbt, 11:Integer[]
 	 */
-	public int getType(String key);
+	int getType(String key);
 
-	public CompoundNBT getMCNBT();
+	CompoundNBT getMCNBT();
 
-	public String toJsonString();
+	String toJsonString();
 
 	/**
 	 * Compares if two nbt tags are the same/contain the same data
 	 */
-	public boolean isEqual(INbt nbt);
+	boolean isEqual(INbt nbt);
 
 	/**
 	 * Clears all tags
 	 */
-	public void clear();
+	void clear();
 
 	/**
 	 * Merges two nbt tabs, note that nbt tags will be overwritten if they have the
 	 * same keys
 	 */
-	public void merge(INbt nbt);
+	void merge(INbt nbt);
 
-	public void mcSetTag(String key, INBT base);
+	void mcSetTag(String key, INBT base);
 	
-	public INBT mcGetTag(String key);
+	INBT mcGetTag(String key);
 }

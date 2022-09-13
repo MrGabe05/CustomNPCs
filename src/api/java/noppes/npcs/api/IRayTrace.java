@@ -3,9 +3,9 @@ package noppes.npcs.api;
 import noppes.npcs.api.block.IBlock;
 
 public interface IRayTrace {
-	public IPos getPos();
+	IPos getPos();
 	
-	public IBlock getBlock();
+	IBlock getBlock();
 	
-	public int getSideHit();
+	int getSideHit();
 }

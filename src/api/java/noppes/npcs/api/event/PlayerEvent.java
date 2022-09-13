@@ -234,7 +234,7 @@ public class PlayerEvent extends CustomNPCsEvent {
 
 		public DamagedEvent(IPlayer player, Entity source, float damage, DamageSource damagesource) {
 			super(player);
-			this.source = (IEntity) NpcAPI.Instance().getIEntity(source);
+			this.source = NpcAPI.Instance().getIEntity(source);
 			this.damage = damage;
 			this.damageSource = NpcAPI.Instance().getIDamageSource(damagesource);
 		}

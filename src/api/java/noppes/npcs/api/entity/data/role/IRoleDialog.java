@@ -2,22 +2,22 @@ package noppes.npcs.api.entity.data.role;
 
 public interface IRoleDialog {
 
-	public String getDialog();
+	String getDialog();
 
-	public void setDialog(String text);
+	void setDialog(String text);
 
-	public String getOption(int option);
-
-	/**
-	 * @param option The dialog option (1-6)
-	 */
-	public void setOption(int option, String text);
-
-	public String getOptionDialog(int option);
+	String getOption(int option);
 
 	/**
 	 * @param option The dialog option (1-6)
 	 */
-	public void setOptionDialog(int option, String text);
+    void setOption(int option, String text);
+
+	String getOptionDialog(int option);
+
+	/**
+	 * @param option The dialog option (1-6)
+	 */
+    void setOptionDialog(int option, String text);
 
 }

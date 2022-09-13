@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IDialogCategory {
 	
-	public List<IDialog> dialogs();
+	List<IDialog> dialogs();
 	
-	public String getName();
+	String getName();
 	
-	public IDialog create();
+	IDialog create();
 }

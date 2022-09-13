@@ -2,9 +2,9 @@ package noppes.npcs.api;
 
 public interface IScoreboardScore {
 
-	public int getValue();
+	int getValue();
 	
-	public void setValue(int val);
+	void setValue(int val);
 	
-	public String getPlayerName();
+	String getPlayerName();
 }

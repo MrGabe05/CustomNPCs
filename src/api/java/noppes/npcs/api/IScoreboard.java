@@ -2,19 +2,19 @@ package noppes.npcs.api;
 
 public interface IScoreboard {
 
-	public IScoreboardObjective[] getObjectives();
+	IScoreboardObjective[] getObjectives();
 
 	
 	/**
 	 * @return Returns null if the objective is not found
 	 */
-	public IScoreboardObjective getObjective(String name);
+	IScoreboardObjective getObjective(String name);
 
 
-	public boolean hasObjective(String objective);
+	boolean hasObjective(String objective);
 
 
-	public void removeObjective(String objective);
+	void removeObjective(String objective);
 
 
 	/**
@@ -22,42 +22,42 @@ public interface IScoreboard {
 	 * @param criteria The criteria see http://minecraft.gamepedia.com/Scoreboard#Objectives
 	 * @return Returns the created ScoreboardObjective
 	 */
-	public IScoreboardObjective addObjective(String objective, String criteria);
+	IScoreboardObjective addObjective(String objective, String criteria);
 
-	public void setPlayerScore(String player, String objective, int score);
+	void setPlayerScore(String player, String objective, int score);
 
-	public int getPlayerScore(String player, String objective);
+	int getPlayerScore(String player, String objective);
 
-	public boolean hasPlayerObjective(String player, String objective);
+	boolean hasPlayerObjective(String player, String objective);
 
-	public void deletePlayerScore(String player, String objective);
-
-
-	public IScoreboardTeam[] getTeams();
+	void deletePlayerScore(String player, String objective);
 
 
-	public boolean hasTeam(String name);
+	IScoreboardTeam[] getTeams();
 
 
-	public IScoreboardTeam addTeam(String name);
+	boolean hasTeam(String name);
 
 
-	public IScoreboardTeam getTeam(String name);
+	IScoreboardTeam addTeam(String name);
 
 
-	public void removeTeam(String name); 
+	IScoreboardTeam getTeam(String name);
+
+
+	void removeTeam(String name);
 
 	/**
 	 * @param player the player whos team you want to get
 	 * @return The players team
 	 */
-	public IScoreboardTeam getPlayerTeam(String player);
+	IScoreboardTeam getPlayerTeam(String player);
 
 	/**
 	 * @param player The players who should be removed from his team
 	 */
-	public void removePlayerTeam(String player);
+	void removePlayerTeam(String player);
 
 
-	public String[] getPlayerList();
+	String[] getPlayerList();
 }

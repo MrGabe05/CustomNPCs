@@ -5,19 +5,19 @@ public interface IItemBook extends IItemStack{
 	/**
 	 * @return If the item is a book, returns a string array with book pages
 	 */
-	public String[] getText();
+	String[] getText();
 	
 	/**
 	 * Set the text for multiple pages
 	 */
-	public void setText(String[] pages);
+	void setText(String[] pages);
 
-	public String getAuthor();
+	String getAuthor();
 	
-	public void setAuthor(String author);
+	void setAuthor(String author);
 
-	public String getTitle();
+	String getTitle();
 	
-	public void setTitle(String title);
+	void setTitle(String title);
 
 }

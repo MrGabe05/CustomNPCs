@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IQuestCategory {
 	
-	public List<IQuest> quests();
+	List<IQuest> quests();
 	
-	public String getName();
+	String getName();
 	
-	public IQuest create();
+	IQuest create();
 }

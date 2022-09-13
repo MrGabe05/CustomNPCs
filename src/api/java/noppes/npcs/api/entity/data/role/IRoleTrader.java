@@ -8,29 +8,29 @@ public interface IRoleTrader extends INPCRole{
 	/**
 	 * @param slot Slot number 0-17
 	 */
-	public IItemStack getSold(int slot);
+    IItemStack getSold(int slot);
 	
 	/**
 	 * @param slot Slot number 0-17
 	 */
-	public IItemStack getCurrency1(int slot);
+    IItemStack getCurrency1(int slot);
 	
 	/**
 	 * @param slot Slot number 0-17
 	 */
-	public IItemStack getCurrency2(int slot);
+    IItemStack getCurrency2(int slot);
 
 	/**
 	 * @param slot Slot number 0-17
 	 */
-	public void set(int slot, IItemStack currency, IItemStack currency2, IItemStack sold);
+    void set(int slot, IItemStack currency, IItemStack currency2, IItemStack sold);
 
 	/**
 	 * @param slot Slot number 0-17
 	 */
-	public void remove(int slot);
+    void remove(int slot);
 
-	public void setMarket(String name);
+	void setMarket(String name);
 
-	public String getMarket();
+	String getMarket();
 }

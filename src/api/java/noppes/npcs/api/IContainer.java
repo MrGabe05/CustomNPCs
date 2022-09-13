@@ -6,23 +6,23 @@ import noppes.npcs.api.item.IItemStack;
 
 public interface IContainer {
 
-	public int getSize();
+	int getSize();
 	
-	public IItemStack getSlot(int slot);
+	IItemStack getSlot(int slot);
 	
-	public void setSlot(int slot, IItemStack item);
-	
-	/**
-	 * Expert users only
-	 * @return Returns minecrafts container
-	 */
-	public IInventory getMCInventory();
+	void setSlot(int slot, IItemStack item);
 	
 	/**
 	 * Expert users only
 	 * @return Returns minecrafts container
 	 */
-	public Container getMCContainer();
+	IInventory getMCInventory();
+	
+	/**
+	 * Expert users only
+	 * @return Returns minecrafts container
+	 */
+	Container getMCContainer();
 
 	/**
 	 * @param item
@@ -30,7 +30,7 @@ public interface IContainer {
 	 * @param ignoreNBT Whether to ignore NBT when comparing
 	 * @return
 	 */
-	public int count(IItemStack item, boolean ignoreDamage, boolean ignoreNBT);
+	int count(IItemStack item, boolean ignoreDamage, boolean ignoreNBT);
 	
-	public IItemStack[] getItems();
+	IItemStack[] getItems();
 }

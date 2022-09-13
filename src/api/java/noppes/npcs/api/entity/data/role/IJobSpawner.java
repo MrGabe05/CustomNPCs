@@ -9,8 +9,8 @@ public interface IJobSpawner {
 	 * @param i The entity going to be spawned (0-5)
 	 * @return Returns spawned entity
 	 */
-	public IEntityLiving spawnEntity(int i);
+    IEntityLiving spawnEntity(int i);
 
-	public void removeAllSpawned();
+	void removeAllSpawned();
 
 }

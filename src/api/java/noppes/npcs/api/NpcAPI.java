@@ -88,12 +88,7 @@ public abstract class NpcAPI {
 	 * @author Ryan
 	 */
 	public abstract ICustomGui createCustomGui(int id, int width, int height, boolean pauseGame);	
-	
-	/**
-	 * Get player data even if they are offline
-	 * @param uuid
-	 * @return
-	 */
+
 	public abstract INbt getRawPlayerData(String uuid);
 	
 	/**
@@ -101,12 +96,6 @@ public abstract class NpcAPI {
 	 * @return The event bus where you register CustomNPCEvents
 	 */
 	public abstract IEventBus events();
-	
-	
-	/**
-	 * Use to register your own /noppes subcommand
-	 */
-	//public abstract void registerCommand(CommandNoppesBase command);
 
 	/**
 	 * @return Returns the .minecraft/customnpcs folder or [yourserverfolder]/customnpcs
@@ -148,11 +137,6 @@ public abstract class NpcAPI {
 
 	public abstract boolean hasPermissionNode(String permission);
 
-	/**
-	 * @param world The world in which the command is executed
-	 * @param command The Command to execute
-	 * @return
-	 */
 	public abstract String executeCommand(IWorld level, String command);
 	
 	/**

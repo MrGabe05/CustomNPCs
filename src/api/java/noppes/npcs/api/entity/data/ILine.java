@@ -2,18 +2,18 @@ package noppes.npcs.api.entity.data;
 
 public interface ILine {
 	
-	public String getText();
+	String getText();
 	
-	public void setText(String text);
+	void setText(String text);
 	
-	public String getSound();
+	String getSound();
 	
-	public void setSound(String sound);
+	void setSound(String sound);
 	
 	/**
 	 * @return If false the text will not show in the chat only in the text bubble
 	 */
-	public boolean getShowText();
+    boolean getShowText();
 	
-	public void setShowText(boolean show);
+	void setShowText(boolean show);
 }

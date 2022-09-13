@@ -7,59 +7,59 @@ import net.minecraft.util.math.BlockPos;
  */
 public interface IPos {
 
-	public int getX();
+	int getX();
 
-	public int getY();
+	int getY();
 
-	public int getZ();
+	int getZ();
 
-	public IPos up();
+	IPos up();
 
-	public IPos up(int n);
+	IPos up(int n);
 
-	public IPos down();
+	IPos down();
 
-	public IPos down(int n);
+	IPos down(int n);
 
-	public IPos north();
+	IPos north();
 
-	public IPos north(int n);
+	IPos north(int n);
 
-	public IPos east();
+	IPos east();
 
-	public IPos east(int n);
+	IPos east(int n);
 
-	public IPos south();
+	IPos south();
 
-	public IPos south(int n);
+	IPos south(int n);
 
-	public IPos west();
+	IPos west();
 
-	public IPos west(int n);
+	IPos west(int n);
 
-	public IPos add(int x, int y, int z);
+	IPos add(int x, int y, int z);
 
-	public IPos add(IPos pos);
+	IPos add(IPos pos);
 
-	public IPos subtract(int x, int y, int z);
+	IPos subtract(int x, int y, int z);
 
-	public IPos subtract(IPos pos);
+	IPos subtract(IPos pos);
 	
-	public double[] normalize();
+	double[] normalize();
 
-	public BlockPos getMCBlockPos();
+	BlockPos getMCBlockPos();
 
 	/**
 	 * @param direction {@link noppes.npcs.api.constants.SideType} 
 	 */
-	public IPos offset(int direction);
+	IPos offset(int direction);
 
 	/**
 	 * @param direction {@link noppes.npcs.api.constants.SideType} 
 	 * @param n how many positions
 	 */
-	public IPos offset(int direction, int n);
+	IPos offset(int direction, int n);
 	
-	public double distanceTo(IPos pos);
+	double distanceTo(IPos pos);
 
 }

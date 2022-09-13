@@ -7,7 +7,7 @@ import noppes.npcs.api.handler.data.IQuestCategory;
 
 public interface IQuestHandler {
 	
-	public List<IQuestCategory> categories();
+	List<IQuestCategory> categories();
 	
-	public IQuest get(int id);
+	IQuest get(int id);
 }

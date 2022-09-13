@@ -8,63 +8,63 @@ public interface IBlockScripted extends IBlock{
 	/**
 	 * @param item The item to be set as model
 	 */
-	public void setModel(IItemStack item);
+    void setModel(IItemStack item);
 
-	public void setModel(String name);
+	void setModel(String name);
 
-	public IItemStack getModel();
+	IItemStack getModel();
 	
-	public ITimers getTimers();
+	ITimers getTimers();
 
 	/**
 	 * @param strength Sets the strength of the redstone signal (0-15)
 	 */
-	public void setRedstonePower(int strength);
+    void setRedstonePower(int strength);
 
 	/**
 	 * @return Returns the current redstone power (0-15) this block is giving off
 	 */
-	public int getRedstonePower();
+    int getRedstonePower();
 
-	public void setIsLadder(boolean enabled);
+	void setIsLadder(boolean enabled);
 
-	public boolean getIsLadder();
+	boolean getIsLadder();
 
 	/**
 	 * @param value Sets the light value (0-15)
 	 */
-	public void setLight(int value);
+    void setLight(int value);
 
 	/**
 	 * @return Returns the light value (0-15)
 	 */
-	public int getLight();
+    int getLight();
 
 	/**
 	 * @param x Scale x (0-10)
 	 * @param y Scale y (0-10)
 	 * @param z Scale z (0-10)
 	 */
-	public void setScale(float x, float y, float z);
+    void setScale(float x, float y, float z);
 
-	public float getScaleX();
+	float getScaleX();
 
-	public float getScaleY();
+	float getScaleY();
 
-	public float getScaleZ();
+	float getScaleZ();
 
 	/**
 	 * @param x Rotation x (0-359)
 	 * @param y Rotation y (0-359)
 	 * @param z Rotation z (0-359)
 	 */
-	public void setRotation(int x, int y, int z);
+    void setRotation(int x, int y, int z);
 
-	public int getRotationX();
+	int getRotationX();
 
-	public int getRotationY();
+	int getRotationY();
 
-	public int getRotationZ();
+	int getRotationZ();
 
 	/**
 	 * On servers the enable-command-block option in the server.properties needs to be set to true <br>
@@ -74,42 +74,42 @@ public interface IBlockScripted extends IBlock{
 	 * @param command The command to be executed
 	 * @return Returns the commands output
 	 */
-	public String executeCommand(String command);
+    String executeCommand(String command);
 
-	public boolean getIsPassible();
+	boolean getIsPassible();
 	
-	public void setIsPassible(boolean bo);
+	void setIsPassible(boolean bo);
 	
 	/**
 	 * @return Harvesting hardness (-1 makes it unharvestable)
 	 */
-	public float getHardness();
+    float getHardness();
 	
-	public void setHardness(float hardness);
+	void setHardness(float hardness);
 	
 	/**
 	 * @return Explosion resistance (-1 makes it unexplodable)
 	 */
-	public float getResistance();
+    float getResistance();
 	
-	public void setResistance(float resistance);
+	void setResistance(float resistance);
 
-	public ITextPlane getTextPlane();
+	ITextPlane getTextPlane();
 
-	public ITextPlane getTextPlane2();
+	ITextPlane getTextPlane2();
 
-	public ITextPlane getTextPlane3();
+	ITextPlane getTextPlane3();
 
-	public ITextPlane getTextPlane4();
+	ITextPlane getTextPlane4();
 
-	public ITextPlane getTextPlane5();
+	ITextPlane getTextPlane5();
 
-	public ITextPlane getTextPlane6();
+	ITextPlane getTextPlane6();
 
 	/**
 	 * Fires trigger event for block scripts
 	 * @param id, Id for the event
 	 * @param arguments, arguments you can give with it
 	 */
-	public void trigger(int id, Object... arguments);
+    void trigger(int id, Object... arguments);
 }

@@ -7,7 +7,7 @@ import noppes.npcs.api.handler.data.IDialogCategory;
 
 public interface IDialogHandler {
 	
-	public List<IDialogCategory> categories();
+	List<IDialogCategory> categories();
 	
-	public IDialog get(int id);
+	IDialog get(int id);
 }

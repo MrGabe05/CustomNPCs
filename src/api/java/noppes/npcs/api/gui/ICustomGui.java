@@ -1,9 +1,6 @@
 package noppes.npcs.api.gui;
 
-import noppes.npcs.api.block.IBlockScripted;
-import noppes.npcs.api.entity.ICustomNpc;
 import noppes.npcs.api.entity.IPlayer;
-import noppes.npcs.api.item.IItemScripted;
 import noppes.npcs.api.item.IItemStack;
 
 import java.util.List;

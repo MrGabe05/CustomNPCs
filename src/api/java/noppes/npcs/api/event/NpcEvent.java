@@ -133,7 +133,7 @@ public class NpcEvent extends CustomNPCsEvent{
 	public static class RangedLaunchedEvent extends NpcEvent{
 		public final IEntityLiving target;
 		public float damage;
-		public List<IProjectile> projectiles = new ArrayList<IProjectile>();
+		public List<IProjectile> projectiles = new ArrayList<>();
 
 		public RangedLaunchedEvent(ICustomNpc npc, LivingEntity target, float damage) {
 			super(npc);
@@ -154,7 +154,7 @@ public class NpcEvent extends CustomNPCsEvent{
 
 		public DamagedEvent(ICustomNpc npc, Entity source, float damage, DamageSource damagesource) {
 			super(npc);
-			this.source = (IEntity) NpcAPI.Instance().getIEntity(source);
+			this.source = NpcAPI.Instance().getIEntity(source);
 			this.damage = damage;
 			this.damageSource = NpcAPI.Instance().getIDamageSource(damagesource);
 		}
@@ -168,7 +168,7 @@ public class NpcEvent extends CustomNPCsEvent{
 
 		public CollideEvent(ICustomNpc npc, Entity entity) {
 			super(npc);
-			this.entity = (IEntity) NpcAPI.Instance().getIEntity(entity);
+			this.entity = NpcAPI.Instance().getIEntity(entity);
 		}
 	}
 

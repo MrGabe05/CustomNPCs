@@ -5,15 +5,15 @@ import noppes.npcs.api.entity.IEntity;
 
 public interface IDamageSource {
 
-	public String getType();
+	String getType();
 	
-	public boolean isUnblockable();
+	boolean isUnblockable();
 	
-	public boolean isProjectile();
+	boolean isProjectile();
 	
-	public IEntity getTrueSource();
+	IEntity getTrueSource();
 	
-	public IEntity getImmediateSource();
+	IEntity getImmediateSource();
 	
-	public DamageSource getMCDamageSource();
+	DamageSource getMCDamageSource();
 }

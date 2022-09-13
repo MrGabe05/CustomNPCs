@@ -1,9 +1,9 @@
 package noppes.npcs.api.handler.data;
 
 public interface IDialogOption {
-	public int getSlot();
+	int getSlot();
 	
-	public String getName();
+	String getName();
 	
-	public int getType();
+	int getType();
 }
