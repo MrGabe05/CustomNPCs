@@ -27,7 +27,7 @@ import java.util.Random;
 
 public class BlockDoorRenderer extends BlockRendererInterface<TileDoor> {
 	
-	private static Random random = new Random();
+	private static final Random random = new Random();
 
     public BlockDoorRenderer(TileEntityRendererDispatcher dispatcher) {
         super(dispatcher);

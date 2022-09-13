@@ -8,7 +8,7 @@ import noppes.npcs.packets.server.SPacketScriptGet;
 import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScript extends GuiScriptInterface{	
-	private DataScript script;
+	private final DataScript script;
 		
 	public GuiScript(EntityNPCInterface npc) {
 		handler = script = npc.script;

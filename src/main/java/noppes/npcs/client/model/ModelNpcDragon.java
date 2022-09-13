@@ -12,26 +12,26 @@ import noppes.npcs.entity.EntityNpcDragon;
 public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
 {
 
-    private ModelRenderer head;
-    private ModelRenderer neck;
-    private ModelRenderer jaw;
-    private ModelRenderer body;
-    private ModelRenderer leftWing;
-    private ModelRenderer leftWingTip;
-    private ModelRenderer leftFrontLeg;
-    private ModelRenderer leftFrontLegTip;
-    private ModelRenderer leftFrontFoot;
-    private ModelRenderer leftRearLeg;
-    private ModelRenderer leftRearLegTip;
-    private ModelRenderer leftRearFoot;
-    private ModelRenderer rightWing;
-    private ModelRenderer rightWingTip;
-    private ModelRenderer rightFrontLeg;
-    private ModelRenderer rightFrontLegTip;
-    private ModelRenderer rightFrontFoot;
-    private ModelRenderer rightRearLeg;
-    private ModelRenderer rightRearLegTip;
-    private ModelRenderer rightRearFoot;
+    private final ModelRenderer head;
+    private final ModelRenderer neck;
+    private final ModelRenderer jaw;
+    private final ModelRenderer body;
+    private final ModelRenderer leftWing;
+    private final ModelRenderer leftWingTip;
+    private final ModelRenderer leftFrontLeg;
+    private final ModelRenderer leftFrontLegTip;
+    private final ModelRenderer leftFrontFoot;
+    private final ModelRenderer leftRearLeg;
+    private final ModelRenderer leftRearLegTip;
+    private final ModelRenderer leftRearFoot;
+    private final ModelRenderer rightWing;
+    private final ModelRenderer rightWingTip;
+    private final ModelRenderer rightFrontLeg;
+    private final ModelRenderer rightFrontLegTip;
+    private final ModelRenderer rightFrontFoot;
+    private final ModelRenderer rightRearLeg;
+    private final ModelRenderer rightRearLegTip;
+    private final ModelRenderer rightRearFoot;
     private float field_40317_s;
 
     private EntityNpcDragon entitydragon;
@@ -156,7 +156,7 @@ public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
         float f9 = 22F;
         float f10 = 0.0F;
         float f11 = 1.5F;
-        double ad[] = entitydragon.getMovementOffsets(6, field_40317_s);
+        double[] ad = entitydragon.getMovementOffsets(6, field_40317_s);
         float f12 = func_40307_a(entitydragon.getMovementOffsets(5, field_40317_s)[0] - entitydragon.getMovementOffsets(10, field_40317_s)[0]);
         float f13 = func_40307_a(entitydragon.getMovementOffsets(5, field_40317_s)[0] + (double)(f12 / 2.0F));
         f8 += 2.0F;
@@ -166,7 +166,7 @@ public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
         f9 = -12F;
         for(int i = 0; i < 5; i++)
         {
-            double ad3[] = entitydragon.getMovementOffsets(5 - i, field_40317_s);
+            double[] ad3 = entitydragon.getMovementOffsets(5 - i, field_40317_s);
             f14 = (float)Math.cos((float)i * 0.45F + f15) * 0.15F;
             neck.yRot = ((func_40307_a(ad3[0] - ad[0]) * (float)Math.PI) / 180F) * f11;
             neck.xRot = f14 + (((float)(ad3[1] - ad[1]) * (float)Math.PI) / 180F) * f11 * 5F;
@@ -183,7 +183,7 @@ public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
         head.y = f8;
         head.z = f9;
         head.x = f10;
-        double ad1[] = entitydragon.getMovementOffsets(0, field_40317_s);
+        double[] ad1 = entitydragon.getMovementOffsets(0, field_40317_s);
         head.yRot = ((func_40307_a(ad1[0] - ad[0]) * (float)Math.PI) / 180F) * 1.0F;
         head.zRot = ((-func_40307_a(ad1[0] - (double)f13) * (float)Math.PI) / 180F) * 1.0F;
         head.render(mStack, iVertex, lightmapUV, packedOverlayIn);
@@ -213,7 +213,7 @@ public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
             leftWingTip.zRot = 0.4f;
             rightWingTip.zRot = -0.4f;
             leftFrontLeg.xRot = rightFrontLeg.xRot = MathHelper.cos((float) (animationPos * 0.6662F + (Math.PI))) * 0.6F * animationSpeed + 0.45f + f7 * 0.5f ;
-            leftRearLeg.xRot = rightRearLeg.xRot = MathHelper.cos((float) (animationPos * 0.6662F + (0))) * 0.6F * animationSpeed + 0.75f + f7 * 0.5f;
+            leftRearLeg.xRot = rightRearLeg.xRot = MathHelper.cos(animationPos * 0.6662F + (0)) * 0.6F * animationSpeed + 0.75f + f7 * 0.5f;
             leftFrontLegTip.xRot = rightFrontLegTip.xRot = -1.3f - f7 * 1.2f ;
             leftFrontFoot.xRot = rightFrontFoot.xRot = 0.85f + f7 * 0.5f;
 
@@ -272,7 +272,7 @@ public class ModelNpcDragon<T extends Entity> extends EntityModel<T>
         ad = entitydragon.getMovementOffsets(11, field_40317_s);
         for(int k = 0; k < 12; k++)
         {
-            double ad2[] = entitydragon.getMovementOffsets(12 + k, field_40317_s);
+            double[] ad2 = entitydragon.getMovementOffsets(12 + k, field_40317_s);
             f14 = (float)((double)f14 + Math.sin((float)k * 0.45F + f15) * 0.05000000074505806D);
             neck.yRot = ((func_40307_a(ad2[0] - ad[0]) * f11 + 180F) * (float)Math.PI) / 180F;
             neck.xRot = f14 + (((float)(ad2[1] - ad[1]) * (float)Math.PI) / 180F) * f11 * 5F;

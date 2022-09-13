@@ -7,8 +7,8 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNbtBookEntitySave extends PacketServerBasic {
-    private int id;
-    private CompoundNBT data;
+    private final int id;
+    private final CompoundNBT data;
 
     public SPacketNbtBookEntitySave(int id, CompoundNBT data) {
         this.id = id;

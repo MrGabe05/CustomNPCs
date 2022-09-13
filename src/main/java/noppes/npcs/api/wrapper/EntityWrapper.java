@@ -27,7 +27,7 @@ import java.util.*;
 
 public class EntityWrapper<T extends Entity> implements IEntity{
 	protected T entity;
-	private Map<String, Object> tempData = new HashMap<String, Object>();
+	private final Map<String, Object> tempData = new HashMap<String, Object>();
 	private IWorld levelWrapper;
 	
 
@@ -87,7 +87,7 @@ public class EntityWrapper<T extends Entity> implements IEntity{
 			INBT base = compound.get(key);
 			if(base instanceof NumberNBT)
 				return ((NumberNBT)base).getAsDouble();
-			return ((StringNBT)base).getAsString();
+			return base.getAsString();
 		}
 
 		@Override

@@ -11,7 +11,7 @@ import noppes.npcs.controllers.data.PlayerMail;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketMailSetup extends PacketServerBasic {
-    private CompoundNBT data;
+    private final CompoundNBT data;
     public SPacketMailSetup(CompoundNBT data) {
         this.data = data;
     }

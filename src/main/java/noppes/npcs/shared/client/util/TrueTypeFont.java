@@ -24,18 +24,18 @@ public class TrueTypeFont {
 	
 	private final static int MaxWidth = 512;
     private static final List<Font> allFonts = Arrays.asList(GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts());
-	private List<Font> usedFonts = new ArrayList<Font>();
+	private final List<Font> usedFonts = new ArrayList<>();
     
-	private LinkedHashMap<String, GlyphCache> textcache = new LRUHashMap<String, GlyphCache>(100);
-	private Map<Character, Glyph> glyphcache = new HashMap<Character, Glyph>();
-	private List<TextureCache> textures = new ArrayList<TextureCache>();
+	private final LinkedHashMap<String, GlyphCache> textcache = new LRUHashMap<>(100);
+	private final Map<Character, Glyph> glyphcache = new HashMap<>();
+	private final List<TextureCache> textures = new ArrayList<>();
     
-	private Font font;
-	private int lineHeight = 1;
+	private final Font font;
+	private int lineHeight;
 	
-	private Graphics2D globalG = (Graphics2D) new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).getGraphics();
+	private final Graphics2D globalG = (Graphics2D) new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).getGraphics();
 		
-	public float scale = 1;
+	public float scale;
 	
 	private int specialChar = 167;
 	
@@ -57,9 +57,6 @@ public class TrueTypeFont {
 			this.scale = scale;
 			globalG.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			lineHeight = globalG.getFontMetrics(font).getHeight();
-		}
-		catch(IOException e){
-			throw e;
 		}
 	}
 	
@@ -264,7 +261,7 @@ public class TrueTypeFont {
 		textcache.clear();
 	}
 	
-	class TextureCache{
+	static class TextureCache{
 		int x, y;	
 		int textureId = GL11.glGenTextures();
 		BufferedImage bufferedImage = new BufferedImage(MaxWidth, MaxWidth, BufferedImage.TYPE_INT_ARGB);
@@ -272,15 +269,15 @@ public class TrueTypeFont {
 		boolean full;
 	}
 	
-	class Glyph{
+	static class Glyph{
 		GlyphType type = GlyphType.NORMAL;
 		int color = -1;
 		int x, y, height, width, texture;
 	}
 	
-	class GlyphCache{
+	static class GlyphCache{
 		public int width, height;
-		List<Glyph> glyphs = new ArrayList<Glyph>();
+		List<Glyph> glyphs = new ArrayList<>();
 	}
 
 	public String getFontName() {

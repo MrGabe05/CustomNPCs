@@ -16,7 +16,7 @@ import noppes.npcs.packets.server.SPacketQuestCompletionCheck;
 
 public class GuiQuestCompletion extends GuiNPCInterface implements ITopButtonListener{
 
-    private IQuest quest;
+    private final IQuest quest;
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/smallbg.png");
 
 	public GuiQuestCompletion(IQuest quest) {

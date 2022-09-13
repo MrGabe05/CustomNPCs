@@ -26,7 +26,7 @@ import noppes.npcs.util.ValueUtil;
 import java.util.*;
 
 public class DataScenes {	
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public List<SceneContainer> scenes = new ArrayList<SceneContainer>();
 	
@@ -226,7 +226,7 @@ public class DataScenes {
 		}
 
 		private BlockPos parseBlockPos(BlockPos blockpos, String[] args, int startIndex, boolean centerBlock) throws Exception {
-			return new BlockPos(parseDouble((double)blockpos.getX(), args[startIndex], -30000000, 30000000, centerBlock), parseDouble((double)blockpos.getY(), args[startIndex + 1], 0, 256, false), parseDouble((double)blockpos.getZ(), args[startIndex + 2], -30000000, 30000000, centerBlock));
+			return new BlockPos(parseDouble(blockpos.getX(), args[startIndex], -30000000, 30000000, centerBlock), parseDouble(blockpos.getY(), args[startIndex + 1], 0, 256, false), parseDouble(blockpos.getZ(), args[startIndex + 2], -30000000, 30000000, centerBlock));
 		}
 
 		private double parseDouble(double base, String input, int min, int max, boolean centerBlock) throws Exception {
@@ -485,7 +485,7 @@ public class DataScenes {
 		}
 	}
 	
-	public static enum SceneType{
+	public enum SceneType{
 		ANIMATE, MOVE, FACTION, COMMAND, EQUIP, THROW, ATTACK, FOLLOW, SAY, ROTATE, STATS
 	}
 

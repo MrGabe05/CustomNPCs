@@ -17,7 +17,7 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class GuiNpcStats extends GuiNPCInterface2 implements ITextfieldListener, IGuiData {
-	private DataStats stats;
+	private final DataStats stats;
 	public GuiNpcStats(EntityNPCInterface npc) {
 		super(npc,2);
 		stats = npc.stats;
@@ -94,7 +94,7 @@ public class GuiNpcStats extends GuiNPCInterface2 implements ITextfieldListener,
 	
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if (button.id == 0){
 			setSubGui(new SubGuiNpcRespawn(this.stats));
 		}

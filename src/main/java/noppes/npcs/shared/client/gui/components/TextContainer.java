@@ -10,13 +10,7 @@ import java.util.regex.Pattern;
 
 public class TextContainer {	
 	private final static char colorChar = '\uFFFF';
-    private final static Comparator<MarkUp> MarkUpComparator = (o1, o2) -> {
-        if (o1.start > o2.start)
-            return 1;
-        if (o1.start < o2.start)
-            return -1;
-        return 0;
-    };
+    private final static Comparator<MarkUp> MarkUpComparator = Comparator.comparingInt(o -> o.start);
 
 	//public final Pattern regexString = Pattern.compile("\"(?:[^\"\\\\]|\\\\.)*?(\"|$)|'(?:[^'\\\\]|\\\\.)*?('|$)");
 	//public final Pattern regexString = Pattern.compile("\"(.*?(?<![\\\\])(\\s)*?)*?\"");
@@ -28,11 +22,11 @@ public class TextContainer {
 	
 	public String text;
 	
-	public List<MarkUp> makeup = new ArrayList<MarkUp>();
-    public List<LineData> lines = new ArrayList<LineData>();
-	
+	public List<MarkUp> makeup = new ArrayList<>();
+    public List<LineData> lines = new ArrayList<>();
+
 	private TrueTypeFont font;
-	
+
 	public int lineHeight;
 	public int totalHeight;
 	public int visibleLines = 1;
@@ -77,7 +71,7 @@ public class TextContainer {
 	}
 	
 	public void formatCodeText() {
-		MarkUp markup = null;
+		MarkUp markup;
 		int start = 0;
 		while((markup = getNextMatching(start)) != null) {
 			makeup.add(markup);
@@ -134,7 +128,7 @@ public class TextContainer {
 	}
 	
 	private boolean removeConflictingMarkUp(int start, int end, int level){
-		List<MarkUp> conflicting = new ArrayList<MarkUp>();
+		List<MarkUp> conflicting = new ArrayList<>();
 		for(MarkUp m : makeup){
 			if(start >= m.start && start <= m.end || end >= m.start && end <= m.end || start < m.start && end > m.start){
 				if(level < m.level || level == m.level && m.start <= start)
@@ -149,8 +143,8 @@ public class TextContainer {
 	public String getFormattedString(){
 		StringBuilder builder = new StringBuilder(text);
 		for(MarkUp entry : makeup){
-			builder.insert(entry.start, Character.toString(colorChar) + Character.toString(entry.c));
-			builder.insert(entry.end, Character.toString(colorChar) + Character.toString('r'));
+			builder.insert(entry.start, Character.toString(colorChar) + entry.c);
+			builder.insert(entry.end, Character.toString(colorChar) + 'r');
 		}
 		return builder.toString();
 	}
@@ -170,15 +164,15 @@ public class TextContainer {
 			int found = 0;
 			for(MarkUp entry : makeup){
 				if(entry.start >= start && entry.start < end){
-					builder.insert(entry.start - start + found * 2, Character.toString(colorChar) + Character.toString(entry.c));
+					builder.insert(entry.start - start + found * 2, Character.toString(colorChar) + entry.c);
 					found++;
 				}
 				if(entry.start < start && entry.end > start){
-					builder.insert(0, Character.toString(colorChar) + Character.toString(entry.c));
+					builder.insert(0, Character.toString(colorChar) + entry.c);
 					found++;
 				}
 				if(entry.end >= start && entry.end < end){
-					builder.insert(entry.end - start + found * 2, Character.toString(colorChar) + Character.toString('r'));
+					builder.insert(entry.end - start + found * 2, Character.toString(colorChar) + 'r');
 					found++;
 				}
 			}
@@ -186,7 +180,7 @@ public class TextContainer {
 		}
 	}
 	
-	class MarkUp {
+	static class MarkUp {
 		public int start, end, level;
 		public char c;
 		

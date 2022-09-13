@@ -13,7 +13,7 @@ import noppes.npcs.shared.client.gui.listeners.ICustomScrollListener;
 import noppes.npcs.shared.client.gui.listeners.IScrollData;
 
 public class SubGuiNpcFactionOptions extends GuiBasic implements IScrollData, ICustomScrollListener {
-	private FactionOptions options;
+	private final FactionOptions options;
 	private Map<String,Integer> data = new HashMap<String,Integer>();
 	private GuiCustomScroll scrollFactions;
 	

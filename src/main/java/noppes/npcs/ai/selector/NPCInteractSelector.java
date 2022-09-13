@@ -6,7 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import noppes.npcs.entity.EntityNPCInterface;
 
 public class NPCInteractSelector implements Predicate {
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	public NPCInteractSelector(EntityNPCInterface npc){
 		this.npc = npc;
 	}
@@ -14,9 +14,7 @@ public class NPCInteractSelector implements Predicate {
 	public boolean isEntityApplicable(EntityNPCInterface entity) {
 		if(entity == npc || !npc.isAlive())
 			return false;
-		if(entity.isAttacking() || npc.getFaction().isAggressiveToNpc(entity) || !npc.ais.stopAndInteract)
-			return false;
-		return true;
+		return !entity.isAttacking() && !npc.getFaction().isAggressiveToNpc(entity) && npc.ais.stopAndInteract;
 	}
 	
 	@Override

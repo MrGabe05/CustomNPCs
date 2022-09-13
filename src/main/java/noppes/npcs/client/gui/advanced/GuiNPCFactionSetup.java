@@ -55,7 +55,7 @@ public class GuiNPCFactionSetup extends GuiNPCInterface2 implements IScrollData,
     @Override
     public void buttonEvent(GuiButtonNop guibutton) {
     {
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(button.id == 0)
         {
         	npc.advanced.attackOtherFactions = button.getValue() == 1;

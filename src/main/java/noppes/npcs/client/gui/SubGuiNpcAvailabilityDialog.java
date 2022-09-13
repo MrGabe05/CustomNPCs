@@ -11,7 +11,7 @@ import noppes.npcs.controllers.data.Availability;
 import noppes.npcs.controllers.data.Dialog;
 
 public class SubGuiNpcAvailabilityDialog extends GuiBasic{
-	private Availability availabitily;
+	private final Availability availabitily;
 	private int slot = 0;
 	
     public SubGuiNpcAvailabilityDialog(Availability availabitily){
@@ -91,7 +91,7 @@ public class SubGuiNpcAvailabilityDialog extends GuiBasic{
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 
         if(button.id == 0){
         	availabitily.dialogAvailable = EnumAvailabilityDialog.values()[button.getValue()];

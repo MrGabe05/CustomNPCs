@@ -32,7 +32,7 @@ public class BlockCarpentryBenchRenderer extends TileEntityRenderer<TileBlockAnv
 		matrixStack.pushPose();
 		RenderSystem.disableBlend();
 		RenderSystem.enableLighting();
-		matrixStack.translate((float) 0.5f, (float) 1.4f, (float) 0.5f);
+		matrixStack.translate(0.5f, 1.4f, 0.5f);
 		matrixStack.scale(0.95f, 0.95f, 0.95f);
 		matrixStack.mulPose(Vector3f.ZP.rotationDegrees(180));
 		matrixStack.mulPose(Vector3f.YP.rotationDegrees(90 * rotation));

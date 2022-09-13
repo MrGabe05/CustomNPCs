@@ -9,8 +9,8 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.components.GuiTextFieldNop;
 
 public class GuiPresetSave extends GuiBasic {
-	private ModelData data;
-	private Screen parent;
+	private final ModelData data;
+	private final Screen parent;
 	
 	public GuiPresetSave(Screen parent, ModelData data){
 		this.data = data;
@@ -27,7 +27,7 @@ public class GuiPresetSave extends GuiBasic {
 	}
     @Override
     public void buttonEvent(GuiButtonNop btn) {
-    	GuiButtonNop button = (GuiButtonNop) btn;
+    	GuiButtonNop button = btn;
     	if(button.id == 0){
     		String name = this.getTextField(0).getValue().trim();
     		if(name.isEmpty())

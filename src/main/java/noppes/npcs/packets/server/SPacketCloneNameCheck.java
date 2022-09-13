@@ -11,8 +11,8 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketCloneNameCheck extends PacketServerBasic {
-    private String name;
-    private int tab;
+    private final String name;
+    private final int tab;
 
     public SPacketCloneNameCheck(String name, int tab) {
         this.name = name;

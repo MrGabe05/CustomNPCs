@@ -11,7 +11,7 @@ import noppes.npcs.shared.common.PacketBasic;
 
 public class PacketItemUpdate extends PacketBasic {
 	private final int id;
-	private CompoundNBT data;
+	private final CompoundNBT data;
 
     public PacketItemUpdate(int id, CompoundNBT data) {
     	this.id = id;

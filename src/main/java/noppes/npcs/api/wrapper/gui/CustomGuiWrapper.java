@@ -217,8 +217,8 @@ public class CustomGuiWrapper implements ICustomGui {
 
     @Override
     public void update(IPlayer player) {
-        if(((ServerPlayerEntity)player.getMCEntity()).containerMenu instanceof ContainerCustomGui) {
-            Packets.send((ServerPlayerEntity)player.getMCEntity(), new PacketGuiData(toNBT()));
+        if(player.getMCEntity().containerMenu instanceof ContainerCustomGui) {
+            Packets.send(player.getMCEntity(), new PacketGuiData(toNBT()));
         }
     }
 

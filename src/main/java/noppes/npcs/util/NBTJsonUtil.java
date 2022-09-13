@@ -2,7 +2,6 @@ package noppes.npcs.util;
 
 import com.google.common.io.Files;
 import net.minecraft.nbt.*;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import noppes.npcs.mixin.ListNBTMixin;
 import org.apache.commons.io.Charsets;
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class NBTJsonUtil {
 	public static String Convert(CompoundNBT compound){
-		List<JsonLine> list = new ArrayList<JsonLine>();
+		List<JsonLine> list = new ArrayList<>();
 		JsonLine line = ReadTag("", compound, list);
 		line.removeComma();
 		return ConvertList(list);
@@ -250,7 +249,7 @@ public class NBTJsonUtil {
 		}
 	}
 	static class JsonFile{
-		private String original;
+		private final String original;
 		private String text;
 		
 		public JsonFile(String text){
@@ -330,15 +329,8 @@ public class NBTJsonUtil {
 	
 	public static void SaveFile(File file, CompoundNBT compound) throws IOException, JsonException {
 		String json = Convert(compound);
-		OutputStreamWriter writer = null;
-		try{
-			writer = new OutputStreamWriter(new FileOutputStream(file), Charsets.UTF_8);
+		try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), Charsets.UTF_8)) {
 			writer.write(json);
-			
-		}
-		finally{
-			if(writer != null)
-				writer.close();
 		}
 	}
 	public static class JsonException extends Exception{

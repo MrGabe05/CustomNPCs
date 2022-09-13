@@ -41,7 +41,7 @@ public class SPacketNpcDialogsGet extends PacketServerBasic {
 
             CompoundNBT compound = option.writeNBT();
             compound.putInt("Position", pos);
-            Packets.send((ServerPlayerEntity)player, new PacketGuiData(compound));
+            Packets.send(player, new PacketGuiData(compound));
 
         }
     }

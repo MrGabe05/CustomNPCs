@@ -205,9 +205,9 @@ public class TileBuilder extends TileEntity implements ITickableTileEntity{
 				continue;
 			}
 
-			int x = (int) (pos % schematic.schema.getWidth());
-			int z = (int)((pos - x)/schematic.schema.getWidth()) % schematic.schema.getLength();
-			int y = (int)(((pos - x)/schematic.schema.getWidth()) - z) / schematic.schema.getLength();
+			int x = pos % schematic.schema.getWidth();
+			int z = ((pos - x)/schematic.schema.getWidth()) % schematic.schema.getLength();
+			int y = (((pos - x)/schematic.schema.getWidth()) - z) / schematic.schema.getLength();
 			BlockState state = schematic.schema.getBlockState(x, y, z);
 	    	if(!state.isCollisionShapeFullBlock(EmptyBlockReader.INSTANCE, BlockPos.ZERO) && !bo && state.getBlock() != Blocks.AIR){
 	    		positionsSecond.add(0, pos);

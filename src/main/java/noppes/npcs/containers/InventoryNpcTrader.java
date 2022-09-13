@@ -8,16 +8,16 @@ import noppes.npcs.NoppesUtilServer;
 
 public class InventoryNpcTrader implements IInventory{
 
-    private String inventoryTitle;
-    private int slotsCount;
+    private final String inventoryTitle;
+    private final int slotsCount;
     public final NonNullList<ItemStack> inventoryContents;
-    private ContainerNPCTrader con;
+    private final ContainerNPCTrader con;
 
     public InventoryNpcTrader(String s, int i,ContainerNPCTrader con){
     	this.con = con;
         inventoryTitle = s;
         slotsCount = i;
-        inventoryContents = NonNullList.<ItemStack>withSize(i, ItemStack.EMPTY);
+        inventoryContents = NonNullList.withSize(i, ItemStack.EMPTY);
     }
     
     @Override

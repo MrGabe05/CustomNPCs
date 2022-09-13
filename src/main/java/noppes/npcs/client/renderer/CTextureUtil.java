@@ -53,7 +53,7 @@ public class CTextureUtil
 
         for (int i = 0; i <= mipmapLevels; ++i)
         {
-            GlStateManager._texImage2D(3553, i, 6408, width >> i, height >> i, 0, 32993, 33639, (IntBuffer)null);
+            GlStateManager._texImage2D(3553, i, 6408, width >> i, height >> i, 0, 32993, 33639, null);
         }
     }
 
@@ -174,7 +174,7 @@ public class CTextureUtil
 
         for (int i1 = 0; i1 < COLOR_GAMMAS.length; ++i1)
         {
-            COLOR_GAMMAS[i1] = (float)Math.pow((double)((float)i1 / 255.0F), 2.2D);
+            COLOR_GAMMAS[i1] = (float)Math.pow((float)i1 / 255.0F, 2.2D);
         }
     }
 }

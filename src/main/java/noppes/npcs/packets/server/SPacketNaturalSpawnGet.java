@@ -10,7 +10,7 @@ import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketNaturalSpawnGet extends PacketServerBasic
 {
-    private int id;
+    private final int id;
     public SPacketNaturalSpawnGet(int id) {
         this.id = id;
     }

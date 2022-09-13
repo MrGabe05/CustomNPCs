@@ -16,7 +16,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketToolMounter extends PacketServerBasic {
 
-    private int type; //0:client clone, 1:server clone, 2:mob, 3:player mount
+    private final int type; //0:client clone, 1:server clone, 2:mob, 3:player mount
     private String name = "";
     private int tab = -1;
     private CompoundNBT compound = new CompoundNBT();

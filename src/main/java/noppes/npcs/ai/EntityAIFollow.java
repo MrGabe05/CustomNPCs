@@ -9,7 +9,7 @@ import java.util.EnumSet;
 
 public class EntityAIFollow extends Goal
 {
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
     private LivingEntity owner;
 	public int updateTick = 0;
 
@@ -26,9 +26,7 @@ public class EntityAIFollow extends Goal
     }
     
     public boolean canExcute(){
-    	if(!npc.isAlive() || !npc.isFollower() || npc.isAttacking() || (owner = npc.getOwner()) == null || npc.ais.animationType == AnimationType.SIT)
-    		return false;
-    	return true;
+        return npc.isAlive() && npc.isFollower() && !npc.isAttacking() && (owner = npc.getOwner()) != null && npc.ais.animationType != AnimationType.SIT;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class EntityAIBustDoor extends InteractDoorGoal
 
     @Override
     public boolean canUse(){
-        return !super.canUse() ? false : !isOpen ();
+        return super.canUse() && !isOpen();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class EntityAIBustDoor extends InteractDoorGoal
         super.tick();
 
         if (this.mob.getRandom().nextInt(20) == 0){
-            this.mob.level.levelEvent((PlayerEntity)null, 1010, this.doorPos, 0);
+            this.mob.level.levelEvent(null, 1010, this.doorPos, 0);
             this.mob.swing(Hand.MAIN_HAND);
         }
 
@@ -56,8 +56,8 @@ public class EntityAIBustDoor extends InteractDoorGoal
 
         if (this.breakingTime == 240){
             this.mob.level.removeBlock(this.doorPos, false);
-            this.mob.level.levelEvent((PlayerEntity)null, 1012, this.doorPos, 0);
-            this.mob.level.levelEvent((PlayerEntity)null, 2001, this.doorPos, Block.getId(this.mob.level.getBlockState(this.doorPos)));
+            this.mob.level.levelEvent(null, 1012, this.doorPos, 0);
+            this.mob.level.levelEvent(null, 2001, this.doorPos, Block.getId(this.mob.level.getBlockState(this.doorPos)));
         }
     }
 }

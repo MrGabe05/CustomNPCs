@@ -30,7 +30,7 @@ public class JobSpawner extends JobInterface implements IJobSpawner{
 	
 	public List<LivingEntity> spawned  = new ArrayList<LivingEntity>();
 	
-	private Map<String,Long> cooldown = new HashMap<String,Long>();
+	private final Map<String,Long> cooldown = new HashMap<String,Long>();
 	
 	private String id = RandomStringUtils.random(8, true, true);
 	public boolean doesntDie = false;

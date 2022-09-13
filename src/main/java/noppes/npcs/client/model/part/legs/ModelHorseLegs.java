@@ -7,23 +7,23 @@ import net.minecraft.util.math.MathHelper;
 import noppes.npcs.ModelData;
 
 public class ModelHorseLegs extends ModelRenderer {
-    private ModelRenderer backLeftLeg;
-    private ModelRenderer backLeftShin;
-    private ModelRenderer backLeftHoof;
+    private final ModelRenderer backLeftLeg;
+    private final ModelRenderer backLeftShin;
+    private final ModelRenderer backLeftHoof;
     
-    private ModelRenderer backRightLeg;
-    private ModelRenderer backRightShin;
-    private ModelRenderer backRightHoof;
+    private final ModelRenderer backRightLeg;
+    private final ModelRenderer backRightShin;
+    private final ModelRenderer backRightHoof;
     
-    private ModelRenderer frontLeftLeg;
-    private ModelRenderer frontLeftShin;
-    private ModelRenderer frontLeftHoof;
+    private final ModelRenderer frontLeftLeg;
+    private final ModelRenderer frontLeftShin;
+    private final ModelRenderer frontLeftHoof;
     
-    private ModelRenderer frontRightLeg;
-    private ModelRenderer frontRightShin;
-    private ModelRenderer frontRightHoof;
+    private final ModelRenderer frontRightLeg;
+    private final ModelRenderer frontRightShin;
+    private final ModelRenderer frontRightHoof;
 
-	private BipedModel base;
+	private final BipedModel base;
 
 	public ModelHorseLegs(BipedModel base) {
 		super(base.texWidth, base.texHeight, 0, 0);

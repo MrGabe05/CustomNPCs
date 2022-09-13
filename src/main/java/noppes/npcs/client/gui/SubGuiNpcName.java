@@ -9,7 +9,7 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcName extends GuiBasic implements ITextfieldListener, IGuiData {
-	private DataDisplay display;
+	private final DataDisplay display;
 	public SubGuiNpcName(DataDisplay display){
     	this.display = display;
 		setBackground("menubg.png");
@@ -44,7 +44,7 @@ public class SubGuiNpcName extends GuiBasic implements ITextfieldListener, IGuiD
     
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 
 		if(button.id == 1) {
 			display.setMarkovGeneratorId(button.getValue());

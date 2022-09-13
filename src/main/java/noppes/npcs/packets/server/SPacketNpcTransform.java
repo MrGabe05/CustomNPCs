@@ -5,7 +5,7 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNpcTransform extends PacketServerBasic {
-    private boolean isActive;
+    private final boolean isActive;
     public SPacketNpcTransform(boolean isActive) {
         this.isActive = isActive;
     }

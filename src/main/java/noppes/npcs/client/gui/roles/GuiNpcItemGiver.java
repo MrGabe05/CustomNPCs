@@ -19,7 +19,7 @@ import java.util.List;
 
 public class GuiNpcItemGiver extends GuiContainerNPCInterface2<ContainerNpcItemGiver>
 {	
-	private JobItemGiver role;
+	private final JobItemGiver role;
 
 	public GuiNpcItemGiver(ContainerNpcItemGiver container, PlayerInventory inv, ITextComponent titleIn) {
     	super(NoppesUtil.getLastNpc(), container, inv, titleIn);
@@ -58,7 +58,7 @@ public class GuiNpcItemGiver extends GuiContainerNPCInterface2<ContainerNpcItemG
 
     public void buttonEvent(GuiButtonNop guibutton)
     {
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(button.id == 0)
         {
         	role.givingMethod = button.getValue();

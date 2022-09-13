@@ -9,7 +9,7 @@ import noppes.npcs.entity.EntityNpcPony;
 import noppes.npcs.entity.EntityNpcSlime;
 
 public class RenderNpcSlime<T extends EntityNpcSlime, M extends ModelNpcSlime<T>> extends RenderNPCInterface<T, M>{
-    private Model scaleAmount;
+    private final Model scaleAmount;
 
     public RenderNpcSlime(EntityRendererManager manager, M par1Model, Model limbSwingAmountModel, float par3){
         super(manager, par1Model, par3);

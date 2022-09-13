@@ -39,7 +39,7 @@ public class DataInventory implements IInventory, INPCInventory{
 	
 	public int lootMode = 0;
 	
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public DataInventory(EntityNPCInterface npc){
 		this.npc = npc;

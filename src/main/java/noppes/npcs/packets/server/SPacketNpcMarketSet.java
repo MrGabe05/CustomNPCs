@@ -6,8 +6,8 @@ import noppes.npcs.packets.PacketServerBasic;
 import noppes.npcs.roles.RoleTrader;
 
 public class SPacketNpcMarketSet extends PacketServerBasic {
-    private String market;
-    private boolean save;
+    private final String market;
+    private final boolean save;
 
     public SPacketNpcMarketSet(String market, boolean save) {
         this.market = market;

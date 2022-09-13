@@ -71,9 +71,9 @@ public class ProjectileWrapper<T extends EntityProjectile> extends ThrowableWrap
 		entity.yRotO = entity.yRot = yaw;
 		entity.xRotO = entity.xRot = pitch;
 
-        double varX = (double)(-MathHelper.sin(yaw / 180.0F * (float)Math.PI) * MathHelper.cos(pitch / 180.0F * (float)Math.PI));
-        double varZ = (double)(MathHelper.cos(yaw / 180.0F * (float)Math.PI) * MathHelper.cos(pitch / 180.0F * (float)Math.PI));
-        double varY = (double)(-MathHelper.sin(pitch / 180.0F * (float)Math.PI));
+        double varX = -MathHelper.sin(yaw / 180.0F * (float)Math.PI) * MathHelper.cos(pitch / 180.0F * (float)Math.PI);
+        double varZ = MathHelper.cos(yaw / 180.0F * (float)Math.PI) * MathHelper.cos(pitch / 180.0F * (float)Math.PI);
+        double varY = -MathHelper.sin(pitch / 180.0F * (float)Math.PI);
 
 		float acc = 20.0F - MathHelper.floor(entity.accuracy / 5.0F);
 		entity.shoot(varX, varY, varZ, -pitch, acc);
@@ -86,7 +86,7 @@ public class ProjectileWrapper<T extends EntityProjectile> extends ThrowableWrap
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.PROJECTILE?true:super.typeOf(type);
+		return type == EntitiesType.PROJECTILE || super.typeOf(type);
 	}
 
 	@Override

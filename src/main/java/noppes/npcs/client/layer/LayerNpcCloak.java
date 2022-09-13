@@ -28,12 +28,12 @@ public class LayerNpcCloak extends LayerInterface{
 
         mStack.pushPose();
         mStack.translate(0.0D, 0.0D, 0.125D);
-        double d0 = MathHelper.lerp((double)partialTicks, npc.prevChasingPosX, npc.chasingPosX) - MathHelper.lerp((double)partialTicks, npc.xo, npc.getX());
-        double d1 = MathHelper.lerp((double)partialTicks, npc.prevChasingPosY, npc.chasingPosY) - MathHelper.lerp((double)partialTicks, npc.yo, npc.getY());
-        double d2 = MathHelper.lerp((double)partialTicks, npc.prevChasingPosZ, npc.chasingPosZ) - MathHelper.lerp((double)partialTicks, npc.zo, npc.getZ());
+        double d0 = MathHelper.lerp(partialTicks, npc.prevChasingPosX, npc.chasingPosX) - MathHelper.lerp(partialTicks, npc.xo, npc.getX());
+        double d1 = MathHelper.lerp(partialTicks, npc.prevChasingPosY, npc.chasingPosY) - MathHelper.lerp(partialTicks, npc.yo, npc.getY());
+        double d2 = MathHelper.lerp(partialTicks, npc.prevChasingPosZ, npc.chasingPosZ) - MathHelper.lerp(partialTicks, npc.zo, npc.getZ());
         float f = npc.yBodyRotO + (npc.yBodyRot - npc.yBodyRotO);
-        double d3 = (double)MathHelper.sin(f * ((float)Math.PI / 180F));
-        double d4 = (double)(-MathHelper.cos(f * ((float)Math.PI / 180F)));
+        double d3 = MathHelper.sin(f * ((float)Math.PI / 180F));
+        double d4 = -MathHelper.cos(f * ((float)Math.PI / 180F));
         float f1 = (float)d1 * 10.0F;
         f1 = MathHelper.clamp(f1, -6.0F, 32.0F);
         float f2 = (float)(d0 * d3 + d2 * d4) * 100.0F;

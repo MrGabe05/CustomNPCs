@@ -25,7 +25,7 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 
 public class GuiNbtBook extends GuiNPCInterface implements IGuiData {
 	
-	private BlockPos pos;
+	private final BlockPos pos;
 	private TileEntity tile;
 	private BlockState state;
 	private ItemStack blockStack;

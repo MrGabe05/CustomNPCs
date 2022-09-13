@@ -12,9 +12,9 @@ import noppes.npcs.quests.QuestLocation;
 
 public class GuiNpcQuestTypeLocation extends GuiNPCInterface implements ITextfieldListener
 {
-	private Screen parent;
+	private final Screen parent;
 	
-	private QuestLocation quest;
+	private final QuestLocation quest;
 
     public GuiNpcQuestTypeLocation(EntityNPCInterface npc, Quest q,
 			Screen parent) {

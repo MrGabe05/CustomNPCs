@@ -8,7 +8,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNaturalSpawnRemove extends PacketServerBasic
 {
-    private int id;
+    private final int id;
     public SPacketNaturalSpawnRemove(int id) {
         this.id = id;
     }

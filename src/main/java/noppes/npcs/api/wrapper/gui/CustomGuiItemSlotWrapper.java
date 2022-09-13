@@ -12,7 +12,7 @@ import noppes.npcs.api.wrapper.ItemStackWrapper;
 
 public class CustomGuiItemSlotWrapper extends CustomGuiComponentWrapper implements IItemSlot {
 
-    IItemStack stack = ItemStackWrapper.AIR;;
+    IItemStack stack = ItemStackWrapper.AIR;
 
     public CustomGuiItemSlotWrapper(){}
 

@@ -22,7 +22,7 @@ public abstract class BlockRendererInterface<T extends TileEntity> extends TileE
 
 	//protected static final ResourceLocation Steel = new ResourceLocation("customnpcs","textures/models/Steel.png");
 	
-    public static float colorTable[][] = {
+    public static float[][] colorTable = {
         {
             1.0F, 1.0F, 1.0F
         }, {

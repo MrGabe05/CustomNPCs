@@ -9,7 +9,7 @@ import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScriptBlock extends GuiScriptInterface {
 	
-	private TileScripted script;
+	private final TileScripted script;
 		
 	public GuiScriptBlock(BlockPos pos) {
 		handler = script = (TileScripted) player.level.getBlockEntity(pos);

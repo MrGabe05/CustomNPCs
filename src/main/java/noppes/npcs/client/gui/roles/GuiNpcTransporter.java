@@ -51,7 +51,7 @@ public class GuiNpcTransporter extends GuiNPCInterface2 implements IScrollData, 
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
     	if(button.id == 0){
     		location.type = button.getValue();
     	}    	

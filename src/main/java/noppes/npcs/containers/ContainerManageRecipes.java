@@ -18,11 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ContainerManageRecipes extends Container {
-    private Inventory craftingMatrix;
+    private final Inventory craftingMatrix;
     public RecipeCarpentry recipe;
     public int size;
     public int width;
-    private boolean init = false;
+    private final boolean init = false;
     public ContainerManageRecipes(int containerId, PlayerInventory playerInventory, int size) {
     	super(CustomContainer.container_managerecipes, containerId);
     	this.size = size * size;

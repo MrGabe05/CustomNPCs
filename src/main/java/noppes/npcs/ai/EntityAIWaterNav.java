@@ -5,7 +5,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class EntityAIWaterNav extends Goal
 {
-    private EntityNPCInterface entity;
+    private final EntityNPCInterface entity;
 
     public EntityAIWaterNav(EntityNPCInterface npc) {
         this.entity = npc;

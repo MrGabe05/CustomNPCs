@@ -8,7 +8,7 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.listeners.ISliderListener;
 
 public class SubGuiNpcResistanceProperties extends GuiBasic implements ISliderListener {
-	private Resistances resistances;
+	private final Resistances resistances;
     public SubGuiNpcResistanceProperties(Resistances resistances) {
     	this.resistances = resistances;
 		setBackground("menubg.png");

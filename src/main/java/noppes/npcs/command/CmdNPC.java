@@ -27,13 +27,10 @@ import java.util.List;
 
 public class CmdNPC{
 
-
-	public static final SuggestionProvider<CommandSource> VISIBLE = SuggestionProviders.register(new ResourceLocation("visible"), (context, builder) -> {
-		return ISuggestionProvider.suggest(new String[]{"true", "false", "semi"}, builder);
-	});
+	public static final SuggestionProvider<CommandSource> VISIBLE = SuggestionProviders.register(new ResourceLocation("visible"), (context, builder) -> ISuggestionProvider.suggest(new String[]{"true", "false", "semi"}, builder));
 
 	public static LiteralArgumentBuilder<CommandSource> register() {
-		LiteralArgumentBuilder<CommandSource> command = Commands.literal("npc").requires((source) -> source.hasPermission(CustomNpcs.NoppesCommandOpOnly ? 4 : 2))
+		return Commands.literal("npc").requires((source) -> source.hasPermission(CustomNpcs.NoppesCommandOpOnly ? 4 : 2))
 			.then(Commands.argument("npc", StringArgumentType.string())
 				.then(Commands.literal("home").then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(context -> {
 					String name = StringArgumentType.getString(context, "npc");
@@ -130,7 +127,5 @@ public class CmdNPC{
 					return 1;
 				}))
 		);
-
-		return command;
 	}
 }

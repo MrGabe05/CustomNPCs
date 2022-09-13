@@ -228,9 +228,7 @@ public class RecipeController implements IRecipeHandler{
 
 	public RecipeCarpentry delete(int id) {
 		RecipeCarpentry recipe = getRecipe(id);
-		if(recipe == null)
-			return null;
-//		globalRecipes.remove(recipe.id);
+        //		globalRecipes.remove(recipe.id);
 //		anvilRecipes.remove(recipe.id);
 //		if(recipe.isGlobal)
 //			Packets.sendAll(new PacketSyncRemove(id, SyncType.RECIPE_NORMAL));

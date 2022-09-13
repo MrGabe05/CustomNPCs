@@ -23,9 +23,9 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class EntityEnderFX extends SpriteTexturedParticle {
     public static IAnimatedSprite portalSprite;
-    private float portalParticleScale;
-    private int particleNumber;
-    private EntityNPCInterface npc;
+    private final float portalParticleScale;
+    private final int particleNumber;
+    private final EntityNPCInterface npc;
     private final ResourceLocation location;
     private boolean move = true;
     private float startX = 0, startY = 0, startZ = 0;
@@ -129,9 +129,9 @@ public class EntityEnderFX extends SpriteTexturedParticle {
         Minecraft.getInstance().textureManager.bind(location);
         buffer.begin(7, DefaultVertexFormats.PARTICLE);
         Vector3d vector3d = info.getPosition();
-        float f = (float)(MathHelper.lerp((double)partialTicks, this.xo, this.x) - vector3d.x());
-        float f1 = (float)(MathHelper.lerp((double)partialTicks, this.yo, this.y) - vector3d.y());
-        float f2 = (float)(MathHelper.lerp((double)partialTicks, this.zo, this.z) - vector3d.z());
+        float f = (float)(MathHelper.lerp(partialTicks, this.xo, this.x) - vector3d.x());
+        float f1 = (float)(MathHelper.lerp(partialTicks, this.yo, this.y) - vector3d.y());
+        float f2 = (float)(MathHelper.lerp(partialTicks, this.zo, this.z) - vector3d.z());
         Quaternion quaternion;
         if (this.roll == 0.0F) {
             quaternion = info.rotation();
@@ -159,10 +159,10 @@ public class EntityEnderFX extends SpriteTexturedParticle {
         float f5 = 0.75f - (particleNumber * 0.25f);
         float f6 = f5 + 0.25f;
         int j = this.getLightColor(partialTicks);
-        buffer.vertex((double)avector3f[0].x(), (double)avector3f[0].y(), (double)avector3f[0].z()).uv(f8, f6).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
-        buffer.vertex((double)avector3f[1].x(), (double)avector3f[1].y(), (double)avector3f[1].z()).uv(f8, f5).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
-        buffer.vertex((double)avector3f[2].x(), (double)avector3f[2].y(), (double)avector3f[2].z()).uv(f7, f5).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
-        buffer.vertex((double)avector3f[3].x(), (double)avector3f[3].y(), (double)avector3f[3].z()).uv(f7, f6).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
+        buffer.vertex(avector3f[0].x(), avector3f[0].y(), avector3f[0].z()).uv(f8, f6).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
+        buffer.vertex(avector3f[1].x(), avector3f[1].y(), avector3f[1].z()).uv(f8, f5).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
+        buffer.vertex(avector3f[2].x(), avector3f[2].y(), avector3f[2].z()).uv(f7, f5).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
+        buffer.vertex(avector3f[3].x(), avector3f[3].y(), avector3f[3].z()).uv(f7, f6).color(this.rCol, this.gCol, this.bCol, this.alpha).uv2(j).endVertex();
 
         tessellator.end();
         Minecraft.getInstance().textureManager.bind(AtlasTexture.LOCATION_PARTICLES);

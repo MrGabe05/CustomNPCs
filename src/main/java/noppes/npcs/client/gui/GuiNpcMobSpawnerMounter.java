@@ -80,7 +80,7 @@ public class GuiNpcMobSpawnerMounter extends GuiNPCInterface implements IGuiData
         	showEntities();
     }
 	private void showEntities() {
-		this.list = new ArrayList<>(EntityUtil.getAllEntities(minecraft.level, false).keySet());;
+		this.list = new ArrayList<>(EntityUtil.getAllEntities(minecraft.level, false).keySet());
         scroll.setList(list);
 	}
 	private void showClones() {

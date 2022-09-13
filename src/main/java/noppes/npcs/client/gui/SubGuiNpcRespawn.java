@@ -5,7 +5,7 @@ import noppes.npcs.shared.client.gui.components.*;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcRespawn extends GuiBasic implements ITextfieldListener {
-	private DataStats stats;
+	private final DataStats stats;
     public SubGuiNpcRespawn(DataStats stats){
     	this.stats = stats;
 		setBackground("menubg.png");
@@ -34,7 +34,7 @@ public class SubGuiNpcRespawn extends GuiBasic implements ITextfieldListener {
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
 		int id = guibutton.id;
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if(button.id == 0){
 			stats.spawnCycle = button.getValue();
 			if(stats.spawnCycle == 3 || stats.spawnCycle == 4)

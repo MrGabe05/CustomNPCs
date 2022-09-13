@@ -8,8 +8,8 @@ import noppes.npcs.controllers.ServerCloneController;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketCloneRemove extends PacketServerBasic {
-    private String name;
-    private int tab;
+    private final String name;
+    private final int tab;
 
     public SPacketCloneRemove(String name, int tab) {
         this.name = name;

@@ -40,10 +40,11 @@ public abstract class RoleInterface implements INPCRole {
 	public abstract CompoundNBT save(CompoundNBT compound);
 	public abstract void load(CompoundNBT compound);
 	public abstract void interact(PlayerEntity player);
-	public void killed(){};
-	public void delete(){};
-	
-	public boolean aiShouldExecute() {
+	public void killed(){}
+
+    public void delete(){}
+
+    public boolean aiShouldExecute() {
 		return false;
 	}
 	

@@ -17,6 +17,6 @@ public class ArrowWrapper<T extends AbstractArrowEntity> extends EntityWrapper<T
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.ANIMAL?true:super.typeOf(type);
+		return type == EntitiesType.ANIMAL || super.typeOf(type);
 	}
 }

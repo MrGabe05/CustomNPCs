@@ -11,11 +11,11 @@ import java.util.Random;
 
 public class EntityAIMoveIndoors extends Goal
 {
-    private CreatureEntity theCreature;
+    private final CreatureEntity theCreature;
     private double shelterX;
     private double shelterY;
     private double shelterZ;
-    private World level;
+    private final World level;
 
     public EntityAIMoveIndoors(CreatureEntity par1CreatureEntity)
     {
@@ -65,7 +65,7 @@ public class EntityAIMoveIndoors extends Goal
 
             if (!this.level.canSeeSky(blockpos1) && this.theCreature.getWalkTargetValue(blockpos1) < 0.0F)
             {
-                return new Vector3d((double)blockpos1.getX(), (double)blockpos1.getY(), (double)blockpos1.getZ());
+                return new Vector3d(blockpos1.getX(), blockpos1.getY(), blockpos1.getZ());
             }
         }
 

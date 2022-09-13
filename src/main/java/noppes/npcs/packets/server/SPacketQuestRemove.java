@@ -9,7 +9,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiUpdate;
 
 public class SPacketQuestRemove extends PacketServerBasic {
-    private int id;
+    private final int id;
     public SPacketQuestRemove(int id) {
         this.id = id;
     }

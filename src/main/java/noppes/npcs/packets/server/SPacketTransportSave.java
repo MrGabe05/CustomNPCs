@@ -10,8 +10,8 @@ import noppes.npcs.packets.PacketServerBasic;
 import noppes.npcs.roles.RoleTransporter;
 
 public class SPacketTransportSave extends PacketServerBasic {
-    private int category;
-    private CompoundNBT data;
+    private final int category;
+    private final CompoundNBT data;
 
     public SPacketTransportSave(int category, CompoundNBT data) {
         this.data = data;

@@ -10,9 +10,9 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketQuestDialogTitles extends PacketServerBasic {
-    private int dialogId1;
-    private int dialogId2;
-    private int dialogId3;
+    private final int dialogId1;
+    private final int dialogId2;
+    private final int dialogId3;
 
     public SPacketQuestDialogTitles(int dialogId1, int dialogId2, int dialogId3) {
         this.dialogId1 = dialogId1;

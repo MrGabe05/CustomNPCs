@@ -36,7 +36,7 @@ public class DataStats implements INPCStats{
 	public DataMelee melee;
 	public DataRanged ranged;
 	
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public DataStats(EntityNPCInterface npc){
 		this.npc = npc;

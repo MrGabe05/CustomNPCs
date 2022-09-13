@@ -17,7 +17,7 @@ import noppes.npcs.shared.client.gui.components.GuiTextFieldNop;
 import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 
 public class GuiNPCScenes extends GuiNPCInterface2 {
-	private DataScenes scenes;
+	private final DataScenes scenes;
 	private SceneContainer scene;
 	
     public GuiNPCScenes(EntityNPCInterface npc){
@@ -53,7 +53,7 @@ public class GuiNPCScenes extends GuiNPCInterface2 {
     	if(button.id < 60){
         	SceneContainer scene = scenes.scenes.get(button.id / 10);
 	        if(button.id % 10 == 1){
-	        	scene.enabled = ((GuiButtonNop)button).getValue() == 1;
+	        	scene.enabled = button.getValue() == 1;
 	        }
 	        if(button.id % 10 == 2){
 				this.scene = scene;
@@ -64,7 +64,7 @@ public class GuiNPCScenes extends GuiNPCInterface2 {
 	        	init();
 	        }
 	        if(button.id % 10 == 4){
-	        	scene.btn = ((GuiButtonNop)button).getValue();
+	        	scene.btn = button.getValue();
 	        	init();
 	        }
     	}

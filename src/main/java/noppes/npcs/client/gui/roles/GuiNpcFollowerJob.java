@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuiNpcFollowerJob extends GuiNPCInterface2 implements ICustomScrollListener {
-	private JobFollower job;
+	private final JobFollower job;
 	private GuiCustomScroll scroll;
     public GuiNpcFollowerJob(EntityNPCInterface npc)
     {

@@ -20,13 +20,13 @@ import noppes.npcs.entity.EntityNpcPony;
 
 public class RenderNPCPony<T extends EntityNpcPony, M extends ModelPony<T>> extends RenderNPCInterface<T, M> {
 
-    private ModelPony modelBipedMain;
-    private ModelPonyArmor modelArmorChestplate;
-    private ModelPonyArmor modelArmor;
+    private final ModelPony modelBipedMain;
+    private final ModelPonyArmor modelArmorChestplate;
+    private final ModelPonyArmor modelArmor;
 
     public RenderNPCPony(EntityRendererManager manager, M model) {
         super(manager, model, 0.5F);
-        modelBipedMain = (ModelPony)model;
+        modelBipedMain = model;
         modelArmorChestplate = new ModelPonyArmor(1.0F);
         modelArmor = new ModelPonyArmor(0.5F);
     }

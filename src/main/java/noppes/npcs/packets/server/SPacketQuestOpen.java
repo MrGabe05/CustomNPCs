@@ -13,8 +13,8 @@ import noppes.npcs.controllers.data.Quest;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketQuestOpen extends PacketServerBasic {
-    private EnumGuiType gui;
-    private CompoundNBT data;
+    private final EnumGuiType gui;
+    private final CompoundNBT data;
     public SPacketQuestOpen(EnumGuiType gui, CompoundNBT data) {
         this.gui = gui;
         this.data = data;

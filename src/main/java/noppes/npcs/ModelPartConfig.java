@@ -63,9 +63,7 @@ public class ModelPartConfig {
 	public float checkValue(float given, float min, float max){
 		if(given < min)
 			return min;
-		if(given > max)
-			return max;
-		return given;
+		return Math.min(given, max);
 	}
 
 	public void setTranslate(float transX, float transY, float transZ) {

@@ -23,7 +23,7 @@ public class DataTransform {
 	
 	public boolean hasDisplay, hasAi, hasAdvanced, hasInv, hasStats, hasRole, hasJob, isActive;
 	
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public boolean editingModus = false;
 	

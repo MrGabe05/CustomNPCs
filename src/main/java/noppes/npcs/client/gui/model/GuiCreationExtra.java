@@ -142,10 +142,12 @@ public class GuiCreationExtra extends GuiCreationScreenInterface implements ICus
     	public GuiType(String name){
     		this.name = name;
     	}
-    	public void init(){};
-    	public void buttonEvent(GuiButtonNop button){};
-    	public void scrollClicked(double i, double j, int k, GuiCustomScroll scroll){};
-    }
+    	public void init(){}
+
+		public void buttonEvent(GuiButtonNop button){}
+
+		public void scrollClicked(double i, double j, int k, GuiCustomScroll scroll){}
+	}
 
     class GuiTypeBoolean extends GuiType{
     	private boolean bo;
@@ -175,7 +177,7 @@ public class GuiCreationExtra extends GuiCreationScreenInterface implements ICus
     	
     }
     class GuiTypeByte extends GuiType{
-    	private byte b;
+    	private final byte b;
     	public GuiTypeByte(String name, byte b){
     		super(name);
     		this.b = b;
@@ -189,7 +191,7 @@ public class GuiCreationExtra extends GuiCreationScreenInterface implements ICus
 		public void buttonEvent(GuiButtonNop button) {
 			if(button.id != 11)
 				return;
-			playerdata.extra.putByte(name, (byte)((GuiButtonNop)button).getValue());
+			playerdata.extra.putByte(name, (byte) button.getValue());
     		playerdata.clearEntity();
 			updateTexture();
 		}
@@ -218,9 +220,9 @@ public class GuiCreationExtra extends GuiCreationScreenInterface implements ICus
 			String name = scroll.getSelected();
 	    	playerdata.setExtra(entity, "name", name);
 			updateTexture();
-    	};
-    	
-    }
+    	}
+
+	}
     
     class GuiTypeDoggyStyle extends GuiType{
 		public GuiTypeDoggyStyle(String name) {
@@ -243,9 +245,9 @@ public class GuiCreationExtra extends GuiCreationScreenInterface implements ICus
 		public void buttonEvent(GuiButtonNop button) {
 			if(button.id != 11)
 				return;
-			int breed = ((GuiButtonNop)button).getValue();
+			int breed = button.getValue();
 	    	LivingEntity entity = playerdata.getEntity(npc);
-	    	playerdata.setExtra(entity, "breed", ((GuiButtonNop)button).getValue() + "");
+	    	playerdata.setExtra(entity, "breed", button.getValue() + "");
 			updateTexture();
 		}
     }

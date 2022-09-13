@@ -36,8 +36,8 @@ public class RenderChatMessages implements IChatMessages{
     protected static final RenderType typeDepth = RenderType.create("chatbubbledepth", DefaultVertexFormats.POSITION_COLOR_LIGHTMAP, 7, 256, false, true, RenderType.State.builder().setCullState(new RenderState.CullState(true)).setTransparencyState(TRANSLUCENT_TRANSPARENCY).setDiffuseLightingState(new RenderState.DiffuseLightingState(true)).setLightmapState(new RenderState.LightmapState(true)).setDepthTestState(new RenderState.DepthTestState("always", 519)).setAlphaState(new RenderState.AlphaState(0.003921569F)).createCompositeState(false));
 
 
-	private int boxLength = 46;
-	private float scale = 0.5f;
+	private final int boxLength = 46;
+	private final float scale = 0.5f;
 	
 	private String lastMessage = "";
 	private long lastMessageTime = 0;
@@ -51,7 +51,7 @@ public class RenderChatMessages implements IChatMessages{
 			return;
 		}
 		Map<Long,TextBlockClient> messages = new TreeMap<Long,TextBlockClient>(this.messages);
-		messages.put(time, new TextBlockClient(message, (int) (boxLength * 4), true, Minecraft.getInstance().player, npc));
+		messages.put(time, new TextBlockClient(message, boxLength * 4, true, Minecraft.getInstance().player, npc));
 
 		if(messages.size() > 3){
 			messages.remove(messages.keySet().iterator().next());

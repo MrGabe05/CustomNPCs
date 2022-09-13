@@ -11,7 +11,7 @@ import noppes.npcs.CustomEntities;
 import noppes.npcs.ModelData;
 
 public class EntityNpcDragon extends EntityNPCInterface{
-    private EntitySize size = new EntitySize(1.8f, 1.4f, false);
+    private final EntitySize size = new EntitySize(1.8f, 1.4f, false);
 	public EntityNpcDragon(EntityType<? extends CreatureEntity> type, World world) {
         super(type, world);
         field_40162_d = new double[64][3];
@@ -25,7 +25,7 @@ public class EntityNpcDragon extends EntityNPCInterface{
 		display.setSkinTexture("customnpcs:textures/entity/dragon/BlackDragon.png");
 	}
 
-    public double field_40162_d[][];
+    public double[][] field_40162_d;
     public int field_40164_e;
     public float prevAnimTime;
     public float animTime;
@@ -43,7 +43,7 @@ public class EntityNpcDragon extends EntityNPCInterface{
         f = 1.0F - f;
         int j = field_40164_e - i * 1 & 0x3f;
         int k = field_40164_e - i * 1 - 1 & 0x3f;
-        double ad[] = new double[3];
+        double[] ad = new double[3];
         double d = field_40162_d[j][0];
         double d1;
         for(d1 = field_40162_d[k][0] - d; d1 < -180D; d1 += 360D) { }

@@ -14,7 +14,7 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 
 public class GuiNpcWaypoint extends GuiNPCInterface implements IGuiData {
 
-	private TileWaypoint tile;
+	private final TileWaypoint tile;
 	
     public GuiNpcWaypoint(BlockPos pos) {
 		super();

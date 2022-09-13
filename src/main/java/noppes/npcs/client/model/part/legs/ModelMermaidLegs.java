@@ -9,11 +9,11 @@ import net.minecraft.util.math.MathHelper;
 
 public class ModelMermaidLegs extends ModelRenderer {
 
-	private ModelRenderer top;
-	private ModelRenderer middle;
-	private ModelRenderer bottom;
-	private ModelRenderer fin1;
-	private ModelRenderer fin2;
+	private final ModelRenderer top;
+	private final ModelRenderer middle;
+	private final ModelRenderer bottom;
+	private final ModelRenderer fin1;
+	private final ModelRenderer fin2;
 
 	public ModelMermaidLegs(Model base) {
 		super(base.texWidth, base.texHeight, 0, 0);

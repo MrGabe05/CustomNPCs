@@ -183,7 +183,7 @@ public class DataDisplay implements INPCDisplay{
 			if (gameprofile == null) {
 				return profile;
 			} else {
-				Property property = Iterables.getFirst(gameprofile.getProperties().get("textures"), (Property)null);
+				Property property = Iterables.getFirst(gameprofile.getProperties().get("textures"), null);
 				if (property == null) {
 					gameprofile = server.getSessionService().fillProfileProperties(gameprofile, true);
 				}

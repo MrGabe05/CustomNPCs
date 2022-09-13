@@ -16,7 +16,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class GuiCreationScale extends GuiCreationScreenInterface implements ISliderListener, ICustomScrollListener{
 	private GuiCustomScroll scroll;
-	private List<EnumParts> data = new ArrayList<EnumParts>();
+	private final List<EnumParts> data = new ArrayList<EnumParts>();
 	
 	private static EnumParts selected = EnumParts.HEAD;
 	
@@ -81,7 +81,7 @@ public class GuiCreationScale extends GuiCreationScreenInterface implements ISli
     public void buttonEvent(GuiButtonNop btn) {
 
     	if(btn.id == 13){
-    		boolean bo = ((GuiButtonNop)btn).getValue() == 0;
+    		boolean bo = btn.getValue() == 0;
     		playerdata.getPartConfig(selected).notShared = bo;
     		init();
     	}

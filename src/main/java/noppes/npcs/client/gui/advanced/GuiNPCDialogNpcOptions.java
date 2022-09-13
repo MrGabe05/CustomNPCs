@@ -20,8 +20,8 @@ import noppes.npcs.packets.server.SPacketNpcDialogsGet;
 
 
 public class GuiNPCDialogNpcOptions extends GuiNPCInterface2 implements GuiSelectionListener,IGuiData{
-	private Screen parent;
-	private HashMap<Integer, DialogOption> data = new HashMap<Integer,DialogOption>();
+	private final Screen parent;
+	private final HashMap<Integer, DialogOption> data = new HashMap<Integer,DialogOption>();
 
 	public GuiNPCDialogNpcOptions(EntityNPCInterface npc, Screen parent) {
 		super(npc);

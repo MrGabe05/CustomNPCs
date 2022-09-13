@@ -11,7 +11,7 @@ public abstract class GuiContainerNPCInterface2<T extends Container> extends Gui
 {
 	private ResourceLocation background = new ResourceLocation("customnpcs","textures/gui/menubg.png");
 	private final ResourceLocation defaultBackground = new ResourceLocation("customnpcs","textures/gui/menubg.png");
-	private GuiNpcMenu menu;
+	private final GuiNpcMenu menu;
 	public int menuYOffset = 0;
 
     public GuiContainerNPCInterface2(EntityNPCInterface npc, T cont, PlayerInventory inv, ITextComponent titleIn){

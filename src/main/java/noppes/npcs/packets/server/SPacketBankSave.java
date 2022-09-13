@@ -9,7 +9,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketBankSave extends PacketServerBasic {
 
-    private CompoundNBT data;
+    private final CompoundNBT data;
 
     public SPacketBankSave(CompoundNBT data) {
         this.data = data;

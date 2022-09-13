@@ -25,6 +25,6 @@ public class VillagerWrapper<T extends VillagerEntity> extends EntityLivingWrapp
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.VILLAGER?true:super.typeOf(type);
+		return type == EntitiesType.VILLAGER || super.typeOf(type);
 	}
 }

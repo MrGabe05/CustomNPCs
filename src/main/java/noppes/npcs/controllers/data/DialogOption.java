@@ -59,11 +59,8 @@ public class DialogOption implements IDialogOption{
 	public boolean hasDialog(){
 		if(dialogId <= 0 || optionType != OptionType.DIALOG_OPTION)
 			return false;
-		if(!DialogController.instance.hasDialog(dialogId)){
-			return false;
-		}
-		return true;
-	}
+        return DialogController.instance.hasDialog(dialogId);
+    }
 
 	public Dialog getDialog() {
 		if(!hasDialog())
@@ -87,11 +84,8 @@ public class DialogOption implements IDialogOption{
 		if(optionType == OptionType.DISABLED){
 			return false;
 		}
-		if(optionType == OptionType.DIALOG_OPTION && !hasDialog()){
-			return false;
-		}
-		return true;
-	}
+        return optionType != OptionType.DIALOG_OPTION || hasDialog();
+    }
 
 	public boolean canClose(){
 		return !(optionType == OptionType.DIALOG_OPTION && hasDialog());

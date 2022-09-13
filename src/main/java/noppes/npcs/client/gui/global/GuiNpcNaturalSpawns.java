@@ -106,7 +106,7 @@ public class GuiNpcNaturalSpawns extends GuiNPCInterface2 implements IGuiData, I
     		init();
         }
         if(id == 27){
-        	spawn.type = ((GuiButtonNop)guibutton).getValue();
+        	spawn.type = guibutton.getValue();
         }
     }
 

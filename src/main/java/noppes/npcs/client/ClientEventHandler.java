@@ -34,7 +34,7 @@ import noppes.npcs.schematics.SchematicWrapper;
 public class ClientEventHandler {
 	
 	//private int displayList = -1;
-	private VertexBuffer cache = null;
+	private final VertexBuffer cache = null;
 
 	@SubscribeEvent
 	public void onRenderTick(RenderWorldLastEvent event){
@@ -74,9 +74,9 @@ public class ClientEventHandler {
                 	BlockState state = schem.schema.getBlockState(i);
                 	if(state.getRenderShape() == BlockRenderType.INVISIBLE || state.getRenderShape() != BlockRenderType.MODEL)
                 		continue;
-					int posX = (int) (i % schem.schema.getWidth());
-					int posZ = (int)((i - posX)/schem.schema.getWidth()) % schem.schema.getLength();
-					int posY = (int)(((i - posX)/schem.schema.getWidth()) - posZ) / schem.schema.getLength();
+					int posX = i % schem.schema.getWidth();
+					int posZ = ((i - posX)/schem.schema.getWidth()) % schem.schema.getLength();
+					int posY = (((i - posX)/schem.schema.getWidth()) - posZ) / schem.schema.getLength();
         			BlockPos pos = schem.rotatePos(posX, posY, posZ, tile.rotation);
 					matrixStack.pushPose();
 					//matrixStack.enableRescaleNormal();

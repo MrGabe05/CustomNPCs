@@ -65,7 +65,7 @@ public class ServerEventsHandler {
 		}
 		
 		if(item.getItem() == CustomItems.wand && npcInteracted && !isClientSide){
-			if (!CustomNpcsPermissions.Instance.hasPermission(event.getPlayer() , CustomNpcsPermissions.NPC_GUI)){
+			if (!CustomNpcsPermissions.hasPermission(event.getPlayer() , CustomNpcsPermissions.NPC_GUI)){
 				return;
 			}
 			event.setCanceled(true);
@@ -83,7 +83,7 @@ public class ServerEventsHandler {
 			event.setCanceled(true);
 		}
 		else if(item.getItem() == CustomItems.scripter && !isClientSide && npcInteracted){
-			if(!CustomNpcsPermissions.Instance.hasPermission(event.getPlayer(), CustomNpcsPermissions.NPC_GUI))
+			if(!CustomNpcsPermissions.hasPermission(event.getPlayer(), CustomNpcsPermissions.NPC_GUI))
 				return;
 	    	NoppesUtilServer.setEditingNpc(event.getPlayer(), (EntityNPCInterface)event.getTarget());
 			event.setCanceled(true);
@@ -91,7 +91,7 @@ public class ServerEventsHandler {
 			Packets.send((ServerPlayerEntity) event.getPlayer(), new PacketGuiOpen(EnumGuiType.Script, BlockPos.ZERO));
 		}
 		else if(item.getItem() == CustomItems.mount){
-			if(!CustomNpcsPermissions.Instance.hasPermission(event.getPlayer(), CustomNpcsPermissions.TOOL_MOUNTER))
+			if(!CustomNpcsPermissions.hasPermission(event.getPlayer(), CustomNpcsPermissions.TOOL_MOUNTER))
 				return;
 			PlayerData data = PlayerData.get(event.getPlayer());
 			event.setCanceled(true);
@@ -100,7 +100,7 @@ public class ServerEventsHandler {
 	    		CustomNpcs.proxy.openGui(event.getPlayer(), EnumGuiType.MobSpawnerMounter);
 		}
 		else if(item.getItem() == CustomItems.wand && event.getTarget() instanceof VillagerEntity){
-			if(!CustomNpcsPermissions.Instance.hasPermission(event.getPlayer(), CustomNpcsPermissions.EDIT_VILLAGER))
+			if(!CustomNpcsPermissions.hasPermission(event.getPlayer(), CustomNpcsPermissions.EDIT_VILLAGER))
 				return;
 			event.setCanceled(true);
 			Merchant = (VillagerEntity)event.getTarget();

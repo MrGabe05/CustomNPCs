@@ -10,7 +10,7 @@ public @interface DatabaseColumn {
 
     boolean isVirtual() default false;
 
-    public enum Type{
+    enum Type{
         INT, TEXT, VARCHAR, ENUM, UUID, SMALLINT, JSON, BOOLEAN
     }
 }

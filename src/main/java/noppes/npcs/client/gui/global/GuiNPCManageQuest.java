@@ -95,7 +95,7 @@ public class GuiNPCManageQuest extends GuiNPCInterface2 implements ICustomScroll
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton) {
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 
         if(button.id == 1){
         	setSubGui(new SubGuiEditText(1, I18n.get("gui.new")));

@@ -16,7 +16,7 @@ import java.util.*;
 
 public class GuiTextureSelection extends GuiNPCInterface implements ICustomScrollListener{
 
-	private String up = "..<" + I18n.get("gui.up") + ">..";
+	private final String up = "..<" + I18n.get("gui.up") + ">..";
 	private GuiCustomScroll scrollCategories;
 	private GuiCustomScroll scrollQuests;
 

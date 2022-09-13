@@ -9,8 +9,8 @@ import noppes.npcs.controllers.data.PlayerData;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketCloneSave extends PacketServerBasic {
-    private String name;
-    private int tab;
+    private final String name;
+    private final int tab;
 
     public SPacketCloneSave(String name, int tab) {
         this.name = name;

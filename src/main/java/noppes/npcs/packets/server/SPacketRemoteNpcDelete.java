@@ -9,7 +9,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketNpcDelete;
 
 public class SPacketRemoteNpcDelete extends PacketServerBasic {
-    private int entityId;
+    private final int entityId;
 
     public SPacketRemoteNpcDelete(int entityId) {
         this.entityId = entityId;

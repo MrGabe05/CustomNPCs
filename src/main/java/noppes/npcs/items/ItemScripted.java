@@ -55,7 +55,7 @@ public class ItemScripted extends Item {
     public int getItemStackLimit(ItemStack stack){
 		IItemStack istack = NpcAPI.Instance().getIItemStack(stack);
 		if(istack instanceof ItemScriptedWrapper)
-			return ((ItemScriptedWrapper)istack).getMaxStackSize();
+			return istack.getMaxStackSize();
         return super.getItemStackLimit(stack);
     }
 

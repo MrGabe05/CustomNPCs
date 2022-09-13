@@ -15,7 +15,7 @@ public class NpcMiscInventory implements IInventory {
 	
 	public NpcMiscInventory(int size){
 		this.size = size;
-        items = NonNullList.<ItemStack>withSize(size, ItemStack.EMPTY);
+        items = NonNullList.withSize(size, ItemStack.EMPTY);
 	}
 	
 	public CompoundNBT getToNBT(){

@@ -249,10 +249,6 @@ public class CustomNpcs {
         }
         setPrivateValue(RangedAttribute.class, (RangedAttribute) Attributes.MAX_HEALTH, Double.MAX_VALUE, 1);
 
-        //dont remember why I changed this, in 1.13 can only be set using config it seems like
-        //ForgeConfig.SERVER.fullBoundingBoxLadders = true;
-        //ForgeModContainer.fullBoundingBoxLadders = true;
-
         new RecipeController();
         new CustomNpcsPermissions();
 
@@ -355,9 +351,11 @@ public class CustomNpcs {
     	try{
 	        File dir = new File(".");
 	        if (Server != null) {
-	        	if(!Server.isDedicatedServer())
-	        		dir = new File(Minecraft.getInstance().gameDirectory, "saves");
-	        	dir = Server.getWorldPath(new FolderName("customnpcs")).toFile();
+	        	if(!Server.isDedicatedServer()) {
+                    dir = new File(Minecraft.getInstance().gameDirectory, "saves");
+                } else {
+                    dir = Server.getWorldPath(new FolderName("customnpcs")).toFile();
+                }
 	        }
             if(s != null){
             	dir = new File(dir, s);

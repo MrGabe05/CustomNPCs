@@ -14,7 +14,7 @@ import noppes.npcs.packets.server.SPacketTileEntitySave;
 
 public class GuiBorderBlock extends GuiNPCInterface implements IGuiData{
 
-	private TileBorder tile;
+	private final TileBorder tile;
 	
     public GuiBorderBlock(BlockPos pos) {
 		super();

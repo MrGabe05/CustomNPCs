@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 
 public class GuiNpcFollowerSetup extends GuiContainerNPCInterface2<ContainerNPCFollowerSetup> {
-	private RoleFollower role;
+	private final RoleFollower role;
 	private static final ResourceLocation field_110422_t = new ResourceLocation("textures/gui/followersetup.png");
 
 	public GuiNpcFollowerSetup(ContainerNPCFollowerSetup container, PlayerInventory inv, ITextComponent titleIn) {

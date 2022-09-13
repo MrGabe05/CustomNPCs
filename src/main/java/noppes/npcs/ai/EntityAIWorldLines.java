@@ -5,7 +5,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class EntityAIWorldLines extends Goal {
 
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	private int cooldown = 100;
 	
 	public EntityAIWorldLines(EntityNPCInterface npc){

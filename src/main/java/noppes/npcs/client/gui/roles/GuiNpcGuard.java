@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class GuiNpcGuard extends GuiNPCInterface2{	
-	private JobGuard role;
+	private final JobGuard role;
 	private GuiCustomScroll scroll1;
 	private GuiCustomScroll scroll2;
 	
@@ -69,7 +69,7 @@ public class GuiNpcGuard extends GuiNPCInterface2{
 
 	@Override
     public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(button.id == 0){
 			for(Map.Entry<EntityType<? extends Entity>, Class> entry : EntityUtil.getAllEntitiesClasses(minecraft.level).entrySet()){
 				EntityType<?> ent = entry.getKey();

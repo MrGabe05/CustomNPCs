@@ -16,7 +16,7 @@ import java.util.List;
 public class GuiCreationParts extends GuiCreationScreenInterface implements ITextfieldListener, ICustomScrollListener {
 	private GuiCustomScroll scroll;
 	
-	private GuiPart[] parts = {
+	private final GuiPart[] parts = {
 			new GuiPart(EnumParts.EARS).setTypes(new String[]{"gui.none", "gui.normal", "ears.bunny"}), 
 			new GuiPartHorns(), 
 			new GuiPartHair(), 
@@ -101,7 +101,7 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
 	}
 	class GuiPart{
 		EnumParts part;
-		private int paterns = 0;
+		private final int paterns = 0;
 		protected String[] types = {"gui.none"};
 		protected ModelPartData data;
 		protected boolean hasPlayerOption = true;
@@ -136,7 +136,7 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
 		
 	    public void buttonEvent(GuiButtonNop btn) {
 	    	if(btn.id == 20){
-	    		int i = ((GuiButtonNop)btn).getValue();
+	    		int i = btn.getValue();
 	    		if(i == 0 && canBeDeleted)
 	    			playerdata.removePart(part);
 	    		else{
@@ -149,7 +149,7 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
 	    		GuiCreationParts.this.init();
 	    	}
 	    	if(btn.id == 22){
-    			data.pattern = (byte) ((GuiButtonNop)btn).getValue();
+    			data.pattern = (byte) btn.getValue();
 	    	}
 	    	if(btn.id == 21){
 	    		data.playerTexture = ((GuiButtonYesNo)btn).getBoolean();
@@ -231,7 +231,7 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
 		}
 	}
 	class GuiPartEyes extends GuiPart{
-	    private ModelEyeData eyes;
+	    private final ModelEyeData eyes;
 		public GuiPartEyes() {
 			super(EnumParts.EYES);
 			types = new String[]{"gui.none", "1", "2"};
@@ -275,10 +275,10 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
                 setSubGui(new GuiModelColor(GuiCreationParts.this, eyes.skinColor, color -> eyes.skinColor = color));
 	    	}
 	    	if(btn.id == 37){
-	    		eyes.eyePos = ((GuiButtonBiDirectional)btn).getValue() - 1;
+	    		eyes.eyePos = btn.getValue() - 1;
 	    	}
 	    	if(btn.id == 38){
-	    		eyes.browThickness = ((GuiButtonBiDirectional)btn).getValue();
+	    		eyes.browThickness = btn.getValue();
 	    	}
 			super.buttonEvent(btn);
 
@@ -354,14 +354,11 @@ public class GuiCreationParts extends GuiCreationScreenInterface implements ITex
 		@Override
 	    public void buttonEvent(GuiButtonNop btn) {
 			if(btn.id == 20){
-				int i = ((GuiButtonNop)btn).getValue();
-				if(i <= 1)
-					data.playerTexture = true;
-				else
-					data.playerTexture = false;
+				int i = btn.getValue();
+				data.playerTexture = i <= 1;
 			}
 			if(btn.id == 22){
-				data.pattern = (byte) ((GuiButtonNop)btn).getValue();
+				data.pattern = (byte) btn.getValue();
 			}
 			super.buttonEvent(btn);
 	    }

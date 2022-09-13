@@ -15,8 +15,8 @@ import noppes.npcs.packets.server.SPacketTileEntityGet;
 import noppes.npcs.packets.server.SPacketTileEntitySave;
 
 public class GuiBlockCopy extends GuiNPCInterface implements IGuiData, ITextfieldListener{
-	private BlockPos pos;
-	private TileCopy tile;
+	private final BlockPos pos;
+	private final TileCopy tile;
 	
 	public GuiBlockCopy(BlockPos pos) {
 		this.pos = pos;

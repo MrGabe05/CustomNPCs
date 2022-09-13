@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class SPacketLinkedAdd extends PacketServerBasic {
 
-    private String name;
+    private final String name;
 
     public SPacketLinkedAdd(String name) {
         this.name = name;

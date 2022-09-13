@@ -10,11 +10,11 @@ import java.util.*;
 public class GuiStringSlotNop<E extends GuiStringSlotNop.ListEntry> extends AbstractList {
 
     public HashSet<String> selectedList;
-    private boolean multiSelect;
-    private GuiBasic parent;
+    private final boolean multiSelect;
+    private final GuiBasic parent;
     public GuiStringSlotNop(Collection<String> list, GuiBasic parent, boolean multiSelect){
         super(Minecraft.getInstance(), parent.width, parent.height, 32, parent.height - 64, parent.getFontRenderer().lineHeight + 3);
-        selectedList = new HashSet<String>();
+        selectedList = new HashSet<>();
         this.parent = parent;
         this.multiSelect = multiSelect;
         if(list != null){
@@ -25,7 +25,7 @@ public class GuiStringSlotNop<E extends GuiStringSlotNop.ListEntry> extends Abst
     public void setList(Collection<String> l){
         clearEntries();
         List<String> list = new ArrayList<>(l);
-        Collections.sort(list, new NaturalOrderComparator());
+        list.sort(new NaturalOrderComparator());
         for(String s : list){
             this.addEntry(new ListEntry(s));
         }
@@ -35,7 +35,7 @@ public class GuiStringSlotNop<E extends GuiStringSlotNop.ListEntry> extends Abst
     public void setColoredList(Map<String, Integer> m){
         clearEntries();
         List<String> list = new ArrayList<>(m.keySet());
-        Collections.sort(list, new NaturalOrderComparator());
+        list.sort(new NaturalOrderComparator());
         for(String s : list){
             this.addEntry(new ListEntry(s, m.get(s)));
         }

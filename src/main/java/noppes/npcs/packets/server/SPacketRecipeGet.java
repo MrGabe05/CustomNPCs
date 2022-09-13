@@ -10,7 +10,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketRecipeGet extends PacketServerBasic {
-    private int recipe;
+    private final int recipe;
 
     public SPacketRecipeGet(int recipe) {
         this.recipe = recipe;

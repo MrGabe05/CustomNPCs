@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuiHoverText extends Screen{
-	private int x, y;
+	private final int x;
+    private final int y;
 	public int id;
 
     protected static final ResourceLocation buttonTextures = new ResourceLocation("customnpcs:textures/gui/info.png");
-	private String text;
+	private final String text;
 	public GuiHoverText(int id, String text, int x, int y){
 		super(null);
 		this.text = text;
@@ -29,15 +30,13 @@ public class GuiHoverText extends Screen{
         this.blit(matrixStack, this.x, this.y, 0, 0, 12, 12);
         
         if(inArea(x, y, 12, 12, mouseX, mouseY)){
-	        List<TranslationTextComponent> lines = new ArrayList<TranslationTextComponent>();
+	        List<TranslationTextComponent> lines = new ArrayList<>();
 	        lines.add(new TranslationTextComponent(text));
 			GuiUtils.drawHoveringText(matrixStack, lines, x + 8, y + 6, width, height, -1, this.font);
 	        //RenderSystem.disableLighting();;
         }
     }
 	public boolean inArea(int x, int y, int width, int height, int mouseX, int mouseY){
-		if(mouseX < x || mouseX > x + width || mouseY < y || mouseY > y + height)
-			return false;
-		return true;
-	}
+        return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
+    }
 }

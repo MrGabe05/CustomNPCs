@@ -1,7 +1,6 @@
 package noppes.npcs;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import noppes.npcs.ability.AbstractAbility;
 import noppes.npcs.ability.IAbilityDamaged;
 import noppes.npcs.api.event.NpcEvent;
 import noppes.npcs.constants.EnumAbilityType;

@@ -31,7 +31,7 @@ public class GuiNPCManageBanks extends GuiContainerNPCInterface2<ContainerManage
 {
 	private GuiCustomScroll scroll;
 	private Map<String,Integer> data = new HashMap<String,Integer>();
-	private ContainerManageBanks container;
+	private final ContainerManageBanks container;
 	private Bank bank = new Bank();
 	private String selected = null;
 
@@ -80,7 +80,7 @@ public class GuiNPCManageBanks extends GuiContainerNPCInterface2<ContainerManage
     @Override
 	public void buttonEvent(GuiButtonNop guibutton)
     {
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
         if(button.id == 6)
         {
         	save();

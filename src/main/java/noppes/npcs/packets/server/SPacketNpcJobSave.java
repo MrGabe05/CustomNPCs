@@ -8,7 +8,7 @@ import noppes.npcs.packets.PacketServerBasic;
 import java.util.Set;
 
 public class SPacketNpcJobSave extends PacketServerBasic {
-    private CompoundNBT data;
+    private final CompoundNBT data;
 
     public SPacketNpcJobSave(CompoundNBT data) {
         this.data = data;

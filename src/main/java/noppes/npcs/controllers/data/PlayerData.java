@@ -33,7 +33,7 @@ public class PlayerData implements ICapabilityProvider {
 	public static Capability<PlayerData> PLAYERDATA_CAPABILITY = null;
     public BlockPos scriptBlockPos = BlockPos.ZERO;
 
-    private LazyOptional<PlayerData> instance = LazyOptional.of(() -> this);
+    private final LazyOptional<PlayerData> instance = LazyOptional.of(() -> this);
 	
 	public PlayerDialogData dialogData = new PlayerDialogData();
 	public PlayerBankData bankData = new PlayerBankData();
@@ -232,7 +232,7 @@ public class PlayerData implements ICapabilityProvider {
 		return new CompoundNBT();
 	}
 
-	private static PlayerData backup = new PlayerData(); //sometimes getCapability gives null no clue why
+	private static final PlayerData backup = new PlayerData(); //sometimes getCapability gives null no clue why
 	public static PlayerData get(PlayerEntity player) {
 		if(player.level.isClientSide)
 			return CustomNpcs.proxy.getPlayerData(player);

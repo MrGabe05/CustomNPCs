@@ -7,7 +7,7 @@ import noppes.npcs.constants.EnumAbilityType;
 import noppes.npcs.entity.EntityNPCInterface;
 
 public class EntityAIAbilities extends Goal {
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	private IAbilityUpdate ability;
 	
 	public EntityAIAbilities(EntityNPCInterface npc){

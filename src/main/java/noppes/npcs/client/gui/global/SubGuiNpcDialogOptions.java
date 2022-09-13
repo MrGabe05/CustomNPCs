@@ -8,7 +8,7 @@ import noppes.npcs.controllers.data.Dialog;
 import noppes.npcs.controllers.data.DialogOption;
 
 public class SubGuiNpcDialogOptions extends GuiBasic {
-	private Dialog dialog;
+	private final Dialog dialog;
 	
     public SubGuiNpcDialogOptions(Dialog dialog){
     	this.dialog = dialog;

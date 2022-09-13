@@ -10,8 +10,8 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNbtBookBlockSave extends PacketServerBasic {
-    private BlockPos pos;
-    private CompoundNBT data;
+    private final BlockPos pos;
+    private final CompoundNBT data;
 
     public SPacketNbtBookBlockSave(BlockPos pos, CompoundNBT data) {
         this.pos = pos;

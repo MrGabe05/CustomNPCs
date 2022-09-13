@@ -8,7 +8,7 @@ import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScriptForge extends GuiScriptInterface {
 
-	private ForgeScriptData script = new ForgeScriptData();
+	private final ForgeScriptData script = new ForgeScriptData();
 		
 	public GuiScriptForge() {
 		handler = script;

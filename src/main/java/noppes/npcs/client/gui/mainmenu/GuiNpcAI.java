@@ -17,9 +17,9 @@ import noppes.npcs.packets.server.SPacketMenuGet;
 import noppes.npcs.packets.server.SPacketMenuSave;
 
 public class GuiNpcAI extends GuiNPCInterface2 implements ITextfieldListener, IGuiData{
-	private String[] tacts = {"aitactics.rush", "aitactics.stagger", "aitactics.orbit", "aitactics.hitandrun", "aitactics.ambush", "aitactics.stalk", "gui.none"};
+	private final String[] tacts = {"aitactics.rush", "aitactics.stagger", "aitactics.orbit", "aitactics.hitandrun", "aitactics.ambush", "aitactics.stalk", "gui.none"};
 	
-	private DataAI ai;
+	private final DataAI ai;
 	public GuiNpcAI(EntityNPCInterface npc) {
 		super(npc,3);
 		ai = npc.ais;
@@ -61,7 +61,7 @@ public class GuiNpcAI extends GuiNPCInterface2 implements ITextfieldListener, IG
     @Override
 	public void buttonEvent(GuiButtonNop guibutton)
     {
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if(button.id == 0){
 			ai.onAttack = button.getValue();
 			init();

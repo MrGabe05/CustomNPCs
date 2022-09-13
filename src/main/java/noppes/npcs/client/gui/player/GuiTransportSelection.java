@@ -62,7 +62,7 @@ public class GuiTransportSelection extends GuiNPCInterface implements ITopButton
     @Override
 	public void buttonEvent(GuiButtonNop guibutton)
     {
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
     	String sel = scroll.getSelected();
     	if(button.id == 0 && sel != null){
             Packets.sendServer(new SPacketPlayerTransport(sel));

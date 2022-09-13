@@ -10,8 +10,8 @@ import noppes.npcs.entity.EntityNPCInterface;
 import java.util.EnumSet;
 
 public class EntityAIAttackTarget extends Goal{
-    private World level;
-    private EntityNPCInterface npc;
+    private final World level;
+    private final EntityNPCInterface npc;
     private LivingEntity entityTarget;
 
     private int attackTick;

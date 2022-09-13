@@ -14,15 +14,15 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class EntityAIAvoidTarget extends Goal {
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
     private Entity closestLivingEntity;
-    private float distanceFromEntity;
+    private final float distanceFromEntity;
     
-    private float health;
+    private final float health;
 
     private Path entityPathEntity;
 
-    private PathNavigator entityPathNavigate;
+    private final PathNavigator entityPathNavigate;
     
     private Class targetEntityClass;
 
@@ -45,14 +45,14 @@ public class EntityAIAvoidTarget extends Goal {
     	targetEntityClass = target.getClass();
     	
         if (this.targetEntityClass == PlayerEntity.class){
-            this.closestLivingEntity = this.npc.level.getNearestPlayer(this.npc, (double)this.distanceFromEntity);
+            this.closestLivingEntity = this.npc.level.getNearestPlayer(this.npc, this.distanceFromEntity);
 
             if (this.closestLivingEntity == null){
                 return false;
             }
         }
         else{
-            List var1 = this.npc.level.getEntitiesOfClass(this.targetEntityClass, this.npc.getBoundingBox().inflate((double)this.distanceFromEntity, 3.0D, (double)this.distanceFromEntity));
+            List var1 = this.npc.level.getEntitiesOfClass(this.targetEntityClass, this.npc.getBoundingBox().inflate(this.distanceFromEntity, 3.0D, this.distanceFromEntity));
 
             if (var1.isEmpty()){
                 return false;

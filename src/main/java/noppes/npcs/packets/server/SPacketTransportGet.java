@@ -12,7 +12,7 @@ import noppes.npcs.packets.PacketServerBasic;
 import java.util.HashMap;
 
 public class SPacketTransportGet extends PacketServerBasic {
-    private int id;
+    private final int id;
     public SPacketTransportGet(int id) {
         this.id = id;
     }

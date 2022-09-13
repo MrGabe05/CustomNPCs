@@ -6,16 +6,16 @@ import net.minecraft.entity.Entity;
 
 public class ModelDigitigradeLegs extends ModelRenderer {
 
-	private ModelRenderer rightleg;
-	private ModelRenderer rightleg2;
-	private ModelRenderer rightleglow;
-	private ModelRenderer rightfoot;
-	private ModelRenderer leftleg;
-	private ModelRenderer leftleg2;
-	private ModelRenderer leftleglow;
-	private ModelRenderer leftfoot;
+	private final ModelRenderer rightleg;
+	private final ModelRenderer rightleg2;
+	private final ModelRenderer rightleglow;
+	private final ModelRenderer rightfoot;
+	private final ModelRenderer leftleg;
+	private final ModelRenderer leftleg2;
+	private final ModelRenderer leftleglow;
+	private final ModelRenderer leftfoot;
 
-	private BipedModel base;
+	private final BipedModel base;
 
 	public ModelDigitigradeLegs(BipedModel base) {
 		super(base.texWidth, base.texHeight, 0, 0);

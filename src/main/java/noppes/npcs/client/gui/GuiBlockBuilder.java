@@ -31,8 +31,8 @@ import java.util.Map;
 import java.util.Vector;
 
 public class GuiBlockBuilder extends GuiNPCInterface implements IGuiData, ICustomScrollListener, IScrollData, BooleanConsumer {
-	private BlockPos pos;
-	private TileBuilder tile;
+	private final BlockPos pos;
+	private final TileBuilder tile;
 	private GuiCustomScroll scroll;
 	private ISchematic selected = null;
 	
@@ -108,7 +108,7 @@ public class GuiBlockBuilder extends GuiNPCInterface implements IGuiData, ICusto
     		tile.enabled = ((GuiButtonYesNo) guibutton).getBoolean();
     	}
     	if(guibutton.id == 5){
-    		tile.rotation = ((GuiButtonNop)guibutton).getValue();
+    		tile.rotation = guibutton.getValue();
     		TileBuilder.Compiled = false;
     	}
     	if(guibutton.id == 6){
@@ -226,7 +226,7 @@ public class GuiBlockBuilder extends GuiNPCInterface implements IGuiData, ICusto
 		if(!scroll.hasSelected())
 			return;
         if(selected != null)
-        	((GuiButtonNop)getButton(3)).setDisplay(0);
+        	getButton(3).setDisplay(0);
 		TileBuilder.SetDrawPos(null);
 		tile.setDrawSchematic(null);
 		Packets.sendServer(new SPacketSchematicsTileSet(pos, scroll.getSelected()));

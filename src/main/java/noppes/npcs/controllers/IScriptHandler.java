@@ -8,23 +8,23 @@ import noppes.npcs.constants.EnumScriptType;
 
 public interface IScriptHandler {
 	
-	public void runScript(EnumScriptType type, Event event);
+	void runScript(EnumScriptType type, Event event);
 
-	public boolean isClient();
+	boolean isClient();
 	
-	public boolean getEnabled();
+	boolean getEnabled();
 	
-	public void setEnabled(boolean bo);
+	void setEnabled(boolean bo);
 	
-	public String getLanguage();
+	String getLanguage();
 	
-	public void setLanguage(String lang);
+	void setLanguage(String lang);
 	
-	public List<ScriptContainer> getScripts();
+	List<ScriptContainer> getScripts();
 	
-	public String noticeString();
+	String noticeString();
 
-	public Map<Long, String> getConsoleText();
+	Map<Long, String> getConsoleText();
 
-	public void clearConsole();
+	void clearConsole();
 }

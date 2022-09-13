@@ -16,7 +16,7 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 
 public class GuiNPCMarks extends GuiNPCInterface2 {
 	private final String[] marks = new String[]{"gui.none", "mark.question", "mark.exclamation", "mark.pointer", "mark.skull", "mark.cross", "mark.star"};
-	private MarkData data;
+	private final MarkData data;
 	private Mark selectedMark;
 	
     public GuiNPCMarks(EntityNPCInterface npc){
@@ -53,7 +53,7 @@ public class GuiNPCMarks extends GuiNPCInterface2 {
     	if(button.id < 90){
     		selectedMark = data.marks.get(button.id / 10);
 	        if(button.id % 10 == 1){
-	        	selectedMark.type = ((GuiButtonNop)button).getValue();
+	        	selectedMark.type = button.getValue();
 	        }
 	        if(button.id % 10 == 2){
 	        	this.setSubGui(new SubGuiColorSelector(selectedMark.color));

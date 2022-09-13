@@ -117,11 +117,11 @@ public class BlockScriptedDoor extends BlockNpcDoorInterface{
             	
                 boolean flag = worldIn.hasNeighborSignal(pos) || worldIn.hasNeighborSignal(blockpos2);
 
-                if ((flag || neighborBlock.defaultBlockState().isSignalSource()) && neighborBlock != this && flag != ((Boolean)iblockstate2.getValue(POWERED)).booleanValue())
+                if ((flag || neighborBlock.defaultBlockState().isSignalSource()) && neighborBlock != this && flag != iblockstate2.getValue(POWERED).booleanValue())
                 {
                     worldIn.setBlock(blockpos2, iblockstate2.setValue(POWERED, Boolean.valueOf(flag)), 2);
 
-                    if (flag != ((Boolean)state.getValue(OPEN)).booleanValue()){
+                    if (flag != state.getValue(OPEN).booleanValue()){
                     	setOpen(worldIn, state, pos, flag);
                     }
                 }

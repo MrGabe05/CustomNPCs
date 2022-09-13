@@ -39,7 +39,7 @@ public class WrapperEntityData implements ICapabilityProvider{
 	@CapabilityInject(WrapperEntityData.class)
 	public static Capability<WrapperEntityData> ENTITYDATA_CAPABILITY = null;
 
-	private LazyOptional<WrapperEntityData> instance = LazyOptional.of(() -> this);
+	private final LazyOptional<WrapperEntityData> instance = LazyOptional.of(() -> this);
 	
 	public IEntity base;
 	public WrapperEntityData(IEntity base){
@@ -54,7 +54,7 @@ public class WrapperEntityData implements ICapabilityProvider{
 		return LazyOptional.empty();
 	}
 
-	private static WrapperEntityData backup = new WrapperEntityData(null);
+	private static final WrapperEntityData backup = new WrapperEntityData(null);
 	public static IEntity get(Entity entity){
 		if(entity == null || entity.position() == Vector3d.ZERO)
 			return null;

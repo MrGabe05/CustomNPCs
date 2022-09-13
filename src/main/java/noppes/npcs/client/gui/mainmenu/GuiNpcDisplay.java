@@ -27,7 +27,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class GuiNpcDisplay extends GuiNPCInterface2 implements ITextfieldListener, IGuiData {
 
-	private DataDisplay display;
+	private final DataDisplay display;
 	
 	public GuiNpcDisplay(EntityNPCInterface npc) {
 		super(npc,1);
@@ -146,12 +146,12 @@ public class GuiNpcDisplay extends GuiNPCInterface2 implements ITextfieldListene
 		}
 	}
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if(button.id == 0){
 			display.setShowName(button.getValue());
 		}
 		if(button.id == 1){
-			NoppesUtil.openGUI(player, new GuiCreationParts((EntityCustomNpc) npc));
+			NoppesUtil.openGUI(player, new GuiCreationParts(npc));
 			//NoppesUtil.openGUI(player, new GuiNpcModelSelection(npc,this));
 		}
 		if(button.id == 2){

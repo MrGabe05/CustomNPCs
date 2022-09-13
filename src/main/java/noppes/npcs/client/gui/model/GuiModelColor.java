@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 public class GuiModelColor extends GuiBasic implements ITextfieldListener{
 
-	private Screen parent;
+	private final Screen parent;
 	private final static ResourceLocation colorPicker = new ResourceLocation("moreplayermodels:textures/gui/color.png");
 	private final static ResourceLocation colorgui = new ResourceLocation("moreplayermodels:textures/gui/color_gui.png");
 	
@@ -27,7 +27,7 @@ public class GuiModelColor extends GuiBasic implements ITextfieldListener{
 	
 	public int color;
 
-	private ColorCallback callback;
+	private final ColorCallback callback;
 	public GuiModelColor(Screen parent, int color, ColorCallback callback){
 		this.parent = parent;
 		this.callback = callback;
@@ -137,7 +137,7 @@ public class GuiModelColor extends GuiBasic implements ITextfieldListener{
 		// TODO Auto-generated method stub
 		
 	}
-	public static interface ColorCallback{
-	    public void color(int color);
+	public interface ColorCallback{
+	    void color(int color);
 	}
 }

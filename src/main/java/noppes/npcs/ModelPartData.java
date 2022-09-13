@@ -7,7 +7,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 
 public class ModelPartData {
-	private static Map<String, ResourceLocation> resources = new HashMap<String, ResourceLocation>();
+	private static final Map<String, ResourceLocation> resources = new HashMap<>();
 	public int color = 0xFFFFFF;
 	public int colorPattern = 0xFFFFFF;
 	public byte type = 0;

@@ -38,9 +38,9 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener, 
 	private HashMap<String, Quest> categoryQuests = new HashMap<String, Quest>();
 	public Quest selectedQuest = null;
 	public ITextComponent selectedCategory = StringTextComponent.EMPTY;
-    private PlayerEntity player;
+    private final PlayerEntity player;
     private GuiCustomScroll scroll;
-	private HashMap<Integer, GuiMenuSideButton> sideButtons = new HashMap<Integer,GuiMenuSideButton>();
+	private final HashMap<Integer, GuiMenuSideButton> sideButtons = new HashMap<Integer,GuiMenuSideButton>();
 	private boolean noQuests = false;
 	
 	private final int maxLines = 10;
@@ -49,7 +49,7 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener, 
 
 	TextBlockClient textblock = null;
 	
-	private Minecraft mc = Minecraft.getInstance();
+	private final Minecraft mc = Minecraft.getInstance();
 	
 	public GuiQuestLog(PlayerEntity player) {
 		super();

@@ -8,7 +8,6 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3f;
 import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.shared.client.gui.listeners.IGui;
@@ -23,15 +22,16 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class GuiWrapper {
-    public Map<Integer, GuiButtonNop> npcbuttons = new ConcurrentHashMap<Integer, GuiButtonNop>();
-    public Map<Integer,GuiMenuTopButton> topbuttons = new ConcurrentHashMap<Integer,GuiMenuTopButton>();
-    public Map<Integer,GuiMenuSideButton> sidebuttons = new ConcurrentHashMap<Integer,GuiMenuSideButton>();
-    public Map<Integer, GuiTextFieldNop> textfields = new ConcurrentHashMap<Integer, GuiTextFieldNop>();
-    public Map<Integer, GuiLabel> labels = new ConcurrentHashMap<Integer,GuiLabel>();
-    public Map<Integer, GuiCustomScroll> scrolls = new ConcurrentHashMap<Integer,GuiCustomScroll>();
-    public Map<Integer, GuiSliderNop> sliders = new ConcurrentHashMap<Integer, GuiSliderNop>();
-    public Map<Integer,Screen> extra = new ConcurrentHashMap<Integer,Screen>();
-    public List<IGui> components = new ArrayList<IGui>();
+
+    public Map<Integer, GuiButtonNop> npcbuttons = new ConcurrentHashMap<>();
+    public Map<Integer,GuiMenuTopButton> topbuttons = new ConcurrentHashMap<>();
+    public Map<Integer,GuiMenuSideButton> sidebuttons = new ConcurrentHashMap<>();
+    public Map<Integer, GuiTextFieldNop> textfields = new ConcurrentHashMap<>();
+    public Map<Integer, GuiLabel> labels = new ConcurrentHashMap<>();
+    public Map<Integer, GuiCustomScroll> scrolls = new ConcurrentHashMap<>();
+    public Map<Integer, GuiSliderNop> sliders = new ConcurrentHashMap<>();
+    public Map<Integer,Screen> extra = new ConcurrentHashMap<>();
+    public List<IGui> components = new ArrayList<>();
 
 
     public Screen parent;
@@ -49,27 +49,27 @@ public class GuiWrapper {
             subgui.init(mc, width, height);
         }
 
-        npcbuttons = new ConcurrentHashMap<Integer, GuiButtonNop>();
-        topbuttons = new ConcurrentHashMap<Integer,GuiMenuTopButton>();
-        sidebuttons = new ConcurrentHashMap<Integer,GuiMenuSideButton>();
-        textfields = new ConcurrentHashMap<Integer, GuiTextFieldNop>();
-        labels = new ConcurrentHashMap<Integer,GuiLabel>();
-        scrolls = new ConcurrentHashMap<Integer,GuiCustomScroll>();
-        sliders = new ConcurrentHashMap<Integer, GuiSliderNop>();
-        extra = new ConcurrentHashMap<Integer, Screen>();
-        components = new ArrayList<IGui>();
+        npcbuttons = new ConcurrentHashMap<>();
+        topbuttons = new ConcurrentHashMap<>();
+        sidebuttons = new ConcurrentHashMap<>();
+        textfields = new ConcurrentHashMap<>();
+        labels = new ConcurrentHashMap<>();
+        scrolls = new ConcurrentHashMap<>();
+        sliders = new ConcurrentHashMap<>();
+        extra = new ConcurrentHashMap<>();
+        components = new ArrayList<>();
     }
 
     public void tick(){
         if(subgui != null)
             subgui.tick();
         else{
-            for(GuiTextFieldNop tf : new ArrayList<GuiTextFieldNop>(textfields.values())){
+            for(GuiTextFieldNop tf : new ArrayList<>(textfields.values())){
                 if(tf.enabled)
                     tf.tick();
             }
 
-            for(IGui comp : new ArrayList<IGui>(components)){
+            for(IGui comp : new ArrayList<>(components)){
                 comp.tick();
             }
         }
@@ -85,7 +85,7 @@ public class GuiWrapper {
             subgui.mouseScrolled(mouseX, mouseY, scrolled);
             return true;
         }
-        for(IGui comp : new ArrayList<IGui>(components)){
+        for(IGui comp : new ArrayList<>(components)){
             if(comp instanceof IMouseListener){
                 if(comp.isActive() && ((IMouseListener)comp).mouseScrolled(scrolled)){
                     return true;
@@ -106,12 +106,12 @@ public class GuiWrapper {
             return true;
         }
 
-        for(GuiTextFieldNop tf : new ArrayList<GuiTextFieldNop>(textfields.values())){
+        for(GuiTextFieldNop tf : new ArrayList<>(textfields.values())){
             if(tf.enabled && tf.mouseClicked(i, j, k))
                 return true;
         }
 
-        for(IGui comp : new ArrayList<IGui>(components)){
+        for(IGui comp : new ArrayList<>(components)){
             if(comp instanceof IMouseListener){
                 if(((IMouseListener)comp).mouseClicked(i, j, k)){
                     return true;
@@ -120,7 +120,7 @@ public class GuiWrapper {
         }
 
         if (k == 0){
-            for(GuiCustomScroll scroll : new ArrayList<GuiCustomScroll>(scrolls.values())){
+            for(GuiCustomScroll scroll : new ArrayList<>(scrolls.values())){
                 if(scroll.mouseClicked(i, j, k)){
                     return true;
                 }
@@ -151,15 +151,15 @@ public class GuiWrapper {
             return true;
         }
 
-        for(GuiTextFieldNop tf : new ArrayList<GuiTextFieldNop>(textfields.values())){
+        for(GuiTextFieldNop tf : new ArrayList<>(textfields.values())){
             tf.charTyped(c, i);
         }
 
-        for(GuiCustomScroll scroll : new ArrayList<GuiCustomScroll>(scrolls.values())){
+        for(GuiCustomScroll scroll : new ArrayList<>(scrolls.values())){
             scroll.charTyped(c, i);
         }
 
-        for(IGui comp : new ArrayList<IGui>(components)){
+        for(IGui comp : new ArrayList<>(components)){
             if(comp instanceof IKeyListener){
                 ((IKeyListener)comp).charTyped(c, i);
             }
@@ -191,11 +191,11 @@ public class GuiWrapper {
             tf.keyPressed(key, p_keyPressed_2_, p_keyPressed_3_);
         }
 
-        for(GuiCustomScroll scroll : new ArrayList<GuiCustomScroll>(scrolls.values())){
+        for(GuiCustomScroll scroll : new ArrayList<>(scrolls.values())){
             scroll.keyPressed(key, p_keyPressed_2_, p_keyPressed_3_);
         }
 
-        for(IGui comp : new ArrayList<IGui>(components)){
+        for(IGui comp : new ArrayList<>(components)){
             if(comp instanceof IKeyListener){
                 if(((IKeyListener)comp).keyPressed(key, p_keyPressed_2_, p_keyPressed_3_)){
                     return true;
@@ -220,7 +220,7 @@ public class GuiWrapper {
             scale = 2 / entity.getBbHeight();
         }
         float f7 = (float) (guiLeft + x) - mouseX;
-        float f8 = (float) ((guiTop + y) - 50 * scale * zoomed) - mouseY;
+        float f8 = (guiTop + y) - 50 * scale * zoomed - mouseY;
 
         entity.yBodyRot = 0;
         entity.yRot = (float)Math.atan(f7 / 80F) * 40F + rotation;
@@ -249,9 +249,7 @@ public class GuiWrapper {
         lvt_16_1_.setRenderShadow(false);
         IRenderTypeBuffer.Impl lvt_17_1_ = Minecraft.getInstance().renderBuffers().bufferSource();
         matrixStack.mulPose(Vector3f.YN.rotationDegrees(rotation));
-        RenderSystem.runAsFancy(() -> {
-            lvt_16_1_.render(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, matrixStack, lvt_17_1_, 15728880);
-        });
+        RenderSystem.runAsFancy(() -> lvt_16_1_.render(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, matrixStack, lvt_17_1_, 15728880));
         lvt_17_1_.endBatch();
         lvt_16_1_.setRenderShadow(true);
         RenderSystem.popMatrix();

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataAI implements INPCAi {
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public int onAttack = 0; //0:fight 1:panic 2:retreat 3:nothing
 	public int doorInteract = 2; //0:break 1:open 2:nothing

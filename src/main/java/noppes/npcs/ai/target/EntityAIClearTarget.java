@@ -8,7 +8,7 @@ import java.util.EnumSet;
 
 public class EntityAIClearTarget extends Goal
 {
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	private LivingEntity target;
     public EntityAIClearTarget(EntityNPCInterface npc){
     	this.npc = npc;

@@ -196,8 +196,8 @@ public abstract class EntityNPCInterface extends CreatureEntity implements IEnti
 	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
-        this.entityData.define(RoleData, String.valueOf(""));
-        this.entityData.define(JobData, String.valueOf(""));
+        this.entityData.define(RoleData, "");
+        this.entityData.define(JobData, "");
         this.entityData.define(FactionData, 0);
         this.entityData.define(Animation, Integer.valueOf(0));
 
@@ -936,7 +936,7 @@ public abstract class EntityNPCInterface extends CreatureEntity implements IEnti
 		size = size.scale(display.getSize() * 0.2f);
 
 		if(display.getHitboxState() == 1 || isKilled() && stats.hideKilledBody) {
-			size = size.scalable(0.00001f, size.height);
+			size = EntitySize.scalable(0.00001f, size.height);
 		}
 		if(size.width / 2 > level.getMaxEntityRadius()) {
 			level.increaseMaxEntityRadius(size.width / 2);

@@ -13,7 +13,7 @@ public enum EnumCompanionTalent {
 	ACROBATS(Items.LEATHER_BOOTS), INTEL(Items.BOOK);
 
 	public ItemStack item;
-	private EnumCompanionTalent(Item item){
+	EnumCompanionTalent(Item item){
 		this.item = new ItemStack(item);
 	}
 }

@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SPacketPlayerDataGet extends PacketServerBasic {
-    private EnumPlayerData type;
-    private String name;
+    private final EnumPlayerData type;
+    private final String name;
     public SPacketPlayerDataGet(EnumPlayerData type, String name) {
         this.type = type;
         this.name = name;

@@ -16,7 +16,7 @@ public class CustomGuiScrollComponent extends GuiCustomScroll implements IGuiCom
 
     GuiCustom parent;
 
-    private CustomGuiScrollWrapper component;
+    private final CustomGuiScrollWrapper component;
 
     public CustomGuiScrollComponent(Screen parent, CustomGuiScrollWrapper component) {
         super(parent, component.getID(), component.isMultiSelect());

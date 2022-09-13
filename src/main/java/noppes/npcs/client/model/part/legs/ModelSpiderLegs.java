@@ -10,18 +10,18 @@ import noppes.npcs.constants.EnumParts;
 import noppes.npcs.entity.EntityNPCInterface;
 
 public class ModelSpiderLegs extends ModelRenderer {
-	private ModelRenderer spiderLeg1;
-    private ModelRenderer spiderLeg2;
-    private ModelRenderer spiderLeg3;
-    private ModelRenderer spiderLeg4;
-    private ModelRenderer spiderLeg5;
-    private ModelRenderer spiderLeg6;
-    private ModelRenderer spiderLeg7;
-    private ModelRenderer spiderLeg8;
-    private ModelRenderer spiderBody;
-    private ModelRenderer spiderNeck;
+	private final ModelRenderer spiderLeg1;
+    private final ModelRenderer spiderLeg2;
+    private final ModelRenderer spiderLeg3;
+    private final ModelRenderer spiderLeg4;
+    private final ModelRenderer spiderLeg5;
+    private final ModelRenderer spiderLeg6;
+    private final ModelRenderer spiderLeg7;
+    private final ModelRenderer spiderLeg8;
+    private final ModelRenderer spiderBody;
+    private final ModelRenderer spiderNeck;
 
-	private BipedModel base;
+	private final BipedModel base;
 
 	public ModelSpiderLegs(BipedModel base) {
 		super(base.texWidth, base.texHeight, 0, 0);
@@ -30,52 +30,52 @@ public class ModelSpiderLegs extends ModelRenderer {
         byte var2 = 15;
         spiderNeck = new ModelRenderer(base.texWidth, base.texHeight, 0, 0);
         spiderNeck.addBox(-3.0F, -3.0F, -3.0F, 6, 6, 6, var1);
-        spiderNeck.setPos(0.0F, (float)var2, 2.0F);
+        spiderNeck.setPos(0.0F, var2, 2.0F);
         this.addChild(spiderNeck);
         
         spiderBody = new ModelRenderer(base.texWidth, base.texHeight, 0, 12);
         spiderBody.addBox(-5.0F, -4.0F, -6.0F, 10, 8, 12, var1);
-        spiderBody.setPos(0.0F, (float)var2, 11.0F);
+        spiderBody.setPos(0.0F, var2, 11.0F);
         this.addChild(spiderBody);
         
         this.spiderLeg1 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg1.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg1.setPos(-4.0F, (float)var2, 4.0F);
+        this.spiderLeg1.setPos(-4.0F, var2, 4.0F);
         this.addChild(spiderLeg1);
         
         this.spiderLeg2 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg2.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg2.setPos(4.0F, (float)var2, 4.0F);
+        this.spiderLeg2.setPos(4.0F, var2, 4.0F);
         this.addChild(spiderLeg2);
         
         this.spiderLeg3 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg3.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg3.setPos(-4.0F, (float)var2, 3.0F);
+        this.spiderLeg3.setPos(-4.0F, var2, 3.0F);
         this.addChild(spiderLeg3);
         
         this.spiderLeg4 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg4.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg4.setPos(4.0F, (float)var2, 3.0F);
+        this.spiderLeg4.setPos(4.0F, var2, 3.0F);
         this.addChild(spiderLeg4);
         
         this.spiderLeg5 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg5.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg5.setPos(-4.0F, (float)var2, 2.0F);
+        this.spiderLeg5.setPos(-4.0F, var2, 2.0F);
         this.addChild(spiderLeg5);
         
         this.spiderLeg6 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg6.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg6.setPos(4.0F, (float)var2, 2.0F);
+        this.spiderLeg6.setPos(4.0F, var2, 2.0F);
         this.addChild(spiderLeg6);
         
         this.spiderLeg7 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg7.addBox(-15.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg7.setPos(-4.0F, (float)var2, 1.0F);
+        this.spiderLeg7.setPos(-4.0F, var2, 1.0F);
         this.addChild(spiderLeg7);
         
         this.spiderLeg8 = new ModelRenderer(base.texWidth, base.texHeight, 18, 0);
         this.spiderLeg8.addBox(-1.0F, -1.0F, -1.0F, 16, 2, 2, var1);
-        this.spiderLeg8.setPos(4.0F, (float)var2, 1.0F);
+        this.spiderLeg8.setPos(4.0F, var2, 1.0F);
         this.addChild(spiderLeg8);
 	}
 

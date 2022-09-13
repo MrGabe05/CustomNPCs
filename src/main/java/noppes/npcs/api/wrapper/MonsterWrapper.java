@@ -17,6 +17,6 @@ public class MonsterWrapper<T extends MonsterEntity> extends EntityLivingWrapper
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.MONSTER?true:super.typeOf(type);
+		return type == EntitiesType.MONSTER || super.typeOf(type);
 	}
 }

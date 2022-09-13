@@ -5,7 +5,7 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNpcFactionSet extends PacketServerBasic {
-    private int faction;
+    private final int faction;
 
     public SPacketNpcFactionSet(int faction) {
         this.faction = faction;

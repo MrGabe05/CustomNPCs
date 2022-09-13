@@ -23,6 +23,6 @@ public class PixelmonWrapper<T extends AbstractHorseEntity> extends AnimalWrappe
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.PIXELMON?true:super.typeOf(type);
+		return type == EntitiesType.PIXELMON || super.typeOf(type);
 	}
 }

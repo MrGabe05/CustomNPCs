@@ -20,9 +20,8 @@ public class JobGuard extends JobInterface{
 	
 	public boolean isEntityApplicable(Entity entity) {
     	if(entity instanceof PlayerEntity || entity instanceof EntityNPCInterface) return false;
-    	if(targets.contains(entity.getType().getDescriptionId())) return true;
-		return false;
-	}
+        return targets.contains(entity.getType().getDescriptionId());
+    }
 
 	@Override
 	public CompoundNBT save(CompoundNBT nbttagcompound) {

@@ -110,7 +110,7 @@ public class BlockWrapper implements IBlock{
 			INBT base = compound.get(key);
 			if(base instanceof NumberNBT)
 				return ((NumberNBT)base).getAsDouble();
-			return ((StringNBT)base).getAsString();
+			return base.getAsString();
 		}
 
 		@Override
@@ -301,7 +301,7 @@ public class BlockWrapper implements IBlock{
 	@Deprecated
 	public static IBlock createNew(World level, BlockPos pos, BlockState state) {
 		Block block = state.getBlock();
-		String key = state.toString() + pos.toString();
+		String key = state + pos.toString();
 		BlockWrapper b = blockCache.get(key);
 		if(b != null){
 			b.setTile(level.getBlockEntity(pos));

@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class BlockScriptedRenderer extends BlockRendererInterface<TileScripted> {
 	
-	private static Random random = new Random();
+	private static final Random random = new Random();
 
 	public BlockScriptedRenderer(TileEntityRendererDispatcher dispatcher) {
 		super(dispatcher);

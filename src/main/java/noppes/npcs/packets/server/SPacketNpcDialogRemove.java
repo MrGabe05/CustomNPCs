@@ -5,7 +5,7 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNpcDialogRemove extends PacketServerBasic {
-    private int slot;
+    private final int slot;
 
     public SPacketNpcDialogRemove(int slot) {
         this.slot = slot;

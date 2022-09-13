@@ -18,8 +18,8 @@ import java.util.HashMap;
 
 public class GuiNpcPuppet extends GuiNPCInterface implements ISliderListener, ICustomScrollListener {
 
-	private Screen parent;
-	private JobPuppet job;
+	private final Screen parent;
+	private final JobPuppet job;
 	private String selectedName;
 	private boolean isStart = true;
 	
@@ -126,7 +126,7 @@ public class GuiNpcPuppet extends GuiNPCInterface implements ISliderListener, IC
     	if(!(btn instanceof GuiButtonNop))
     		return;
     	
-    	GuiButtonNop button = (GuiButtonNop) btn;
+    	GuiButtonNop button = btn;
     	if(btn.id == 29){
     		data.get(selectedName).disabled = button.getValue() == 1;
     	}

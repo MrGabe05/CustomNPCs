@@ -23,7 +23,7 @@ import noppes.npcs.packets.server.SPacketBanksSlotOpen;
 public class GuiNPCBankChest extends GuiContainerNPCInterface<ContainerNPCBankInterface> implements IGuiData
 {
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/bankchest.png");
-    private ContainerNPCBankInterface container;
+    private final ContainerNPCBankInterface container;
     private int availableSlots = 0;
     private int maxSlots = 1;
     private int unlockedSlots = 1;

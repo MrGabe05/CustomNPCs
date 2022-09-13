@@ -70,7 +70,7 @@ public abstract class EntityNPCFlying extends EntityNPCInterface{
 
             this.moveRelative(this.onGround ? 0.1F * f1 : 0.02F, v);
             this.move(MoverType.SELF, this.getDeltaMovement());
-            m = this.getDeltaMovement().scale((double)f);
+            m = this.getDeltaMovement().scale(f);
         }
         setDeltaMovement(m);
 

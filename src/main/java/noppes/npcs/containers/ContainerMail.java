@@ -47,7 +47,7 @@ public class ContainerMail extends ContainerNpcInterface{
     @Override
     public ItemStack quickMoveStack(PlayerEntity par1PlayerEntity, int limbSwingAmount){
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = (Slot)this.slots.get(limbSwingAmount);
+        Slot slot = this.slots.get(limbSwingAmount);
 
         if (slot != null && slot.hasItem()){
             ItemStack itemstack1 = slot.getItem();

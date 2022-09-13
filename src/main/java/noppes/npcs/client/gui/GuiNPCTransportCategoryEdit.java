@@ -13,9 +13,9 @@ import noppes.npcs.packets.server.SPacketTransportCategorySave;
 
 public class GuiNPCTransportCategoryEdit extends GuiNPCInterface
 {
-	private Screen parent;
-	private String name;
-	private int id;
+	private final Screen parent;
+	private final String name;
+	private final int id;
     public GuiNPCTransportCategoryEdit(EntityNPCInterface npc,Screen parent, String name, int id)
     {
     	super(npc);

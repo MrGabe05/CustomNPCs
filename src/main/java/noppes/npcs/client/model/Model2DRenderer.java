@@ -45,10 +45,10 @@ public class Model2DRenderer extends ModelRenderer {
     private float scaleX = 1, scaleY = 1, thickness = 1;
 
     private int displayList;
-    private boolean isCompiled = false;
+    private final boolean isCompiled = false;
     public static final VertexFormat POSITION_TEX_NORMAL = new VertexFormat(ImmutableList.<VertexFormatElement>builder().add(DefaultVertexFormats.ELEMENT_POSITION).add(DefaultVertexFormats.ELEMENT_UV0).add(DefaultVertexFormats.ELEMENT_NORMAL).add(DefaultVertexFormats.ELEMENT_PADDING).build());
 
-    private TexturedQuad[] quads = new TexturedQuad[6];
+    private final TexturedQuad[] quads = new TexturedQuad[6];
 
     public Model2DRenderer(Model base, float x, float y, int width, int height, int texWidth, int texHeight) {
         super(base.texWidth, base.texHeight, 0, 0);

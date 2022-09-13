@@ -8,7 +8,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 import java.util.EnumSet;
 
 public class EntityAISprintToTarget extends Goal{
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
 
 
     public EntityAISprintToTarget(EntityNPCInterface par1EntityLiving){
@@ -25,8 +25,8 @@ public class EntityAISprintToTarget extends Goal{
         }
         
     	switch(this.npc.ais.onAttack){       	
-    		case 0 : return !this.npc.isInRange(runTarget, 8)? (!this.npc.isOnGround() ? false : true) : false;
-    		case 2 : return this.npc.isInRange(runTarget, 7)? (!this.npc.isOnGround() ? false : true) : false;
+    		case 0 : return !this.npc.isInRange(runTarget, 8) && (this.npc.isOnGround());
+    		case 2 : return this.npc.isInRange(runTarget, 7) && (this.npc.isOnGround());
     		default : return false;
     	}
         

@@ -7,7 +7,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketLinkedSet extends PacketServerBasic {
 
-    private String name;
+    private final String name;
 
     public SPacketLinkedSet(String name) {
         this.name = name;

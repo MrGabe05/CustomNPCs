@@ -16,7 +16,7 @@ import noppes.npcs.packets.server.SPacketNpcJobSave;
 import noppes.npcs.roles.JobBard;
 
 public class GuiNpcBard extends GuiNPCInterface2 {	
-	private JobBard job;
+	private final JobBard job;
 	
     public GuiNpcBard(EntityNPCInterface npc){
     	super(npc);    	
@@ -57,7 +57,7 @@ public class GuiNpcBard extends GuiNPCInterface2 {
 
     @Override
     public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(button.id == 0){
         	setSubGui(new GuiSoundSelection(job.song));
         	MusicController.Instance.stopMusic();

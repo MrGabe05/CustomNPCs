@@ -14,7 +14,7 @@ import noppes.npcs.controllers.RecipeController;
 
 public class GuiNpcCarpentryBench extends GuiContainerNPCInterface<ContainerCarpentryBench> {
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/carpentry.png");
-    private ContainerCarpentryBench container;
+    private final ContainerCarpentryBench container;
     private GuiButtonNop button;
     
     public GuiNpcCarpentryBench(ContainerCarpentryBench container, PlayerInventory inv, ITextComponent titleIn) {

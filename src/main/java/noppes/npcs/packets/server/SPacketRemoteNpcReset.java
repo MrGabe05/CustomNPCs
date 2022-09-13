@@ -7,7 +7,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketRemoteNpcReset extends PacketServerBasic {
-    private int entityId;
+    private final int entityId;
 
     public SPacketRemoteNpcReset(int entityId) {
         this.entityId = entityId;

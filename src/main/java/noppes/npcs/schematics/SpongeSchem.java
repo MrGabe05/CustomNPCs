@@ -27,11 +27,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * https://github.com/SpongePowered/Schematic-Specification/blob/master/versions/schematic-3.md
- * https://github.com/EngineHub/WorldEdit/blob/770350b83133949cd909b07754d1cf5bf20755ed/worldedit-core/src/main/java/com/sk89q/worldedit/extent/clipboard/io/SpongeSchematicReader.java
- * https://vscode.dev/github/EngineHub/WorldEdit/tree/archive/1.16.5
- */
 public class SpongeSchem implements ISchematic {
     public static final int latestDataVersion = 2586; //https://minecraft.fandom.com/wiki/Java_Edition_1.16.5
     public String name;
@@ -113,8 +108,8 @@ public class SpongeSchem implements ISchematic {
         CompoundNBT blockData = new CompoundNBT();
 
         ByteArrayOutputStream buffer = new ByteArrayOutputStream(this.data.length);
-        for(int i = 0; i < this.data.length; i++){
-            int blockId = this.data[i];
+        for (int datum : this.data) {
+            int blockId = datum;
             while ((blockId & -128) != 0) {
                 buffer.write(blockId & 127 | 128);
                 blockId >>>= 7;
@@ -164,12 +159,6 @@ public class SpongeSchem implements ISchematic {
         int dataVersion = 1631; //Minecraft 1.13.2
         if(compound.contains("DataVersion")){
             dataVersion = compound.getInt("DataVersion");
-            if(dataVersion > latestDataVersion){
-                //warning schem was made in newer version of minecraft
-            }
-            if(dataVersion < latestDataVersion){
-                //warning schem was made in and older version of minecraft
-            }
         }
 
         int version = compound.getInt("Version");
@@ -319,9 +308,9 @@ public class SpongeSchem implements ISchematic {
         schema.data = new int[size];
         int uniqueBlockId = 0;
         for(int i = 0; i < size; i++ ){
-            int x = (int) (i % width);
-            int z = (int)((i - x)/width) % length;
-            int y = (int)(((i - x)/width) - z) / length;
+            int x = i % width;
+            int z = ((i - x)/width) % length;
+            int y = (((i - x)/width) - z) / length;
 
             BlockState state = level.getBlockState(pos.offset(x, y, z));
             if(state.getBlock() == CustomBlocks.copy)

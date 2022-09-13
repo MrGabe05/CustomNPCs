@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class GuiFaction extends GuiNPCInterface {
 
-	private int imageWidth;
-	private int imageHeight;
+	private final int imageWidth;
+	private final int imageHeight;
 	private int guiLeft;
 	private int guiTop;
 
@@ -33,7 +33,7 @@ public class GuiFaction extends GuiNPCInterface {
 
 	private GuiButtonNextPage buttonNextPage;
 	private GuiButtonNextPage buttonPreviousPage;
-	private ResourceLocation indicator;
+	private final ResourceLocation indicator;
 
 	public GuiFaction() {
 		super();

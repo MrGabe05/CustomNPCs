@@ -54,7 +54,7 @@ public class EntityLivingBaseWrapper<T extends LivingEntity> extends EntityWrapp
 		if(living == null)
 			entity.setLastHurtByMob(null);
 		else
-			entity.setLastHurtByMob((LivingEntity) living.getMCEntity());
+			entity.setLastHurtByMob(living.getMCEntity());
 	}
 
 	@Override
@@ -188,7 +188,7 @@ public class EntityLivingBaseWrapper<T extends LivingEntity> extends EntityWrapp
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.LIVING?true:super.typeOf(type);
+		return type == EntitiesType.LIVING || super.typeOf(type);
 	}
 
 	@Override

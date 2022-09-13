@@ -6,8 +6,8 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public abstract class AbstractAbility implements IAbility {
 	private long cooldown = 0;
-	private int cooldownTime = 10;
-	private int startCooldownTime = 10;
+	private final int cooldownTime = 10;
+	private final int startCooldownTime = 10;
 	protected EntityNPCInterface npc;
 	public float maxHP = 1;
 	public float minHP =  0;

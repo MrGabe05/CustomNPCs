@@ -7,7 +7,7 @@ import noppes.npcs.controllers.data.TransportLocation;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketTransportRemove extends PacketServerBasic {
-    private int id;
+    private final int id;
     public SPacketTransportRemove(int id) {
         this.id = id;
     }

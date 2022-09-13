@@ -13,25 +13,7 @@ public class NoppesUtilPlayer {
         if (NoppesUtilServer.IsItemStackNull(item) || NoppesUtilServer.IsItemStackNull(item2)){
             return false;
         }
-// was replaced by tags or something https://mcforge.readthedocs.io/en/1.13.x/utilities/tags/ looks at if people as for it
-//        boolean oreMatched = false;
-//        OreDictionary.itemMatches(item, item2, false);
-//        int[] ids = OreDictionary.getOreIDs(item);
-//        if(ids.length > 0){
-//        	for(int id : ids){
-//            	boolean match1 = false, match2 = false;
-//        		for(ItemStack is : OreDictionary.getOres(OreDictionary.getOreName(id))){
-//        			if(compareItemDetails(item, is, ignoreDamage, ignoreNBT)){
-//        				match1 = true;
-//        			}
-//        			if(compareItemDetails(item2, is, ignoreDamage, ignoreNBT)){
-//        				match2 = true;
-//        			}
-//        		}
-//            	if(match1 && match2)
-//            		return true;
-//        	}
-//        }
+
 		return compareItemDetails(item, item2, ignoreDamage, ignoreNBT);
 	}
 	
@@ -45,11 +27,8 @@ public class NoppesUtilPlayer {
         if(!ignoreNBT && item.getTag() != null && (item2.getTag() == null || !item.getTag().equals(item2.getTag()))){
             return false;
         }
-        if(!ignoreNBT && item2.getTag() != null && item.getTag() == null){
-            return false;
-        }
-		return true;
-	}
+        return ignoreNBT || item2.getTag() == null || item.getTag() != null;
+    }
 	
 	public static boolean compareItems(PlayerEntity player, ItemStack item, boolean ignoreDamage, boolean ignoreNBT){
 
@@ -82,7 +61,7 @@ public class NoppesUtilPlayer {
 	}
 	
 	public static List<ItemStack> countStacks(IInventory inv, boolean ignoreDamage, boolean ignoreNBT){
-		List<ItemStack> list = new ArrayList<ItemStack>();
+		List<ItemStack> list = new ArrayList<>();
 		for(int i = 0; i < inv.getContainerSize(); i++){
 			ItemStack item = inv.getItem(i);
 			if(NoppesUtilServer.IsItemStackNull(item))

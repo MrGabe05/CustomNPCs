@@ -12,11 +12,11 @@ import net.minecraft.util.text.TranslationTextComponent;
 import noppes.npcs.shared.client.gui.listeners.ISliderListener;
 
 public class GuiSliderNop extends Widget {
-    private ISliderListener listener;
+    private final ISliderListener listener;
     public int id;
 
-    public float sliderValue = 1.0F;
-    public float startValue = 1.0F;
+    public float sliderValue;
+    public float startValue;
 
     public GuiSliderNop(Screen parent, int id, int xPos, int yPos, String displayString, float sliderValue) {
         super(xPos, yPos, 150, 20, new TranslationTextComponent(displayString));

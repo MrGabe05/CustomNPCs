@@ -6,8 +6,8 @@ import noppes.npcs.controllers.TransportController;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketTransportCategorySave extends PacketServerBasic {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
     public SPacketTransportCategorySave(int id, String name) {
         this.id = id;
         this.name = name;

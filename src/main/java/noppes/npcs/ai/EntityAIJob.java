@@ -7,7 +7,7 @@ import java.util.EnumSet;
 
 public class EntityAIJob extends Goal {
 
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	public EntityAIJob(EntityNPCInterface npc){
 		this.npc = npc;
 	}

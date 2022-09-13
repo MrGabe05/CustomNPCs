@@ -4,13 +4,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particles.BasicParticleType;
-import net.minecraftforge.fml.network.NetworkEvent;
 import noppes.npcs.constants.EnumGuiType;
 import noppes.npcs.controllers.data.PlayerData;
 import noppes.npcs.entity.EntityNPCInterface;
-import noppes.npcs.shared.common.PacketBasic;
-
-import java.util.function.Supplier;
 
 public class CommonProxy {
 	

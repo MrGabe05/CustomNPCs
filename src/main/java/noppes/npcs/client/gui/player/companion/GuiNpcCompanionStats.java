@@ -25,7 +25,7 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.listeners.IGuiData;
 
 public class GuiNpcCompanionStats extends GuiNPCInterface implements IGuiData {
-	private RoleCompanion role;
+	private final RoleCompanion role;
 	private boolean isEating = false;
 
 	public GuiNpcCompanionStats(EntityNPCInterface npc) {

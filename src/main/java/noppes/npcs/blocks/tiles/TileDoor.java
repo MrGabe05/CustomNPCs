@@ -34,7 +34,7 @@ public class TileDoor extends TileNpcEntity implements ITickableTileEntity {
     }
 	
 	public void setDoorNBT(CompoundNBT compound){
-		blockModel = (Block) ForgeRegistries.BLOCKS.getValue(new ResourceLocation(compound.getString("ScriptDoorBlockModel")));
+		blockModel = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(compound.getString("ScriptDoorBlockModel")));
 		if(blockModel == null || !(blockModel instanceof DoorBlock))
 			blockModel = CustomBlocks.scripted_door;
 		renderTileUpdate = null;

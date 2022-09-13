@@ -18,8 +18,8 @@ import noppes.npcs.entity.EntityNPCInterface;
 public class JobConversation extends JobInterface {
 	public Availability availability = new Availability();
 
-	private ArrayList<String> names = new ArrayList<String>();
-	private HashMap<String, EntityNPCInterface> npcs = new HashMap<String, EntityNPCInterface>();
+	private final ArrayList<String> names = new ArrayList<String>();
+	private final HashMap<String, EntityNPCInterface> npcs = new HashMap<String, EntityNPCInterface>();
 	
 	public HashMap<Integer,ConversationLine> lines = new HashMap<Integer,ConversationLine>();
 

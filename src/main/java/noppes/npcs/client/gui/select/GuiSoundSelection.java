@@ -25,7 +25,7 @@ public class GuiSoundSelection extends GuiBasic implements ICustomScrollListener
 	private String selectedDomain;
 	public ResourceLocation selectedResource;
 		
-	private HashMap<String,List<String>> domains = new HashMap<String,List<String>>();
+	private final HashMap<String,List<String>> domains = new HashMap<String,List<String>>();
 		
     public GuiSoundSelection(String sound){
     	drawDefaultBackground = false;

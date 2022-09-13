@@ -241,12 +241,9 @@ public class Availability implements ICompatibilty, IAvailability {
 			return false;
 		if(!scoreboardAvailable(player, scoreboard2Objective, scoreboard2Type, scoreboard2Value))
 			return false;
-		
-		if(player.experienceLevel < minPlayerLevel)
-			return false;
-		
-		return true;
-	}
+
+        return player.experienceLevel >= minPlayerLevel;
+    }
 	
 	private boolean scoreboardAvailable(PlayerEntity player, String objective, EnumAvailabilityScoreboard type, int value) {
 		if(objective.isEmpty())
@@ -287,12 +284,8 @@ public class Availability implements ICompatibilty, IAvailability {
 		if(available == EnumAvailabilityFactionType.Is && stance == current){
 			return true;
 		}
-		if(available == EnumAvailabilityFactionType.IsNot && stance != current){
-			return true;
-		}
-		
-		return false;
-	}
+        return available == EnumAvailabilityFactionType.IsNot && stance != current;
+    }
 	
 	public boolean dialogAvailable(int id, EnumAvailabilityDialog en, PlayerEntity player){
 		if(en == EnumAvailabilityDialog.Always)
@@ -300,10 +293,8 @@ public class Availability implements ICompatibilty, IAvailability {
 		boolean hasRead = PlayerData.get(player).dialogData.dialogsRead.contains(id);
 		if(hasRead && en == EnumAvailabilityDialog.After)
 			return true;
-		else if(!hasRead && en == EnumAvailabilityDialog.Before)
-			return true;
-		return false;
-	}
+		else return !hasRead && en == EnumAvailabilityDialog.Before;
+    }
 	
 	public boolean questAvailable(int id, EnumAvailabilityQuest en, PlayerEntity player){
 		if(en == EnumAvailabilityQuest.Always)
@@ -319,11 +310,8 @@ public class Availability implements ICompatibilty, IAvailability {
 		else if(en == EnumAvailabilityQuest.Completed && PlayerQuestController.isQuestCompleted(player, id)) {
 			return true;
 		}
-		else if(en == EnumAvailabilityQuest.CanStart && PlayerQuestController.canQuestBeAccepted(player, id)) {
-			return true;
-		}
-		return false;
-	}
+		else return en == EnumAvailabilityQuest.CanStart && PlayerQuestController.canQuestBeAccepted(player, id);
+    }
 	
 	@Override
 	public int getVersion() {
@@ -566,12 +554,8 @@ public class Availability implements ICompatibilty, IAvailability {
 			return true;
 		}
 
-		if(!scoreboardObjective.isEmpty() || !scoreboard2Objective.isEmpty()) {
-			return true;
-		}
-
-		return false;
-	}
+        return !scoreboardObjective.isEmpty() || !scoreboard2Objective.isEmpty();
+    }
 
 	public boolean hasOptions() {
 		return hasOptions;

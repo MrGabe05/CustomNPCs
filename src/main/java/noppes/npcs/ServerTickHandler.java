@@ -87,7 +87,7 @@ public class ServerTickHandler {
 			for(SceneContainer entry : DataScenes.ScenesToRun){
 				entry.update();
 			}
-			DataScenes.ScenesToRun = new ArrayList<SceneContainer>();
+			DataScenes.ScenesToRun = new ArrayList<>();
 			
 		}
 	}

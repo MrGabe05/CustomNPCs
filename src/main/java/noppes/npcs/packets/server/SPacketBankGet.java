@@ -12,7 +12,7 @@ import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketBankGet extends PacketServerBasic {
 
-    private int bank;
+    private final int bank;
 
     public SPacketBankGet(int bank) {
         this.bank = bank;

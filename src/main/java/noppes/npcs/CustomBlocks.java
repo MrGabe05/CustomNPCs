@@ -1,25 +1,17 @@
 package noppes.npcs;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
-import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Util;
 import net.minecraft.util.datafix.TypeReferences;
-import net.minecraft.util.registry.Registry;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.network.IContainerFactory;
 import net.minecraftforge.registries.ObjectHolder;
 import noppes.npcs.blocks.*;
 import noppes.npcs.blocks.tiles.*;
-import noppes.npcs.containers.ContainerCarpentryBench;
 import noppes.npcs.items.ItemNpcBlock;
 import noppes.npcs.items.ItemScriptedDoor;
 

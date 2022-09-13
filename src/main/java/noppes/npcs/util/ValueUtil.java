@@ -1,16 +1,9 @@
 package noppes.npcs.util;
 
 import com.google.gson.*;
-import com.mojang.realmsclient.util.JsonUtils;
 import net.minecraft.nbt.*;
-import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
-import org.h2.util.json.JSONObject;
-import org.h2.util.json.JSONValue;
-import org.h2.value.ValueJson;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -23,17 +16,13 @@ public class ValueUtil {
 	public static float correctFloat(float given, float min, float max){
 		if(given < min)
 			return min;
-		if(given > max)
-			return max;
-		return given;
+		return Math.min(given, max);
 	}
 
 	public static int CorrectInt(int given, int min, int max) {
 		if(given < min)
 			return min;
-		if(given > max)
-			return max;
-		return given;
+		return Math.min(given, max);
 	}
 
 	public static String nbtToJson(CompoundNBT nbt){

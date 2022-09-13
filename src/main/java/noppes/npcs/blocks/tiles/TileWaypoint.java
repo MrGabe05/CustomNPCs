@@ -22,7 +22,7 @@ public class TileWaypoint extends TileNpcEntity implements ITickableTileEntity{
 	public String name = "";
 
 	private int ticks = 10;
-	private List<PlayerEntity> recentlyChecked = new ArrayList<PlayerEntity>();
+	private final List<PlayerEntity> recentlyChecked = new ArrayList<PlayerEntity>();
 	private List<PlayerEntity> toCheck;
 	public int range = 10;
 

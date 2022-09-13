@@ -7,7 +7,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class EntityAIMovingPath extends Goal{
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
     private int[] pos;
     private int retries = 0;
 

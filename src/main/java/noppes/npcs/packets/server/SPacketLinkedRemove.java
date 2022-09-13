@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class SPacketLinkedRemove extends PacketServerBasic {
 
-    private String name;
+    private final String name;
 
     public SPacketLinkedRemove(String name) {
         this.name = name;

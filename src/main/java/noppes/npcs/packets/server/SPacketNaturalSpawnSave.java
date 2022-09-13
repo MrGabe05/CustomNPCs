@@ -10,7 +10,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNaturalSpawnSave extends PacketServerBasic
 {
-    private CompoundNBT data;
+    private final CompoundNBT data;
     public SPacketNaturalSpawnSave(CompoundNBT data) {
         this.data = data;
     }

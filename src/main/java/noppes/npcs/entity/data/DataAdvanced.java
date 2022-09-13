@@ -39,7 +39,7 @@ public class DataAdvanced implements INPCAdvanced{
     private String deathSound = "minecraft:entity.player.hurt";
     private String stepSound = "";
 
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
     public FactionOptions factions = new FactionOptions();
 
     public boolean attackOtherFactions = false;

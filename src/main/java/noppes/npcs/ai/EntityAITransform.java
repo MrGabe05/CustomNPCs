@@ -8,7 +8,7 @@ import java.util.EnumSet;
 
 public class EntityAITransform extends Goal {
 
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	public EntityAITransform(EntityNPCInterface npc){
 		this.npc = npc;
 		setFlags(EnumSet.of(Goal.Flag.MOVE));
@@ -19,7 +19,7 @@ public class EntityAITransform extends Goal {
 		if(npc.isKilled() || npc.isAttacking() || npc.transform.editingModus)
 			return false;
 
-		return npc.level.isDay()?npc.transform.isActive:!npc.transform.isActive;
+		return npc.level.isDay() == npc.transform.isActive;
 	}
 
 	@Override

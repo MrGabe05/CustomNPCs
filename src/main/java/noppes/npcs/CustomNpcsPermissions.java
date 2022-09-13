@@ -6,9 +6,7 @@ import net.minecraftforge.server.permission.PermissionAPI;
 import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
 
 public class CustomNpcsPermissions{
 	public static final Permission NPC_DELETE = new Permission("customnpcs.npc.delete");
@@ -54,7 +52,7 @@ public class CustomNpcsPermissions{
 		Instance = this;
 		if(!CustomNpcs.DisablePermissions){
 			LogManager.getLogger(CustomNpcs.class).info("CustomNPC Permissions available:");
-            Collections.sort(Permission.permissions, (o1, o2) -> o1.name.compareToIgnoreCase(o2.name));
+            Permission.permissions.sort((o1, o2) -> o1.name.compareToIgnoreCase(o2.name));
 			for(Permission p : Permission.permissions){
 				PermissionAPI.registerNode(p.name, p.defaultValue?DefaultPermissionLevel.ALL:DefaultPermissionLevel.OP, p.name);
 				LogManager.getLogger(CustomNpcs.class).info(p.name);
@@ -82,7 +80,7 @@ public class CustomNpcsPermissions{
 	}
 	
 	public static class Permission{
-		private static final List<Permission> permissions = new ArrayList<Permission>();
+		private static final List<Permission> permissions = new ArrayList<>();
 		public String name;
 		public boolean defaultValue = true;
 		public Permission(String name){

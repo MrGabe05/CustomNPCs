@@ -25,7 +25,7 @@ public class PlayerScriptData implements IScriptHandler{
 	private List<ScriptContainer> scripts = new ArrayList<ScriptContainer>();
 	
 	private String scriptLanguage = "ECMAScript";
-	private PlayerEntity player;
+	private final PlayerEntity player;
 	private IPlayer playerAPI;
 	private long lastPlayerUpdate = 0;
 	

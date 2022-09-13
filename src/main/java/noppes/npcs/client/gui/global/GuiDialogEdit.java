@@ -18,7 +18,7 @@ import noppes.npcs.shared.client.gui.components.*;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class GuiDialogEdit extends GuiBasic implements ITextfieldListener {
-	private Dialog dialog;
+	private final Dialog dialog;
 	
     public GuiDialogEdit(Dialog dialog){
     	this.dialog = dialog;
@@ -83,7 +83,7 @@ public class GuiDialogEdit extends GuiBasic implements ITextfieldListener {
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
 		int id = guibutton.id;
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
         if(id == 3){
         	setSubGui(new GuiTextAreaScreen(dialog.text));
         }

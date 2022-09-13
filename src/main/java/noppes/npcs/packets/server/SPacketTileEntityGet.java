@@ -13,7 +13,7 @@ import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketTileEntityGet extends PacketServerBasic {
 
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public SPacketTileEntityGet(BlockPos pos) {
         this.pos = pos;

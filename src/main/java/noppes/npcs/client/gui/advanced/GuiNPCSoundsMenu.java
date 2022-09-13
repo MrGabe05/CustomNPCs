@@ -52,7 +52,7 @@ public class GuiNPCSoundsMenu extends GuiNPCInterface2 implements ITextfieldList
 	@Override
     public void buttonEvent(GuiButtonNop button){
 		if(button.id == 6)
-			npc.advanced.disablePitch =((GuiButtonNop)button).getValue() == 0;
+			npc.advanced.disablePitch = button.getValue() == 0;
 		else{
 	    	selectedField = getTextField(button.id);
 	    	setSubGui(new GuiSoundSelection(selectedField.getValue()));

@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 
 public class GuiRoleDialog extends GuiNPCInterface2  {
-	private RoleDialog role;
+	private final RoleDialog role;
 	
 	private int slot = 0;
 

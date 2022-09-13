@@ -30,7 +30,7 @@ public class Line implements ILine {
 			return line;
 		Line line2 = line.copy();
 		if(entity instanceof PlayerEntity)
-			line2.text = line2.text.replace("@target", ((PlayerEntity) entity).getDisplayName().getString());
+			line2.text = line2.text.replace("@target", entity.getDisplayName().getString());
 		else
 			line2.text = line2.text.replace("@target", entity.getName().getString());
 		return line;

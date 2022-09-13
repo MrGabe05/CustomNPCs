@@ -14,7 +14,7 @@ import noppes.npcs.roles.RoleCompanion;
 import noppes.npcs.roles.companion.CompanionGuard;
 
 public class NPCAttackSelector implements Predicate<LivingEntity>{
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	public NPCAttackSelector(EntityNPCInterface npc){
 		this.npc = npc;
@@ -52,11 +52,8 @@ public class NPCAttackSelector implements Predicate<LivingEntity>{
     	}
     	if(entity instanceof ServerPlayerEntity){
     		ServerPlayerEntity player = (ServerPlayerEntity) entity;
-    		if(!npc.faction.isAggressiveToPlayer(player) || player.abilities.invulnerable)
-    			return false;
-			
-			return true;
-    	}
+			return npc.faction.isAggressiveToPlayer(player) && !player.abilities.invulnerable;
+		}
 
     	if(entity instanceof EntityNPCInterface){
     		if(((EntityNPCInterface)entity).isKilled())

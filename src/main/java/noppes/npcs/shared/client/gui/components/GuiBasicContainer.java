@@ -165,8 +165,6 @@ public class GuiBasicContainer<T extends Container> extends ContainerScreen<T> i
     public void buttonEvent(Button guibutton) {
     }
 
-    ;
-
     public void close() {
         save();
         player.closeContainer();
@@ -286,26 +284,26 @@ public class GuiBasicContainer<T extends Container> extends ContainerScreen<T> i
         this.mouseX = mouseX;
         this.mouseY = mouseX;
 
-        Container container = this.menu;
+        T container = this.menu;
         if (wrapper.subgui != null) {
             this.menu = (T) new ContainerEmpty();
         }
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         drawCenteredString(matrixStack, getFontRenderer(), I18n.get(title), width / 2, guiTop - 8, 0xffffff);
-        for (GuiLabel label : new ArrayList<GuiLabel>(wrapper.labels.values()))
+        for (GuiLabel label : new ArrayList<>(wrapper.labels.values()))
             label.render(matrixStack, mouseX, mouseY, partialTicks);
-        for (GuiTextFieldNop tf : new ArrayList<GuiTextFieldNop>(wrapper.textfields.values()))
+        for (GuiTextFieldNop tf : new ArrayList<>(wrapper.textfields.values()))
             tf.renderButton(matrixStack, mouseX, mouseY, partialTicks);
-        for (GuiCustomScroll scroll : new ArrayList<GuiCustomScroll>(wrapper.scrolls.values()))
+        for (GuiCustomScroll scroll : new ArrayList<>(wrapper.scrolls.values()))
             scroll.render(matrixStack, mouseX, mouseY, partialTicks);
-        for (IGui comp : new ArrayList<IGui>(wrapper.components)) {
+        for (IGui comp : new ArrayList<>(wrapper.components)) {
             comp.render(matrixStack, mouseX, mouseY);
-            for (Screen gui : new ArrayList<Screen>(wrapper.extra.values()))
+            for (Screen gui : new ArrayList<>(wrapper.extra.values()))
                 gui.render(matrixStack, mouseX, mouseY, partialTicks);
         }
         this.setBlitOffset(0);
         if (wrapper.subgui != null) {
-            this.menu = (T) container;
+            this.menu = container;
             //RenderHelper.disableStandardItemLighting();
             wrapper.subgui.render(matrixStack, mouseX, mouseY, partialTicks);
         } else {

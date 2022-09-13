@@ -19,11 +19,11 @@ import noppes.npcs.shared.client.gui.listeners.IGuiInterface;
 
 public class GuiNpcMenu{
 	
-	private IGuiInterface parent;
+	private final IGuiInterface parent;
 	private GuiMenuTopButton[] topButtons = new GuiMenuTopButton[0];
 
 	private int activeMenu;
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 
 	public GuiNpcMenu(IGuiInterface parent, int activeMenu, EntityNPCInterface npc) {
 		this.parent = parent;

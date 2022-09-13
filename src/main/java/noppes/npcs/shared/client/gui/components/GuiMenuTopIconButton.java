@@ -10,6 +10,7 @@ import net.minecraftforge.fml.client.gui.GuiUtils;
 import noppes.npcs.shared.client.gui.listeners.IGuiInterface;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class GuiMenuTopIconButton extends GuiMenuTopButton{
     private static final ResourceLocation resource = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
@@ -42,7 +43,7 @@ public class GuiMenuTopIconButton extends GuiMenuTopButton{
         hover = mouseX >= x && mouseY >= y && mouseX < x + getWidth() && mouseY < y + height;
         Minecraft mc = Minecraft.getInstance();
         if(hover){
-            GuiUtils.drawHoveringText(matrixStack, Arrays.asList(getMessage()), mouseX, mouseY, gui.getWidth(), gui.getHeight(), -1, Minecraft.getInstance().font);
+            GuiUtils.drawHoveringText(matrixStack, Collections.singletonList(getMessage()), mouseX, mouseY, gui.getWidth(), gui.getHeight(), -1, Minecraft.getInstance().font);
         }
         mc.getTextureManager().bind(resource);
         matrixStack.pushPose();

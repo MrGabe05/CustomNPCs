@@ -11,8 +11,8 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketSchematicsTileSave extends PacketServerBasic {
 
-    private BlockPos pos;
-    private CompoundNBT data;
+    private final BlockPos pos;
+    private final CompoundNBT data;
 
     public SPacketSchematicsTileSave(BlockPos pos, CompoundNBT data) {
         this.pos = pos;

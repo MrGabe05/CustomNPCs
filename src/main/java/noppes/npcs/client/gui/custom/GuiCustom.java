@@ -204,7 +204,7 @@ public class GuiCustom extends ContainerScreen<ContainerCustomGui> implements IC
 	public void setGuiData(CompoundNBT compound) {
 		Minecraft mc = Minecraft.getInstance();
 		CustomGuiWrapper gui = (CustomGuiWrapper) new CustomGuiWrapper().fromNBT(compound);
-		((ContainerCustomGui)menu).setGui(gui, mc.player);
+		menu.setGui(gui, mc.player);
         this.gui = gui;
         imageWidth = gui.getWidth();
         imageHeight = gui.getHeight();

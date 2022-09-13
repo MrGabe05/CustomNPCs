@@ -28,7 +28,7 @@ public class MarkData implements ICapabilityProvider{
 	private static final ResourceLocation CAPKEY = new ResourceLocation("customnpcs", "markdata");
 	private LivingEntity entity;
 
-	private LazyOptional<MarkData> instance = LazyOptional.of(() -> this);
+	private final LazyOptional<MarkData> instance = LazyOptional.of(() -> this);
 	public List<Mark> marks = new ArrayList<Mark>();
 
 	public void setNBT(CompoundNBT compound){
@@ -93,7 +93,7 @@ public class MarkData implements ICapabilityProvider{
 		return m;
 	}
 
-	private static MarkData backup = new MarkData();
+	private static final MarkData backup = new MarkData();
 	public static MarkData get(LivingEntity entity) {
 		MarkData data = entity.getCapability(MARKDATA_CAPABILITY, null).orElse(backup);
 		if(data.entity == null){

@@ -9,7 +9,7 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcFactionPoints extends GuiBasic implements ITextfieldListener {
-	private Faction faction;
+	private final Faction faction;
     public SubGuiNpcFactionPoints(Faction faction){
     	this.faction = faction;
 		setBackground("menubg.png");

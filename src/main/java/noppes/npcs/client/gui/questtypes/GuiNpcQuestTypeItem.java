@@ -20,7 +20,7 @@ import noppes.npcs.quests.QuestItem;
 
 public class GuiNpcQuestTypeItem extends GuiContainerNPCInterface<ContainerNpcQuestTypeItem> implements ITextfieldListener
 {
-	private Quest quest;
+	private final Quest quest;
 	private static final ResourceLocation field_110422_t = new ResourceLocation("customnpcs","textures/gui/followersetup.png");
 
     public GuiNpcQuestTypeItem(ContainerNpcQuestTypeItem container, PlayerInventory inv, ITextComponent titleIn) {
@@ -49,7 +49,7 @@ public class GuiNpcQuestTypeItem extends GuiContainerNPCInterface<ContainerNpcQu
     @Override
     public void buttonEvent(GuiButtonNop guibutton){
         if(guibutton.id == 0){
-        	((QuestItem)quest.questInterface).leaveItems = ((GuiButtonNop)guibutton).getValue() == 1;
+        	((QuestItem)quest.questInterface).leaveItems = guibutton.getValue() == 1;
         }
         if(guibutton.id == 1){
         	((QuestItem)quest.questInterface).ignoreDamage = ((GuiButtonYesNo)guibutton).getBoolean();

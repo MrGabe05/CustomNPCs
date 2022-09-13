@@ -11,7 +11,7 @@ import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScriptItem extends GuiScriptInterface {
 	
-	private ItemScriptedWrapper item;
+	private final ItemScriptedWrapper item;
 		
 	public GuiScriptItem(PlayerEntity player) {
 		handler = item = new ItemScriptedWrapper(new ItemStack(CustomItems.scripted_item));

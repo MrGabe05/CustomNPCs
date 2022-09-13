@@ -1,8 +1,5 @@
 package noppes.npcs.schematics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
@@ -11,20 +8,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EmptyBlockReader;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 /**
  * @author JTK222 
  */
 public class Blueprint implements ISchematic {
 
-	private List<String> requiredMods;
-	private short sizeX, sizeY, sizeZ;
-	private short palleteSize;
-	private BlockState[] pallete;
+	private final List<String> requiredMods;
+	private final short sizeX;
+	private final short sizeY;
+	private final short sizeZ;
+	private final short palleteSize;
+	private final BlockState[] pallete;
 	private String name;
 	private String[] architects;
 	
-	private short[][][] structure;
-	private CompoundNBT[] tileEntities;
+	private final short[][][] structure;
+	private final CompoundNBT[] tileEntities;
 	
 	public Blueprint(short sizeX, short sizeY, short sizeZ, short palleteSize, BlockState[] pallete, short[][][] structure, CompoundNBT[] tileEntities, List<String> requiredMods){
 		this.sizeX = sizeX;
@@ -157,9 +158,9 @@ public class Blueprint implements ISchematic {
 
 	@Override
 	public BlockState getBlockState(int i) {
-		int x = (int) (i % getWidth());
-		int z = (int)((i - x)/getWidth()) % getLength();
-		int y = (int)(((i - x)/getWidth()) - z) / getLength();
+		int x = i % getWidth();
+		int z = ((i - x)/getWidth()) % getLength();
+		int y = (((i - x)/getWidth()) - z) / getLength();
 		return getBlockState(x, y, z);
 	}
 

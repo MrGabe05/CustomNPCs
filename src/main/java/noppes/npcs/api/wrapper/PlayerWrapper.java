@@ -77,7 +77,7 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
 			INBT base = compound.get(key);
 			if(base instanceof NumberNBT)
 				return ((NumberNBT)base).getAsDouble();
-			return ((StringNBT)base).getAsString();
+			return base.getAsString();
 		}
 
 		@Override
@@ -184,9 +184,9 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
         QuestData questdata = new QuestData(quest);      
         PlayerData data = getData();
         data.questData.activeQuests.put(id, questdata);
-		Packets.send((ServerPlayerEntity)entity, new PacketAchievement(new TranslationTextComponent("quest.newquest"), new TranslationTextComponent(quest.title), 2));
+		Packets.send(entity, new PacketAchievement(new TranslationTextComponent("quest.newquest"), new TranslationTextComponent(quest.title), 2));
 		ITextComponent text = new TranslationTextComponent("quest.newquest").append(":").append(new TranslationTextComponent(quest.title));
-		Packets.send((ServerPlayerEntity)entity, new PacketChat(text));
+		Packets.send(entity, new PacketChat(text));
 		
 		data.updateClient = true;
 	}
@@ -196,7 +196,7 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
 		if(type < 0 || type > 3) {
 			throw new CustomNPCsException("Wrong type value given " + type);
 		}
-		Packets.send((ServerPlayerEntity)entity, new PacketAchievement(new TranslationTextComponent(title), new TranslationTextComponent(msg), type));
+		Packets.send(entity, new PacketAchievement(new TranslationTextComponent(title), new TranslationTextComponent(msg), type));
 	}
 
 	@Override
@@ -358,7 +358,7 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
 
 	@Override
 	public boolean removeItem(String id, int amount){
-		Item item = (Item)ForgeRegistries.ITEMS.getValue(new ResourceLocation(id));
+		Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(id));
 		if(item == null)
 			throw new CustomNPCsException("Unknown item id: " + id);		
 		return removeItem(NpcAPI.Instance().getIItemStack(new ItemStack(item, 1)), amount);
@@ -471,7 +471,7 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.PLAYER?true:super.typeOf(type);
+		return type == EntitiesType.PLAYER || super.typeOf(type);
 	}
 
 	@Override
@@ -559,11 +559,11 @@ public class PlayerWrapper<T extends ServerPlayerEntity> extends EntityLivingBas
 
 	@Override
 	public void showCustomGui(ICustomGui gui) {
-		NoppesUtilServer.openContainerGui((ServerPlayerEntity)this.getMCEntity(), EnumGuiType.CustomGui, (buf) -> {
+		NoppesUtilServer.openContainerGui(this.getMCEntity(), EnumGuiType.CustomGui, (buf) -> {
 			buf.writeInt(gui.getSlots().size());
 		});
-		((ContainerCustomGui)((ServerPlayerEntity)this.getMCEntity()).containerMenu).setGui((CustomGuiWrapper)gui, entity);
-		Packets.sendDelayed((ServerPlayerEntity)this.getMCEntity(), new PacketGuiData(((CustomGuiWrapper)gui).toNBT()), 100);
+		((ContainerCustomGui) this.getMCEntity().containerMenu).setGui((CustomGuiWrapper)gui, entity);
+		Packets.sendDelayed(this.getMCEntity(), new PacketGuiData(((CustomGuiWrapper)gui).toNBT()), 100);
 	}
 
 	@Override

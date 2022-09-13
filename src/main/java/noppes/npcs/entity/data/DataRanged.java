@@ -12,7 +12,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.util.ValueUtil;
 
 public class DataRanged implements INPCRanged{
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	private int burstCount = 1;
 	private int pDamage = 4;

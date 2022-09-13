@@ -4,11 +4,11 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 
 public interface IGui {
 
-	public int getID();
+	int getID();
 	
-	public void render(MatrixStack matrixStack, int xMouse, int yMouse);
+	void render(MatrixStack matrixStack, int xMouse, int yMouse);
 
-	public void tick();
+	void tick();
 	
-	public boolean isActive();
+	boolean isActive();
 }

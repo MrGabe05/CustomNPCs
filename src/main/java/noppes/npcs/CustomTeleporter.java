@@ -13,9 +13,9 @@ import java.util.function.Function;
 
 public class CustomTeleporter extends Teleporter{
 
-	private float yRot;
-	private float xRot;
-	private Vector3d pos;
+	private final float yRot;
+	private final float xRot;
+	private final Vector3d pos;
 
 	public CustomTeleporter(ServerWorld par1ServerWorld, Vector3d pos, float yRot, float xRot) {
 		super(par1ServerWorld);

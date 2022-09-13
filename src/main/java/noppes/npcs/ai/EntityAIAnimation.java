@@ -6,13 +6,13 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class EntityAIAnimation extends Goal
 {
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
 
     private boolean isAttacking = false;
     private boolean removed = false;
     private boolean isAtStartpoint = false;
     private boolean hasPath = false;
-    private int tick = 4;
+    private final int tick = 4;
     
     public int temp = AnimationType.NORMAL;
 

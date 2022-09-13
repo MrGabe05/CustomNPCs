@@ -12,7 +12,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 public class JobFollower extends JobInterface implements IJobFollower{
 	public EntityNPCInterface following = null;
 	private int ticks = 40;
-	private int range = 20;
+	private final int range = 20;
 	public String name = "";
 
 	public JobFollower(EntityNPCInterface npc) {

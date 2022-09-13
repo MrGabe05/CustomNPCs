@@ -14,7 +14,7 @@ import noppes.npcs.packets.server.SPacketMenuSave;
 import noppes.npcs.packets.server.SPacketNpcTransform;
 
 public class GuiNPCNightSetup extends GuiNPCInterface2 implements IGuiData {
-	private DataTransform data;
+	private final DataTransform data;
 	
     public GuiNPCNightSetup(EntityNPCInterface npc) {
     	super(npc);
@@ -58,7 +58,7 @@ public class GuiNPCNightSetup extends GuiNPCInterface2 implements IGuiData {
 
     @Override
     public void buttonEvent(GuiButtonNop guibutton) {
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(button.id == 0)
         	data.hasDisplay = button.getValue() == 1;
         if(button.id == 1)

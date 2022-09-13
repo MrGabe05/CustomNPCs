@@ -40,10 +40,11 @@ public abstract class JobInterface implements INPCJob{
 	}
 	public abstract CompoundNBT save(CompoundNBT compound);
 	public abstract void load(CompoundNBT compound);
-	public void killed(){};
-	public void delete(){};
-	
-	public boolean aiShouldExecute() {
+	public void killed(){}
+
+    public void delete(){}
+
+    public boolean aiShouldExecute() {
 		return false;
 	}
 	

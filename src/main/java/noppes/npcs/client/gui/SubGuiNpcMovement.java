@@ -11,7 +11,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcMovement extends GuiBasic implements ITextfieldListener
 {
-	private DataAI ai;
+	private final DataAI ai;
 	
     public SubGuiNpcMovement(DataAI ai){
     	this.ai = ai;
@@ -101,7 +101,7 @@ public class SubGuiNpcMovement extends GuiBasic implements ITextfieldListener
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 		if(button.id == 0){
 			ai.setMovingType(button.getValue());
 			if(ai.getMovingType() != 0){

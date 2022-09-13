@@ -52,12 +52,8 @@ public class BankController {
 		File file = CustomNpcs.getWorldSaveDirectory();
 		if(file == null)
 			return false;
-		if(!instance.filePath.equals(file.getAbsolutePath())){
-			return true;
-		}
-		
-		return false;
-	}
+        return !instance.filePath.equals(file.getAbsolutePath());
+    }
 	
 	private void loadBanks(){
 		File saveDir = CustomNpcs.getWorldSaveDirectory();

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class EntityAIWander extends Goal
 {
-    private EntityNPCInterface entity;
+    private final EntityNPCInterface entity;
     public final NPCInteractSelector selector;
     private double x;
     private double y;

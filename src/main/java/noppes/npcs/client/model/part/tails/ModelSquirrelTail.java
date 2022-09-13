@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelSquirrelTail extends ModelRenderer {
 
-	private BipedModel base;
+	private final BipedModel base;
 
 	public ModelSquirrelTail(BipedModel base) {
 		super(base.texWidth, base.texHeight, 0, 0);

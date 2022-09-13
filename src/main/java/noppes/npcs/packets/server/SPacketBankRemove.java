@@ -8,7 +8,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketBankRemove extends PacketServerBasic {
 
-    private int bank;
+    private final int bank;
 
     public SPacketBankRemove(int bank) {
         this.bank = bank;

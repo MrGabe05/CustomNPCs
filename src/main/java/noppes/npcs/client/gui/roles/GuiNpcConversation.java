@@ -17,7 +17,7 @@ import noppes.npcs.roles.JobConversation;
 import noppes.npcs.roles.JobConversation.ConversationLine;
 
 public class GuiNpcConversation extends GuiNPCInterface2 implements ITextfieldListener, GuiSelectionListener {
-	private JobConversation job;
+	private final JobConversation job;
 	
 	private int slot = -1;
 	
@@ -74,7 +74,7 @@ public class GuiNpcConversation extends GuiNPCInterface2 implements ITextfieldLi
 
 	@Override
     public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
     	if(button.id >= 0 && button.id < 14){
     		slot = button.id;
     		ConversationLine line = job.getLine(slot);

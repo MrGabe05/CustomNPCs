@@ -100,7 +100,7 @@ public class GuiNPCManageFactions extends GuiNPCInterface2 implements IScrollDat
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
         if(button.id == 0){
         	save();
         	String name = I18n.get("gui.new");

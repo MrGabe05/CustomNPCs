@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubGuiNpcProjectiles extends GuiBasic implements ITextfieldListener {
-	private DataRanged stats;
+	private final DataRanged stats;
 	private final static String[] potionNames;
-	private String[] trailNames = new String[]{"gui.none", "Smoke", "Portal", "Redstone", "Lightning", "LargeSmoke", "Magic", "Enchant"};
+	private final String[] trailNames = new String[]{"gui.none", "Smoke", "Portal", "Redstone", "Lightning", "LargeSmoke", "Magic", "Enchant"};
 
 	static {
 		List<String> list = new ArrayList<String>();
@@ -108,7 +108,7 @@ public class SubGuiNpcProjectiles extends GuiBasic implements ITextfieldListener
     
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if(button.id == 0){
 			stats.setHasGravity(button.getValue() == 1);
 			init();

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataTimers implements ITimers{
-	private Object parent;
+	private final Object parent;
 	private Map<Integer, Timer> timers = new HashMap<Integer, Timer>();
 	
 	public DataTimers(Object parent){
@@ -86,8 +86,8 @@ public class DataTimers implements ITimers{
 	
 	class Timer{
 		public int id;
-		private boolean repeat;
-		private int timerTicks;
+		private final boolean repeat;
+		private final int timerTicks;
 		
 		private int ticks = 0;
 		

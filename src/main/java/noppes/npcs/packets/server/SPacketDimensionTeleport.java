@@ -20,7 +20,7 @@ import noppes.npcs.CustomTeleporter;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketDimensionTeleport extends PacketServerBasic {
-    private ResourceLocation id;
+    private final ResourceLocation id;
 
     public SPacketDimensionTeleport(ResourceLocation id) {
         this.id = id;

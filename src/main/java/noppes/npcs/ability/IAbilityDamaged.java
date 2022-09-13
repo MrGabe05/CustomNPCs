@@ -3,5 +3,5 @@ package noppes.npcs.ability;
 import noppes.npcs.api.event.NpcEvent;
 
 public interface IAbilityDamaged extends IAbility {
-	public void handleEvent(NpcEvent.DamagedEvent event);
+	void handleEvent(NpcEvent.DamagedEvent event);
 }

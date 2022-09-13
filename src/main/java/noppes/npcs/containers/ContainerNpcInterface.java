@@ -10,7 +10,8 @@ import noppes.npcs.api.IContainer;
 import noppes.npcs.api.wrapper.ContainerWrapper;
 
 public class ContainerNpcInterface extends Container{
-	private int posX, posZ;
+	private final int posX;
+    private final int posZ;
 	public PlayerEntity player;
 	public IContainer scriptContainer;
 

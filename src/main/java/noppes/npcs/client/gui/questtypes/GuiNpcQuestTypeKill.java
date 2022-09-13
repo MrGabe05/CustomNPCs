@@ -19,10 +19,10 @@ import java.util.TreeMap;
 
 public class GuiNpcQuestTypeKill extends GuiNPCInterface implements ITextfieldListener, ICustomScrollListener
 {
-	private Screen parent;
+	private final Screen parent;
 	private GuiCustomScroll scroll;
 	
-	private QuestKill quest;
+	private final QuestKill quest;
 
 	private GuiTextFieldNop lastActive;
 

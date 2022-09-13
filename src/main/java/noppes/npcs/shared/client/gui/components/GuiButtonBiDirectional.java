@@ -1,7 +1,6 @@
 package noppes.npcs.shared.client.gui.components;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -10,8 +9,6 @@ import noppes.npcs.shared.client.gui.listeners.IGuiInterface;
 
 public class GuiButtonBiDirectional extends GuiButtonNop {
 	public static final ResourceLocation resource = new ResourceLocation(CustomNpcs.MODID, "textures/gui/arrowbuttons.png");
-	
-	private int color = 0xffffff;
 
     public GuiButtonBiDirectional(IGuiInterface gui, int id, int x, int y, int width, int height, String[] arr, int current) {
         super(gui, id, x, y, width, height, arr, current);
@@ -39,8 +36,8 @@ public class GuiButtonBiDirectional extends GuiButtonNop {
 
         this.blit(matrixStack, this.x, this.y, 0, hoverL?40:20, 11, 20);
         this.blit(matrixStack, this.x + width - 11, this.y, 11, hover && !hoverL || hoverR?40:20, 11, 20);
-        
-        int l = color;
+
+        int l = 0xffffff;
         if (packedFGColor != 0){
             l = packedFGColor;
         }
@@ -67,7 +64,7 @@ public class GuiButtonBiDirectional extends GuiButtonNop {
         if(hover)
         	text = (char)167 + "n" + text;
         
-        this.drawCenteredString(matrixStack, mc.font, text, this.x + this.width / 2, this.y + (this.height - 8) / 2, l);
+        drawCenteredString(matrixStack, mc.font, text, this.x + this.width / 2, this.y + (this.height - 8) / 2, l);
     }
     
     @Override

@@ -26,7 +26,7 @@ import java.util.zip.ZipFile;
 
 public class AssetsFinder {
 
-    private static List<ResourceLocation> list = new ArrayList<>();
+    private static final List<ResourceLocation> list = new ArrayList<>();
     private static String root;
     private static String type;
 
@@ -63,7 +63,7 @@ public class AssetsFinder {
         }
         try {
             url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
-        } catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException ignored) {
         }
         return new File(url);
     }
@@ -88,7 +88,7 @@ public class AssetsFinder {
                         progressFile(file);
                     }
                 }
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
         }
     }

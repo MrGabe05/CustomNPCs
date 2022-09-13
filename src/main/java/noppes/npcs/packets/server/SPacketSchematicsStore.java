@@ -11,8 +11,8 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketSchematicsStore extends PacketServerBasic {
 
-    private String name;
-    private CompoundNBT data;
+    private final String name;
+    private final CompoundNBT data;
 
     public SPacketSchematicsStore(String name, CompoundNBT data) {
         this.name = name;

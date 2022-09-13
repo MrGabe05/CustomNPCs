@@ -8,8 +8,8 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketNpRandomNameSet extends PacketServerBasic {
-    private int id;
-    private int gender;
+    private final int id;
+    private final int gender;
 
     public SPacketNpRandomNameSet(int id, int gender) {
         this.id = id;

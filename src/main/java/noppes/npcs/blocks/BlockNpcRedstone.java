@@ -89,7 +89,7 @@ public class BlockNpcRedstone extends BlockInterface{
     }
     
 	public int isActivated(BlockState state){
-		return (Boolean)state.getValue(ACTIVE)?15 : 0;
+		return state.getValue(ACTIVE) ?15 : 0;
 	}
 
 	@Override

@@ -7,9 +7,9 @@ import noppes.npcs.packets.server.SPacketScriptGet;
 import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScriptPlayers extends GuiScriptInterface{	
-	private PlayerScriptData script = new PlayerScriptData(null);;
-		
-	public GuiScriptPlayers() {
+	private final PlayerScriptData script = new PlayerScriptData(null);
+
+    public GuiScriptPlayers() {
 		handler = script;
 		Packets.sendServer(new SPacketScriptGet(4));
 	}

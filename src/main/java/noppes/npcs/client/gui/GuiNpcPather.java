@@ -20,8 +20,8 @@ import java.util.List;
 public class GuiNpcPather extends GuiNPCInterface implements IGuiData{
     
     private GuiCustomScroll scroll;
-    private HashMap<String, Integer> data = new HashMap<String, Integer>();
-    private DataAI ai;
+    private final HashMap<String, Integer> data = new HashMap<String, Integer>();
+    private final DataAI ai;
     
 	public GuiNpcPather(EntityNPCInterface npc) {
 		super();

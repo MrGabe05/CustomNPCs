@@ -20,6 +20,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ScriptController{
 	
 	public static ScriptController Instance;
 	public static boolean HasStart = false;
-	private ScriptEngineManager manager;
+	private final ScriptEngineManager manager;
 	public Map<String, String> languages = new HashMap<String, String>();
 	public Map<String, ScriptEngineFactory> factories = new HashMap<String, ScriptEngineFactory>();
 	public Map<String, String> scripts = new HashMap<String, String>();
@@ -243,7 +244,7 @@ public class ScriptController{
 	}
 	
 	private String readFile(File file) throws IOException {
-	    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
+	    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
 	    try {
 	        StringBuilder sb = new StringBuilder();
 	        String line = br.readLine();

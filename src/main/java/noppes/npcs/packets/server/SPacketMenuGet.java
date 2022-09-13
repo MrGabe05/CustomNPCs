@@ -11,7 +11,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketMenuGet extends PacketServerBasic {
-    private EnumMenuType type;
+    private final EnumMenuType type;
     public SPacketMenuGet(EnumMenuType type) {
         this.type = type;
     }

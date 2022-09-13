@@ -10,7 +10,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketFactionSave extends PacketServerBasic {
-    private CompoundNBT data;
+    private final CompoundNBT data;
     public SPacketFactionSave(CompoundNBT data) {
         this.data = data;
     }

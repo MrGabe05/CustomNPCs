@@ -14,9 +14,9 @@ import noppes.npcs.packets.PacketServerBasic;
 import java.io.File;
 
 public class SPacketPlayerDataRemove extends PacketServerBasic {
-    private EnumPlayerData type;
-    private String name;
-    private int id;
+    private final EnumPlayerData type;
+    private final String name;
+    private final int id;
     public SPacketPlayerDataRemove(EnumPlayerData type, String name, int id) {
         this.type = type;
         this.name = name;

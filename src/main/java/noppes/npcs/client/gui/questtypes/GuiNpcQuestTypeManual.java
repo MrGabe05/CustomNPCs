@@ -14,9 +14,9 @@ import java.util.TreeMap;
 
 public class GuiNpcQuestTypeManual extends GuiNPCInterface implements ITextfieldListener
 {
-	private Screen parent;
+	private final Screen parent;
 	
-	private QuestManual quest;
+	private final QuestManual quest;
 	
 	private GuiTextFieldNop lastSelected;
 

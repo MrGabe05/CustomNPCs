@@ -56,7 +56,7 @@ public class LogWriter {
 						StringWriter sw = new StringWriter();
 						PrintWriter pw = new PrintWriter(sw);
 						record.getThrown().printStackTrace(pw);
-						return time + sw.toString();
+						return time + sw;
 					}
 					return time + record.getMessage() + System.getProperty("line.separator");
 				}
@@ -71,10 +71,7 @@ public class LogWriter {
 			
 			logger.setLevel(Level.ALL);
 			info(new Date().toString());
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (SecurityException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -109,7 +106,7 @@ public class LogWriter {
 	public static void debug(String msg) {
 		if(!CustomNpcs.VerboseDebug)
 			return;
-		logger.log(Level.INFO, msg.toString());
+		logger.log(Level.INFO, msg);
 		handler.flush();
 	}
 }

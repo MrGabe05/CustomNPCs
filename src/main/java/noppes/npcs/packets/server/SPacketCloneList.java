@@ -13,7 +13,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketCloneList extends PacketServerBasic {
-    private int tab;
+    private final int tab;
 
     public SPacketCloneList(int tab) {
         this.tab = tab;

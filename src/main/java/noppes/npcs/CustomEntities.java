@@ -54,7 +54,7 @@ public class CustomEntities {
     @ObjectHolder("customnpcprojectile")
     public static net.minecraft.entity.EntityType<? extends ThrowableEntity> entityProjectile;
 
-    private static List<EntityType> types = new ArrayList<>();
+    private static final List<EntityType> types = new ArrayList<>();
 
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {

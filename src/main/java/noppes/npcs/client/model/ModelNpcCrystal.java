@@ -15,9 +15,9 @@ import net.minecraft.util.math.vector.Vector3f;
 public class ModelNpcCrystal extends EntityModel
 {
     private static final float SIN_45 = (float)Math.sin((Math.PI / 4D));
-    private ModelRenderer field_41057_g;
-    private ModelRenderer field_41058_h;
-    private ModelRenderer field_41059_i;
+    private final ModelRenderer field_41057_g;
+    private final ModelRenderer field_41058_h;
+    private final ModelRenderer field_41059_i;
 
     public ModelNpcCrystal()
     {
@@ -48,7 +48,7 @@ public class ModelNpcCrystal extends EntityModel
         mStack.translate(0.0F, -0.5F, 0.0F);
         field_41059_i.render(mStack, ivertex, lightmapUV, packedOverlayIn, red, green, blue, alpha);
 
-        float f = (float)tickCount + ticks;
+        float f = tickCount + ticks;
         float f1 = MathHelper.sin(f * 0.2F) / 2.0F + 0.5F;
         f1 = f1 * f1 + f1;
         

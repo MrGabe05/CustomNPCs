@@ -47,8 +47,8 @@ public class GuiMailmanWrite extends GuiContainerNPCInterface<ContainerMail> imp
 
     /** Update ticks since the gui was opened */
     private int updateCount;
-    private int bookImageWidth = 192;
-    private int bookImageHeight = 192;
+    private final int bookImageWidth = 192;
+    private final int bookImageHeight = 192;
     private int bookTotalPages = 1;
     private int currPage;
     private ListNBT bookPages;
@@ -64,7 +64,7 @@ public class GuiMailmanWrite extends GuiContainerNPCInterface<ContainerMail> imp
     public static Screen parent;
 	public static PlayerMail mail = new PlayerMail();
     
-    private Minecraft mc = Minecraft.getInstance();
+    private final Minecraft mc = Minecraft.getInstance();
 
 	private String username = "";
 	private GuiLabel error;
@@ -80,7 +80,7 @@ public class GuiMailmanWrite extends GuiContainerNPCInterface<ContainerMail> imp
 
         if (this.bookPages != null)
         {
-            this.bookPages = (ListNBT)this.bookPages.copy();
+            this.bookPages = this.bookPages.copy();
             this.bookTotalPages = this.bookPages.size();
 
             if (this.bookTotalPages < 1)
@@ -242,11 +242,7 @@ public class GuiMailmanWrite extends GuiContainerNPCInterface<ContainerMail> imp
             return true;
         } else {
             boolean flag = this.bookKeyPressed(p_231046_1_, p_231046_2_, p_231046_3_);
-            if (flag) {
-                return true;
-            } else {
-                return false;
-            }
+            return flag;
         }
     }
 
@@ -346,7 +342,7 @@ public class GuiMailmanWrite extends GuiContainerNPCInterface<ContainerMail> imp
         String s1;
         int l;
 
-        s = net.minecraft.client.resources.I18n.get("book.pageIndicator", new Object[] {Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages)});
+        s = net.minecraft.client.resources.I18n.get("book.pageIndicator", Integer.valueOf(this.currPage + 1), Integer.valueOf(this.bookTotalPages));
         s1 = "";
 
         if (this.bookPages != null && this.currPage >= 0 && this.currPage < this.bookPages.size())

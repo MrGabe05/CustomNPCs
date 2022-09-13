@@ -36,9 +36,9 @@ import noppes.npcs.packets.server.SPacketRecipesGet;
 public class GuiNpcManageRecipes extends GuiContainerNPCInterface2<ContainerManageRecipes> implements IScrollData, IGuiData, ICustomScrollListener,ITextfieldListener{
     private GuiCustomScroll scroll;
 	private Map<String,Integer> data = new HashMap<String,Integer>();
-	private ContainerManageRecipes container;
+	private final ContainerManageRecipes container;
 	private String selected = null;
-	private ResourceLocation slot;
+	private final ResourceLocation slot;
 
 	public GuiNpcManageRecipes(ContainerManageRecipes container, PlayerInventory inv, ITextComponent titleIn) {
     	super(NoppesUtil.getLastNpc(), container, inv, titleIn);
@@ -84,7 +84,7 @@ public class GuiNpcManageRecipes extends GuiContainerNPCInterface2<ContainerMana
 
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
         if(button.id == 0){
         	save();
         	NoppesUtil.requestOpenGUI(EnumGuiType.ManageRecipes, new BlockPos(3,0,0));

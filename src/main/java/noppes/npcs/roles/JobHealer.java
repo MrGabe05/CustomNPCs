@@ -51,7 +51,7 @@ public class JobHealer extends JobInterface{
 		if (healTicks < speed) 
 			return false;
 		healTicks = 0;
-		affected = npc.level.getEntitiesOfClass(LivingEntity.class, npc.getBoundingBox().inflate((double) range, (double) range / 2.0D, (double) range));
+		affected = npc.level.getEntitiesOfClass(LivingEntity.class, npc.getBoundingBox().inflate(range, (double) range / 2.0D, range));
 		return !affected.isEmpty();	
 	}
 	

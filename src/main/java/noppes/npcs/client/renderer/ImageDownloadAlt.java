@@ -30,8 +30,8 @@ public class ImageDownloadAlt extends SimpleTexture
     private final String imageUrl;
     private CompletableFuture<?> future;
     private boolean textureUploaded;
-    private boolean fix64;
-    private Runnable r;
+    private final boolean fix64;
+    private final Runnable r;
 
     public ImageDownloadAlt(File file, String url, ResourceLocation resource, boolean fix64, Runnable r) {
         super(resource);
@@ -79,7 +79,7 @@ public class ImageDownloadAlt extends SimpleTexture
                         }
                         catch (IOException ioexception)
                         {
-                            logger.error("Couldn\'t load skin " + this.cacheFile, ioexception);
+                            logger.error("Couldn't load skin " + this.cacheFile, ioexception);
                             this.loadTextureFromServer();
                         }
                     }
@@ -128,7 +128,7 @@ public class ImageDownloadAlt extends SimpleTexture
             }
             catch (Exception exception)
             {
-                ImageDownloadAlt.logger.error("Couldn\'t download http texture", exception);
+                ImageDownloadAlt.logger.error("Couldn't download http texture", exception);
             }
             finally
             {

@@ -8,7 +8,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import noppes.npcs.entity.EntityNPCInterface;
 
 public class FlyingMoveHelper extends MovementController {
-    private EntityNPCInterface entity;
+    private final EntityNPCInterface entity;
     private int courseChangeCooldown;
 
     public FlyingMoveHelper(EntityNPCInterface entity){

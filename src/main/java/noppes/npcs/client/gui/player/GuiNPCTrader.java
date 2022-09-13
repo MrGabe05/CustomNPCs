@@ -19,8 +19,8 @@ import noppes.npcs.roles.RoleTrader;
 public class GuiNPCTrader extends GuiContainerNPCInterface<ContainerNPCTrader>{
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/trader.png");
 	private final ResourceLocation slot = new ResourceLocation("customnpcs","textures/gui/slot.png");
-	private RoleTrader role;
-	private ContainerNPCTrader container;
+	private final RoleTrader role;
+	private final ContainerNPCTrader container;
 
 	public GuiNPCTrader(ContainerNPCTrader container, PlayerInventory inv, ITextComponent titleIn) {
         super(NoppesUtil.getLastNpc(), container, inv, titleIn);

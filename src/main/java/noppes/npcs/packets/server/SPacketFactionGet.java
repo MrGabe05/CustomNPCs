@@ -10,7 +10,7 @@ import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketFactionGet extends PacketServerBasic {
 
-    private int id;
+    private final int id;
 
     public SPacketFactionGet(int id) {
         this.id = id;

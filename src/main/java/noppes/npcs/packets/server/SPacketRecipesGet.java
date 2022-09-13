@@ -10,7 +10,7 @@ import noppes.npcs.packets.PacketServerBasic;
 import java.util.HashMap;
 
 public class SPacketRecipesGet extends PacketServerBasic {
-    private int width;
+    private final int width;
 
     public SPacketRecipesGet(int width) {
         this.width = width;

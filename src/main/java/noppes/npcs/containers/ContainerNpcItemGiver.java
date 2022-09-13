@@ -11,7 +11,7 @@ import noppes.npcs.roles.JobItemGiver;
 
 public class ContainerNpcItemGiver extends Container
 {    
-    private JobItemGiver role;
+    private final JobItemGiver role;
 
     public ContainerNpcItemGiver(int containerId, PlayerInventory playerInventory, int entityId){
         super(CustomContainer.container_itemgiver, containerId);

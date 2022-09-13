@@ -17,7 +17,7 @@ import noppes.npcs.roles.RoleCompanion;
 public class GuiNpcCompanionInv extends GuiContainerNPCInterface<ContainerNPCCompanion>{
 	private final ResourceLocation resource = new ResourceLocation("customnpcs", "textures/gui/companioninv.png");
 	private final ResourceLocation slot = new ResourceLocation("customnpcs", "textures/gui/slot.png");
-	private RoleCompanion role;
+	private final RoleCompanion role;
 
 	public GuiNpcCompanionInv(ContainerNPCCompanion container, PlayerInventory inv, ITextComponent titleIn) {
 		super(NoppesUtil.getLastNpc(), container, inv, titleIn);

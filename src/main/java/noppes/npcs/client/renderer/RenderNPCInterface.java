@@ -28,6 +28,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.mixin.MatrixStackMixin;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Map;
 
@@ -122,7 +123,7 @@ public class RenderNPCInterface<T extends EntityNPCInterface, M extends EntityMo
         } 
         else if(npc.isAlive() && npc.currentAnimation == AnimationType.CRAWL){
 			matrixScale.mulPose(Vector3f.YP.rotationDegrees(270.0F - f1));
-            float scale = ((EntityCustomNpc)npc).display.getSize() / 5f;
+            float scale = npc.display.getSize() / 5f;
 			matrixScale.translate(-scale +((EntityCustomNpc)npc).modelData.getLegsY() * scale, 0.14f, 0);
 			matrixScale.mulPose(Vector3f.ZP.rotationDegrees(270F));
 			matrixScale.mulPose(Vector3f.YP.rotationDegrees(270F));
@@ -257,7 +258,7 @@ public class RenderNPCInterface<T extends EntityNPCInterface, M extends EntityMo
 						size = "32";
 					}
 					MessageDigest digest = MessageDigest.getInstance("MD5");
-					byte[] hash = digest.digest((npc.display.getSkinUrl() + size).getBytes("UTF-8"));
+					byte[] hash = digest.digest((npc.display.getSkinUrl() + size).getBytes(StandardCharsets.UTF_8));
 					StringBuilder sb = new StringBuilder(2*hash.length);
 					for(byte b : hash){
 						sb.append(String.format("%02x", b&0xff));

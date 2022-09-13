@@ -17,7 +17,7 @@ public class EntityAIRangedAttack extends Goal{
     private int rangedAttackTime = 0;
     private int moveTries = 0;
     private int burstCount = 0;
-    private int attackTick = 0;
+    private final int attackTick = 0;
     private boolean hasFired = false;
 
     public EntityAIRangedAttack(IRangedAttackMob par1IRangedAttackMob){
@@ -35,12 +35,9 @@ public class EntityAIRangedAttack extends Goal{
 
         if (attackTarget == null || !attackTarget.isAlive() || !npc.isInRange(attackTarget, npc.stats.aggroRange) || this.npc.inventory.getProjectile() == null)
         	return false;
-        		
-        
-        if (this.npc.stats.ranged.getMeleeRange() >= 1 && npc.isInRange(attackTarget, this.npc.stats.ranged.getMeleeRange()))
-        	return false;
-        
-        return true;
+
+
+        return this.npc.stats.ranged.getMeleeRange() < 1 || !npc.isInRange(attackTarget, this.npc.stats.ranged.getMeleeRange());
     }
 
     @Override

@@ -11,8 +11,8 @@ import noppes.npcs.controllers.data.Availability;
 import noppes.npcs.controllers.data.Quest;
 
 public class SubGuiNpcAvailabilityQuest extends GuiBasic implements GuiSelectionListener {
-	private Availability availabitily;
-	private boolean selectFaction = false;
+	private final Availability availabitily;
+	private final boolean selectFaction = false;
 	private int slot = 0;
 	
     public SubGuiNpcAvailabilityQuest(Availability availabitily){
@@ -92,7 +92,7 @@ public class SubGuiNpcAvailabilityQuest extends GuiBasic implements GuiSelection
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 
         if(button.id == 0){
         	availabitily.questAvailable = EnumAvailabilityQuest.values()[button.getValue()];

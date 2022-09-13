@@ -14,9 +14,9 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class CombatHandler {
 	
-	private Map<LivingEntity, Float> aggressors = new HashMap<LivingEntity, Float>();
+	private final Map<LivingEntity, Float> aggressors = new HashMap<LivingEntity, Float>();
 	
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	private long startTime = 0;
 	

@@ -44,7 +44,7 @@ public class RenderCustomNpc<T extends EntityCustomNpc, M extends BipedModel<T>>
 	public ArmorLayerMixin armorLayer;
 	public final List<LayerRenderer<T, M>> npclayers = Lists.newArrayList();
 
-	private LayerRenderer renderLayer = new LayerRenderer(null){
+	private final LayerRenderer renderLayer = new LayerRenderer(null){
 
 		@Override
 		public void render(MatrixStack mStack, IRenderTypeBuffer typeBuffer, int lightmapUV, Entity p_225628_4_, float limbSwing, float limbSwingAmount, float partialTicks, float age, float netHeadYaw, float headPitch) {
@@ -54,7 +54,7 @@ public class RenderCustomNpc<T extends EntityCustomNpc, M extends BipedModel<T>>
 		}
 	};
 
-	private BipedModel renderModel = new BipedModel(0) {
+	private final BipedModel renderModel = new BipedModel(0) {
 		@Override
 		public void renderToBuffer(MatrixStack mStack, IVertexBuilder iVertex, int lightmapUV, int packedOverlayIn, float red, float green, float blue, float alpha) {
 			int color = npc.display.getTint();

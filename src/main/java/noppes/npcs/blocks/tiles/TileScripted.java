@@ -170,7 +170,7 @@ public class TileScripted extends TileNpcEntity implements ITickableTileEntity, 
 		CompoundNBT itemcompound = new CompoundNBT();
 		itemModel.save(itemcompound);
 		if(blockModel != null){
-	        ResourceLocation resourcelocation = (ResourceLocation)ForgeRegistries.BLOCKS.getKey(blockModel);
+	        ResourceLocation resourcelocation = ForgeRegistries.BLOCKS.getKey(blockModel);
 	        compound.putString("ScriptBlockModelBlock", resourcelocation == null ? "" : resourcelocation.toString());
 		}
 		compound.put("ScriptBlockModel", itemcompound);

@@ -8,7 +8,7 @@ import noppes.npcs.controllers.data.RecipeCarpentry;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketRecipeSave extends PacketServerBasic {
-    private CompoundNBT data;
+    private final CompoundNBT data;
 
     public SPacketRecipeSave(CompoundNBT data) {
         this.data = data;

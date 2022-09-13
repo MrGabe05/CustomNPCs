@@ -9,7 +9,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketSceneStart extends PacketServerBasic {
 
-    private int scene;
+    private final int scene;
 
     public SPacketSceneStart(int scene) {
         this.scene = scene;

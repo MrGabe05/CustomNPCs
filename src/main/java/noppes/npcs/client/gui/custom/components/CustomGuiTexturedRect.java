@@ -62,7 +62,7 @@ public class CustomGuiTexturedRect extends AbstractGui implements IGuiComponent 
         BufferBuilder bufferbuilder = Tessellator.getInstance().getBuilder();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
         bufferbuilder.vertex(x, y + height*scale, this.id).uv(textureX * 0.00390625F, (textureY + height) * 0.00390625F).endVertex();
-        bufferbuilder.vertex(x + width*scale, (y + height*scale), (double)this.id).uv((textureX + width) * 0.00390625F, (textureY + height) * 0.00390625F).endVertex();
+        bufferbuilder.vertex(x + width*scale, (y + height*scale), this.id).uv((textureX + width) * 0.00390625F, (textureY + height) * 0.00390625F).endVertex();
         bufferbuilder.vertex(x + width*scale, y, this.id).uv((textureX + width) * 0.00390625F, textureY * 0.00390625F).endVertex();
         bufferbuilder.vertex(x, y, this.id).uv(textureX * 0.00390625F, textureY * 0.00390625F).endVertex();
         bufferbuilder.end();

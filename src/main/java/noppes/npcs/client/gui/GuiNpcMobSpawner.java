@@ -27,7 +27,7 @@ import java.util.List;
 public class GuiNpcMobSpawner extends GuiNPCInterface implements IGuiData {
     
     private GuiCustomScroll scroll;
-    private BlockPos pos;
+    private final BlockPos pos;
     
     private List<String> list;
     
@@ -92,7 +92,7 @@ public class GuiNpcMobSpawner extends GuiNPCInterface implements IGuiData {
     }
 
 	private void showEntities() {
-        this.list = new ArrayList<String>(EntityUtil.getAllEntities(Minecraft.getInstance().level, false).keySet());;
+        this.list = new ArrayList<String>(EntityUtil.getAllEntities(Minecraft.getInstance().level, false).keySet());
         scroll.setList(list);
 	}
 	private void showClones() {

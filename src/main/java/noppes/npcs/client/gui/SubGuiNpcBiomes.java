@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class SubGuiNpcBiomes extends GuiBasic
 {
-	private SpawnData data;
+	private final SpawnData data;
 	private GuiCustomScroll scroll1;
 	private GuiCustomScroll scroll2;
 	
@@ -71,7 +71,7 @@ public class SubGuiNpcBiomes extends GuiBasic
 
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 		if(button.id == 1){
 			if(scroll1.hasSelected()){
 				data.biomes.add(new ResourceLocation(scroll1.getSelected()));

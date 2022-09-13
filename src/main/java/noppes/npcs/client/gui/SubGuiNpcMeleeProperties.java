@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubGuiNpcMeleeProperties extends GuiBasic implements ITextfieldListener {
-	private DataMelee stats;
+	private final DataMelee stats;
 	private final static String[] potionNames;
 
 	static {

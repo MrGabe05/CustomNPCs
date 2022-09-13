@@ -12,7 +12,7 @@ import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketTileEntitySave extends PacketServerBasic {
 
-    private CompoundNBT data;
+    private final CompoundNBT data;
 
     public SPacketTileEntitySave(CompoundNBT data) {
         this.data = data;

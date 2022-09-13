@@ -17,11 +17,11 @@ import noppes.npcs.quests.QuestDialog;
 
 public class GuiNpcQuestTypeDialog extends GuiNPCInterface implements GuiSelectionListener, IGuiData
 {
-	private Screen parent;
+	private final Screen parent;
 	
-	private QuestDialog quest;
+	private final QuestDialog quest;
 	
-	private HashMap<Integer, String> data = new HashMap<Integer, String>();
+	private final HashMap<Integer, String> data = new HashMap<Integer, String>();
 
     public GuiNpcQuestTypeDialog(EntityNPCInterface npc, Quest q, Screen parent) {
     	this.npc = npc;
@@ -57,7 +57,7 @@ public class GuiNpcQuestTypeDialog extends GuiNPCInterface implements GuiSelecti
 	private int selectedSlot;
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton) {
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 		if (button.id == 0) {
 			close();
 		}

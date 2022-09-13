@@ -18,7 +18,7 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 import java.util.HashMap;
 
 public class GuiNPCLinesEdit extends GuiNPCInterface2 implements IGuiData {
-	private Lines lines;
+	private final Lines lines;
 	private int selectedId = -1;
 	private GuiSoundSelection gui;
 	
@@ -48,7 +48,7 @@ public class GuiNPCLinesEdit extends GuiNPCInterface2 implements IGuiData {
 
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
     	selectedId = button.id + 8;
     	setSubGui(new GuiSoundSelection(getTextField(selectedId).getValue()));
     }

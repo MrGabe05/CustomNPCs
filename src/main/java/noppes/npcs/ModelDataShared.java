@@ -25,7 +25,7 @@ public class ModelDataShared{
 	
 	public CompoundNBT extra = new CompoundNBT();
 	
-	protected HashMap<EnumParts, ModelPartData> parts = new HashMap<EnumParts, ModelPartData>();
+	protected HashMap<EnumParts, ModelPartData> parts = new HashMap<>();
 	
 	public CompoundNBT save(){
 		CompoundNBT compound = new CompoundNBT();
@@ -68,7 +68,7 @@ public class ModelDataShared{
 
 		extra = compound.getCompound("ExtraData");
 				
-		HashMap<EnumParts,ModelPartData> parts = new HashMap<EnumParts,ModelPartData>();
+		HashMap<EnumParts,ModelPartData> parts = new HashMap<>();
 		ListNBT list = compound.getList("Parts", 10);
 		for (int i = 0; i < list.size(); i++) {
 			CompoundNBT item = list.getCompound(i);

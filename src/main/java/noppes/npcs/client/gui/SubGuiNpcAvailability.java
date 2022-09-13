@@ -18,7 +18,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcAvailability extends GuiNPCInterface implements ITextfieldListener, GuiSelectionListener, IGuiData
 {
-	private Availability availabitily;
+	private final Availability availabitily;
 	private int slot = 0;
 	
     public SubGuiNpcAvailability(Availability availabitily) {
@@ -77,7 +77,7 @@ public class SubGuiNpcAvailability extends GuiNPCInterface implements ITextfield
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 
         if(button.id == 0){
         	setSubGui(new SubGuiNpcAvailabilityDialog(availabitily));

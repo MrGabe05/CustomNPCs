@@ -12,7 +12,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class GuiCreationLoad extends GuiCreationScreenInterface implements ICustomScrollListener{
 
-	private List<String> list = new ArrayList<String>();
+	private final List<String> list = new ArrayList<String>();
 	private GuiCustomScroll scroll;
 	
 	public GuiCreationLoad(EntityNPCInterface npc){

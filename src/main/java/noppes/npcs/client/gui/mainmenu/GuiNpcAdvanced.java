@@ -54,7 +54,7 @@ public class GuiNpcAdvanced extends GuiNPCInterface2 implements IGuiData
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton) {
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 		if (button.id == 3) {
 			save();
 			Packets.sendServer(new SPacketNpcRoleGet());

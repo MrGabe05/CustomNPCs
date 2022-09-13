@@ -8,7 +8,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class DataMelee implements INPCMelee{
 
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	
 	private int attackStrength = 5;
 	private int attackSpeed = 20;

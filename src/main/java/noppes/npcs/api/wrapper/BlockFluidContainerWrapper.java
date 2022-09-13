@@ -7,7 +7,7 @@ import net.minecraftforge.fluids.IFluidBlock;
 import noppes.npcs.api.block.IBlockFluidContainer;
 
 public class BlockFluidContainerWrapper extends BlockWrapper implements IBlockFluidContainer{
-	private IFluidBlock block;
+	private final IFluidBlock block;
 
 	public BlockFluidContainerWrapper(World level, Block block, BlockPos pos) {
 		super(level, block, pos);

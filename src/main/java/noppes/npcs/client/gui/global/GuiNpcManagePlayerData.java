@@ -22,7 +22,7 @@ public class GuiNpcManagePlayerData extends GuiNPCInterface2 implements IScrollD
 	private GuiCustomScroll scroll;
 	private String selectedPlayer = null;
 	private String selected = null;
-	private Map<String,Integer> data = new HashMap<String,Integer>();
+	private final Map<String,Integer> data = new HashMap<String,Integer>();
 	private EnumPlayerData selection = EnumPlayerData.Players;
 	private String search = "";
 	

@@ -39,7 +39,7 @@ public class GuiTextAreaScreen extends GuiBasic implements ITextChangeListener{
 			this.text = textarea.getText();
 		int yoffset = (int) (imageHeight * 0.02);
 		
-		textarea = new GuiTextArea(2, guiLeft + 1 + yoffset, guiTop + yoffset, imageWidth - 100 - yoffset, (int) (imageHeight) - yoffset * 2, text);
+		textarea = new GuiTextArea(2, guiLeft + 1 + yoffset, guiTop + yoffset, imageWidth - 100 - yoffset, imageHeight - yoffset * 2, text);
 		textarea.setListener(this);
 		if(highlighting)
 			textarea.enableCodeHighlighting();

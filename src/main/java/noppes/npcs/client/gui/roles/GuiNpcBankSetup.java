@@ -21,7 +21,7 @@ import java.util.Vector;
 public class GuiNpcBankSetup extends GuiNPCInterface2 implements IScrollData, ICustomScrollListener {
 	private GuiCustomScroll scroll;
 	private Map<String,Integer> data = new HashMap<String,Integer>();
-	private RoleBank role;
+	private final RoleBank role;
 
     public GuiNpcBankSetup(EntityNPCInterface npc){
     	super(npc);

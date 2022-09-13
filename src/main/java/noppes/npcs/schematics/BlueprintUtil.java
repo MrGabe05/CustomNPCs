@@ -1,16 +1,14 @@
 package noppes.npcs.schematics;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.nbt.*;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
+import net.minecraft.nbt.NBTUtil;
+import net.minecraft.nbt.StringNBT;
 import net.minecraftforge.fml.ModList;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,17 +42,15 @@ public class BlueprintUtil {
 		//Adding Tile Entities
 		ListNBT finishedTes = new ListNBT();
 		CompoundNBT[] tes = schem.getTileEntities();
-		for(int i = 0; i < tes.length; i++){
-			finishedTes.add(tes[i]);
-		}
+		finishedTes.addAll(Arrays.asList(tes));
 		compound.put("tile_entities", finishedTes);
 		
 		//Adding Required Mods
 		List<String> requiredMods = schem.getRequiredMods();
 		ListNBT modsList = new ListNBT();
-		for(int i = 0; i < requiredMods.size(); i++){
+		for (String requiredMod : requiredMods) {
 			//modsList.set(i,);
-			modsList.add(StringNBT.valueOf(requiredMods.get(i)));
+			modsList.add(StringNBT.valueOf(requiredMod));
 		}
 		compound.put("required_mods", modsList);
 		
@@ -83,11 +79,11 @@ public class BlueprintUtil {
 			
 			
 			//Reading required Mods
-			List<String> requiredMods = new ArrayList<String>();
-			ListNBT modsList = (ListNBT) tag.getList("required_mods", 8);
+			List<String> requiredMods = new ArrayList<>();
+			ListNBT modsList = tag.getList("required_mods", 8);
 			short modListSize = (short) modsList.size();
 			for(int i = 0; i < modListSize; i++){
-				requiredMods.add(((StringNBT)modsList.get(i)).getAsString());
+				requiredMods.add(modsList.get(i).getAsString());
 				if(!ModList.get().isLoaded(requiredMods.get(i))){
 					Logger.getGlobal().log(Level.WARNING, "Couldn't load Blueprint, the following mod is missing: " + requiredMods.get(i));
 					return null;
@@ -95,7 +91,7 @@ public class BlueprintUtil {
 			}
 			
 			//Reading Pallete
-			ListNBT paletteTag = (ListNBT) tag.getList("palette", 10);
+			ListNBT paletteTag = tag.getList("palette", 10);
 			short paletteSize = (short) paletteTag.size();
 			BlockState[] palette = new BlockState[paletteSize];
 			for(short i = 0; i < palette.length; i++){
@@ -106,7 +102,7 @@ public class BlueprintUtil {
 			short[][][] blocks = convertSaveDataToBlocks(tag.getIntArray("blocks"), sizeX, sizeY, sizeZ);
 			
 			//Reading Tile Entities
-			ListNBT teTag = (ListNBT) tag.getList("tile_entities", 10);
+			ListNBT teTag = tag.getList("tile_entities", 10);
 			CompoundNBT[] tileEntities = new CompoundNBT[teTag.size()];
 			for(short i = 0; i < tileEntities.length; i++){
 				tileEntities[i] = teTag.getCompound(i);
@@ -118,7 +114,7 @@ public class BlueprintUtil {
 				schem.setName(tag.getString("name"));
 			}
 			if(tag.contains("architects")){
-				ListNBT architectsTag = (ListNBT) tag.getList("architects", 8);
+				ListNBT architectsTag = tag.getList("architects", 8);
 				String[] architects = new String[architectsTag.size()];
 				for(int i = 0; i < architectsTag.size(); i++){
 					architects[i] = architectsTag.getString(i);
@@ -147,12 +143,11 @@ public class BlueprintUtil {
 		//Converting short Array to int Array
 		int[] ints = new int[(int) Math.ceil(oneDimArray.length / 2f)];
 		
-		int currentInt = 0;
+		int currentInt;
 		for(int i = 1; i < oneDimArray.length; i += 2){
 			currentInt = oneDimArray[i-1];
 			currentInt = currentInt << 16 | oneDimArray[i];
 			ints[(int) Math.ceil(i/ 2f) - 1] = currentInt;
-			currentInt = 0;
 		}
 		if(oneDimArray.length % 2 == 1){
 			currentInt = oneDimArray[oneDimArray.length-1] << 16;

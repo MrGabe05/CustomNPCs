@@ -9,7 +9,7 @@ import noppes.npcs.controllers.data.RecipeCarpentry;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketRecipeRemove extends PacketServerBasic {
-    private int recipe;
+    private final int recipe;
 
     public SPacketRecipeRemove(int recipe) {
         this.recipe = recipe;

@@ -27,7 +27,7 @@ public class PlayerMail implements IInventory, IPlayerMail{
 	public long time = 0;
 	public boolean beenRead = false;
 	public int questId = -1;
-    public NonNullList<ItemStack> items = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
+    public NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
 	
 	public long timePast;
 	

@@ -44,12 +44,12 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class ItemStackWrapper implements IItemStack, ICapabilitySerializable<CompoundNBT> {
-	private Map<String, Object> tempData = new HashMap<String, Object>();
+	private final Map<String, Object> tempData = new HashMap<String, Object>();
 			
 	@CapabilityInject(ItemStackWrapper.class)
 	public static Capability<ItemStackWrapper> ITEMSCRIPTEDDATA_CAPABILITY = null;
 
-	private LazyOptional<ItemStackWrapper> instance = LazyOptional.of(() -> this);
+	private final LazyOptional<ItemStackWrapper> instance = LazyOptional.of(() -> this);
 	
     private static final EquipmentSlotType[] VALID_EQUIPMENT_SLOTS = new EquipmentSlotType[] {EquipmentSlotType.HEAD, EquipmentSlotType.CHEST, EquipmentSlotType.LEGS, EquipmentSlotType.FEET};
 
@@ -112,7 +112,7 @@ public class ItemStackWrapper implements IItemStack, ICapabilitySerializable<Com
 			INBT base = storedData.get(key);
 			if(base instanceof NumberNBT)
 				return ((NumberNBT)base).getAsDouble();
-			return ((StringNBT)base).getAsString();
+			return base.getAsString();
 		}
 
 		@Override
@@ -281,9 +281,7 @@ public class ItemStackWrapper implements IItemStack, ICapabilitySerializable<Com
 	@Override
 	public boolean isBlock(){
 		Block block = Block.byItem(item.getItem());
-		if(block == null || block == Blocks.AIR)
-			return false;
-		return true;
+		return block != null && block != Blocks.AIR;
 	}
 
 	@Override

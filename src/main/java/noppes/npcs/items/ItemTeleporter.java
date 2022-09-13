@@ -57,14 +57,14 @@ public class ItemTeleporter extends Item {
         Vector3d vec32 = livingEntity.getViewVector(f);
         boolean flag = false;
         float f9 = 1.0F;
-        List list = livingEntity.level.getEntities(livingEntity, livingEntity.getBoundingBox().inflate(vec32.x * d0, vec32.y * d0, vec32.z * d0).inflate((double)f9, (double)f9, (double)f9));
+        List list = livingEntity.level.getEntities(livingEntity, livingEntity.getBoundingBox().inflate(vec32.x * d0, vec32.y * d0, vec32.z * d0).inflate(f9, f9, f9));
 
         for (int i = 0; i < list.size(); ++i){
             Entity entity = (Entity)list.get(i);
 
             if (entity.canBeCollidedWith()){
                 float f10 = entity.getPickRadius();
-                AxisAlignedBB axisalignedbb = entity.getBoundingBox().inflate((double)f10, (double)f10, (double)f10);
+                AxisAlignedBB axisalignedbb = entity.getBoundingBox().inflate(f10, f10, f10);
 
                 if (axisalignedbb.contains(vector3d)){
                     flag = true;

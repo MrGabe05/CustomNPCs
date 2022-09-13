@@ -6,21 +6,21 @@ import net.minecraft.nbt.CompoundNBT;
 
 public interface ISchematic {
 
-	public short getWidth();
+	short getWidth();
 
-	public short getHeight();
+	short getHeight();
 
-	public short getLength();
+	short getLength();
 
-	public int getBlockEntitySize();
+	int getBlockEntitySize();
 	
-	public CompoundNBT getBlockEntity(int i);
+	CompoundNBT getBlockEntity(int i);
 
-	public String getName();
+	String getName();
 
-	public BlockState getBlockState(int x, int y, int z);
+	BlockState getBlockState(int x, int y, int z);
 
-	public BlockState getBlockState(int i);
+	BlockState getBlockState(int i);
 	
-	public CompoundNBT getNBT();
+	CompoundNBT getNBT();
 }

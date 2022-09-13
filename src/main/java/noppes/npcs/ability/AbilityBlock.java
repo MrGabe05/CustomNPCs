@@ -14,9 +14,7 @@ public class AbilityBlock extends AbstractAbility implements IAbilityDamaged{
 
 	@Override
 	public boolean canRun(LivingEntity target){
-		if(!super.canRun(target))
-			return false;
-		return true;
+		return super.canRun(target);
 	}
 
 	@Override

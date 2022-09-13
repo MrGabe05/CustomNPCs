@@ -23,7 +23,7 @@ import noppes.npcs.packets.server.SPacketNpcRoleSave;
 import noppes.npcs.roles.RoleCompanion;
 
 public class GuiNpcCompanion extends GuiNPCInterface2 implements ITextfieldListener, ISliderListener{	
-	private RoleCompanion role;
+	private final RoleCompanion role;
 	private List<GuiTalent> talents = new ArrayList<GuiTalent>();
 
     public GuiNpcCompanion(EntityNPCInterface npc){
@@ -69,7 +69,7 @@ public class GuiNpcCompanion extends GuiNPCInterface2 implements ITextfieldListe
     @Override
     public void buttonEvent(GuiButtonNop guibutton){
     	if(guibutton.id == 0){
-        	GuiButtonNop button = (GuiButtonNop) guibutton;
+        	GuiButtonNop button = guibutton;
     		role.matureTo(EnumCompanionStage.values()[button.getValue()]);
     		if(role.canAge)
     			role.ticksActive = role.stage.matureAge;
@@ -79,7 +79,7 @@ public class GuiNpcCompanion extends GuiNPCInterface2 implements ITextfieldListe
     		Packets.sendServer(new SPacketNpcRoleCompanionUpdate(role.stage));
     	}
     	if(guibutton.id == 2){
-        	GuiButtonNop button = (GuiButtonNop) guibutton;
+        	GuiButtonNop button = guibutton;
     		role.canAge = button.getValue() == 1;
     		init();
     	}

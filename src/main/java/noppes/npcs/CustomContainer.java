@@ -1,14 +1,11 @@
 package noppes.npcs;
 
 import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.util.registry.Registry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.network.IContainerFactory;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ObjectHolder;
-import noppes.npcs.CustomNpcs;
 import noppes.npcs.containers.*;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid= CustomNpcs.MODID)

@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 public class SPacketScriptGet extends PacketServerBasic {
 
-    private int type; //0:npc, 1:block, 2:item, 3:forge, 4:player, 5:door
+    private final int type; //0:npc, 1:block, 2:item, 3:forge, 4:player, 5:door
 
     public SPacketScriptGet(int type) {
         this.type = type;

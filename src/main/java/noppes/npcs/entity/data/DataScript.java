@@ -23,7 +23,7 @@ public class DataScript implements IScriptHandler{
 	private List<ScriptContainer> scripts = new ArrayList<ScriptContainer>();
 	
 	private String scriptLanguage = "ECMAScript";
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	private boolean enabled = false;
 	
 	public long lastInited = -1;

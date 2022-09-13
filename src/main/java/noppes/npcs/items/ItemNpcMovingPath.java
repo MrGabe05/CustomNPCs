@@ -29,7 +29,7 @@ public class ItemNpcMovingPath extends Item{
 	@Override
     public ActionResult<ItemStack> use(World level, PlayerEntity player, Hand hand){
     	ItemStack itemstack = player.getItemInHand(hand);
-		if(level.isClientSide || !CustomNpcsPermissions.Instance.hasPermission(player, CustomNpcsPermissions.TOOL_PATHER))
+		if(level.isClientSide || !CustomNpcsPermissions.hasPermission(player, CustomNpcsPermissions.TOOL_PATHER))
 	        return new ActionResult(ActionResultType.PASS, itemstack);
 		EntityNPCInterface npc = getNpc(itemstack, level);
 		if(npc != null)
@@ -39,7 +39,7 @@ public class ItemNpcMovingPath extends Item{
     
 	@Override
 	public ActionResultType useOn(ItemUseContext context){
-    	if(context.getLevel().isClientSide || !CustomNpcsPermissions.Instance.hasPermission(context.getPlayer(), CustomNpcsPermissions.TOOL_PATHER))
+    	if(context.getLevel().isClientSide || !CustomNpcsPermissions.hasPermission(context.getPlayer(), CustomNpcsPermissions.TOOL_PATHER))
 			return ActionResultType.FAIL;
 		ItemStack stack = context.getItemInHand();
 		EntityNPCInterface npc = getNpc(stack, context.getLevel());
@@ -54,7 +54,7 @@ public class ItemNpcMovingPath extends Item{
         double d3 = x - pos[0];
         double d4 = y - pos[1];
         double d5 = z - pos[2];
-        double distance = (double)MathHelper.sqrt(d3 * d3 + d4 * d4 + d5 * d5);
+        double distance = MathHelper.sqrt(d3 * d3 + d4 * d4 + d5 * d5);
 
 		context.getPlayer().sendMessage(new TranslationTextComponent("message.pather.added", x, y, z, npc.getName()), Util.NIL_UUID);
         if(distance > CustomNpcs.NpcNavRange)

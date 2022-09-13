@@ -10,8 +10,8 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketNpcDialogSet extends PacketServerBasic {
-    private int slot;
-    private int dialog;
+    private final int slot;
+    private final int dialog;
 
     public SPacketNpcDialogSet(int slot, int dialog) {
         this.slot = slot;

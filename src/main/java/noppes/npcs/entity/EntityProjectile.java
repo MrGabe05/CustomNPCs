@@ -178,7 +178,7 @@ public class EntityProjectile extends ThrowableEntity {
         float f2 = MathHelper.sqrt(par1 * par1 + par3 * par3 + par5 * par5);
         float f3 = MathHelper.sqrt(par1 * par1 + par5 * par5);
         float yaw = (float)(Math.atan2(par1, par5) * 180.0D / Math.PI);
-        float pitch = this.hasGravity() ? par7 : (float)(Math.atan2(par3, (double)f3) * 180.0D / Math.PI);
+        float pitch = this.hasGravity() ? par7 : (float)(Math.atan2(par3, f3) * 180.0D / Math.PI);
         this.yRotO = this.yRot = yaw;
         this.xRotO = this.xRot = pitch;
 		Vector3d m = new Vector3d((MathHelper.sin(yaw / 180.0F * (float)Math.PI) * MathHelper.cos(pitch / 180.0F * (float)Math.PI)),
@@ -235,7 +235,7 @@ public class EntityProjectile extends ThrowableEntity {
 		if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
 			float f = MathHelper.sqrt(getHorizontalDistanceSqr(motion));
 			this.yRot = (float)(MathHelper.atan2(motion.x, motion.z) * (double)(180F / (float)Math.PI));
-			this.xRot = (float)(MathHelper.atan2(motion.y, (double)f) * (double)(180F / (float)Math.PI));
+			this.xRot = (float)(MathHelper.atan2(motion.y, f) * (double)(180F / (float)Math.PI));
 			this.yRotO = this.yRot;
 			this.xRotO = this.xRot;
 		}
@@ -298,7 +298,7 @@ public class EntityProjectile extends ThrowableEntity {
 	        float f1 = MathHelper.sqrt(getHorizontalDistanceSqr(motion));
 			this.yRot = (float)(MathHelper.atan2(motion.x, motion.z) * (double)(180F / (float)Math.PI));
 
-			this.xRot = (float)(MathHelper.atan2(motion.y, (double)f1) * (double)(180F / (float)Math.PI));
+			this.xRot = (float)(MathHelper.atan2(motion.y, f1) * (double)(180F / (float)Math.PI));
 			this.xRot = lerpRotation(this.xRotO, this.xRot);
 			this.yRot = lerpRotation(this.yRotO, this.yRot);
 	        if (this.isRotating()) {
@@ -342,10 +342,8 @@ public class EntityProjectile extends ThrowableEntity {
 		}
 		if(entity instanceof PlayerEntity){
 			PlayerEntity entityplayer = (PlayerEntity)entity;
-			if (entityplayer.abilities.invulnerable ||
-					this.thrower instanceof PlayerEntity && !((PlayerEntity)this.thrower).canHarmPlayer(entityplayer)){
-				return false;
-			}
+			return !entityplayer.abilities.invulnerable &&
+					(!(this.thrower instanceof PlayerEntity) || ((PlayerEntity) this.thrower).canHarmPlayer(entityplayer));
 		}
 		return true;
 	}
@@ -434,7 +432,7 @@ public class EntityProjectile extends ThrowableEntity {
 	            
 	            if (this.isBlock())
 	    		{
-					this.level.levelEvent((PlayerEntity)null, 2001, e.blockPosition(), Block.getId(((BlockItem)getItem()).getBlock().defaultBlockState()));
+					this.level.levelEvent(null, 2001, e.blockPosition(), Block.getId(((BlockItem)getItem()).getBlock().defaultBlockState()));
 	    		}
 	            else if (!this.isArrow() && !this.sticksToWalls()){
 			        for (int i = 0; i < 8; ++i){
@@ -468,7 +466,7 @@ public class EntityProjectile extends ThrowableEntity {
     			this.inBlock = level.getBlockState(tilePos);
     			Vector3d m = movingobjectposition.getLocation().subtract(position());
     			setDeltaMovement(m);
-				Vector3d vector3d1 = m.normalize().scale((double)0.05F);
+				Vector3d vector3d1 = m.normalize().scale(0.05F);
 				this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
 	            this.inGround = true;
 	            this.arrowShake = 7;
@@ -485,7 +483,7 @@ public class EntityProjectile extends ThrowableEntity {
     		{
 	            if (this.isBlock())
 	    		{
-	            	this.level.levelEvent((PlayerEntity)null, 2001, blockPosition(), Block.getId(((BlockItem)getItem()).getBlock().defaultBlockState()));
+	            	this.level.levelEvent(null, 2001, blockPosition(), Block.getId(((BlockItem)getItem()).getBlock().defaultBlockState()));
 	    		}
 	            else
 	    		{
@@ -513,7 +511,7 @@ public class EntityProjectile extends ThrowableEntity {
 	            		entity.setRemainingFireTicks(duration * 20);
 	            	}
 				}
-				this.level.levelEvent((PlayerEntity)null, 2002, blockPosition(), this.getPotionColor(this.effect));
+				this.level.levelEvent(null, 2002, blockPosition(), this.getPotionColor(this.effect));
             }
 
 			this.remove();

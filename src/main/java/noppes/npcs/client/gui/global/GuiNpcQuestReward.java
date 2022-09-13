@@ -16,8 +16,8 @@ import noppes.npcs.containers.ContainerNpcQuestReward;
 import noppes.npcs.controllers.data.Quest;
 
 public class GuiNpcQuestReward extends GuiContainerNPCInterface<ContainerNpcQuestReward> implements ITextfieldListener{
-	private Quest quest;
-	private ResourceLocation resource;
+	private final Quest quest;
+	private final ResourceLocation resource;
 
     public GuiNpcQuestReward(ContainerNpcQuestReward container, PlayerInventory inv, ITextComponent titleIn) {
         super(NoppesUtil.getLastNpc(), container, inv, titleIn);
@@ -46,7 +46,7 @@ public class GuiNpcQuestReward extends GuiContainerNPCInterface<ContainerNpcQues
         	NoppesUtil.openGUI(player,GuiNPCManageQuest.Instance);
         }
         if(id == 0){
-        	quest.randomReward = ((GuiButtonNop)guibutton).getValue() == 1;
+        	quest.randomReward = guibutton.getValue() == 1;
         }
     }
 

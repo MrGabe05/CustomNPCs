@@ -14,7 +14,7 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcDialogOption extends GuiBasic implements ITextfieldListener {
-	private DialogOption option;
+	private final DialogOption option;
 	public static int LastColor = 0xe0e0e0;
 	
     public SubGuiNpcDialogOption(DialogOption option){
@@ -68,7 +68,7 @@ public class SubGuiNpcDialogOption extends GuiBasic implements ITextfieldListene
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 
     	if(button.id == 1){
 			option.optionType = button.getValue();

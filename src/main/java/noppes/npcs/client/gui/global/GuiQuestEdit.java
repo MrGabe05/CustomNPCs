@@ -32,7 +32,7 @@ import noppes.npcs.shared.client.gui.listeners.GuiSelectionListener;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class GuiQuestEdit extends GuiNPCInterface implements GuiSelectionListener, ITextfieldListener {
-	private Quest quest;
+	private final Quest quest;
 	private boolean questlogTA = false;
 	
     public GuiQuestEdit(Quest quest){
@@ -100,7 +100,7 @@ public class GuiQuestEdit extends GuiNPCInterface implements GuiSelectionListene
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-		GuiButtonNop button = (GuiButtonNop) guibutton;
+		GuiButtonNop button = guibutton;
 
         if(button.id == 3){
         	questlogTA = false;

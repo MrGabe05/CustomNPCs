@@ -11,8 +11,8 @@ import noppes.npcs.api.IScoreboardObjective;
 import noppes.npcs.api.IScoreboardScore;
 
 public class ScoreboardObjectiveWrapper implements IScoreboardObjective{
-	private ScoreObjective objective;
-	private Scoreboard board;
+	private final ScoreObjective objective;
+	private final Scoreboard board;
 	
 	protected ScoreboardObjectiveWrapper(Scoreboard board, ScoreObjective objective){
 		this.objective = objective;

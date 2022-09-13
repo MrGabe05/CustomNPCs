@@ -15,8 +15,8 @@ import java.util.Collection;
 import java.util.List;
 
 public class ScoreboardWrapper implements IScoreboard{
-	private Scoreboard board;
-	private MinecraftServer server;
+	private final Scoreboard board;
+	private final MinecraftServer server;
 	
 	protected ScoreboardWrapper(MinecraftServer server){
 		this.server = server;

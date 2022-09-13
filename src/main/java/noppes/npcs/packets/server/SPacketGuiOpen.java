@@ -29,9 +29,9 @@ import java.util.Vector;
 
 public class SPacketGuiOpen extends PacketServerBasic
 {
-    private EnumGuiType type;
+    private final EnumGuiType type;
 
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public SPacketGuiOpen(EnumGuiType type, BlockPos pos) {
         this.type = type;

@@ -25,11 +25,11 @@ public abstract class GuiCreationScreenInterface extends GuiNPCInterface impleme
 	public static String Message = "";
 	public LivingEntity entity;
 	
-	private boolean saving = false;
+	private final boolean saving = false;
 	protected boolean hasSaving = true;
 	public int active = 0;
 
-	private PlayerEntity player;
+	private final PlayerEntity player;
 	public int xOffset = 0;
 	public ModelData playerdata;
 	

@@ -19,8 +19,8 @@ import noppes.npcs.CustomContainer;
 public class ContainerCarpentryBench extends Container {
     public CraftingInventory craftMatrix = new CraftingInventory(this, 4, 4);
     public IInventory craftResult = new CraftResultInventory();
-    private PlayerEntity player;
-    private BlockPos pos;
+    private final PlayerEntity player;
+    private final BlockPos pos;
 
     public ContainerCarpentryBench(int id, PlayerInventory par1PlayerInventory, BlockPos pos){
         super(CustomContainer.container_carpentrybench, id);

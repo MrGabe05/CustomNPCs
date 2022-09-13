@@ -20,11 +20,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class GuiNpcHealer extends GuiNPCInterface2 {
-	private JobHealer job;
+	private final JobHealer job;
 	private GuiCustomScroll scroll1;
 	private GuiCustomScroll scroll2;
-	private HashMap<String, Integer> potions;
-	private HashMap<String, String> displays;
+	private final HashMap<String, Integer> potions;
+	private final HashMap<String, String> displays;
 	private int potency = 0; //dummy value
 	
     public GuiNpcHealer(EntityNPCInterface npc){
@@ -83,7 +83,7 @@ public class GuiNpcHealer extends GuiNPCInterface2 {
 	    for(String names : potions.keySet())
 	    {
 	     	if (!job.effects.containsKey(potions.get(names))) all.add(names);
-	     	else displays.put(I18n.get(names, new Object[0]) + " " + I18n.get("enchantment.level." + (job.effects.get(potions.get(names)) + 1), new Object[0]), names);
+	     	else displays.put(I18n.get(names) + " " + I18n.get("enchantment.level." + (job.effects.get(potions.get(names)) + 1)), names);
 	    }
 	    scroll1.setList(all);
 	    List<String>applied = new ArrayList<String>(displays.keySet());
@@ -104,7 +104,7 @@ public class GuiNpcHealer extends GuiNPCInterface2 {
 
 	@Override
     public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 
     	if (button.id == 3) {
 			job.type = (byte) button.getValue();

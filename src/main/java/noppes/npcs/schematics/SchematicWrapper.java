@@ -1,8 +1,8 @@
 package noppes.npcs.schematics;
 
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.nbt.NBTUtil;
@@ -16,7 +16,6 @@ import net.minecraft.world.EmptyBlockReader;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class SchematicWrapper {
@@ -36,7 +35,7 @@ public class SchematicWrapper {
 	public boolean isBuilding = false;
 	public boolean firstLayer = true;
 	
-	private Map<ChunkPos, CompoundNBT>[] tileEntities;
+	private final Map<ChunkPos, CompoundNBT>[] tileEntities;
 
 	public SchematicWrapper(ISchematic schematic){
 		this.schema = schematic;
@@ -51,7 +50,7 @@ public class SchematicWrapper {
 			int z = teTag.getInt("z");
 			Map<ChunkPos, CompoundNBT> map = tileEntities[y];
 			if(map == null)
-				tileEntities[y] = map = new HashMap<ChunkPos, CompoundNBT>();
+				tileEntities[y] = map = new HashMap<>();
 			map.put(new ChunkPos(x, z), teTag);
 		}
 	}
@@ -79,9 +78,9 @@ public class SchematicWrapper {
 			endPos = size;
 		
 		for(;buildPos < endPos; buildPos++){
-			int x = (int) (buildPos % schema.getWidth());
-			int z = (int)((buildPos - x) / schema.getWidth()) % schema.getLength();
-			int y = (int)(((buildPos - x) / schema.getWidth()) - z) / schema.getLength();
+			int x = buildPos % schema.getWidth();
+			int z = ((buildPos - x) / schema.getWidth()) % schema.getLength();
+			int y = (((buildPos - x) / schema.getWidth()) - z) / schema.getLength();
 			if(firstLayer)
 				place(x, y, z, 1);
 			else
@@ -126,19 +125,17 @@ public class SchematicWrapper {
     public BlockState rotationState(BlockState state, int rotation){
     	if(rotation == 0)
     		return state;
-		Iterator<Property<?>> set = state.getProperties().iterator();
-    	while(set.hasNext()){
-			Property prop = set.next();
-    		if(!(prop instanceof DirectionProperty))
-    			continue;
-			Direction direction = (Direction) state.getValue(prop);
-			if(direction == Direction.UP || direction == Direction.DOWN)
+		for (Property prop : state.getProperties()) {
+			if (!(prop instanceof DirectionProperty))
 				continue;
-			for(int i = 0; i < rotation; i++){
+			Direction direction = (Direction) state.getValue(prop);
+			if (direction == Direction.UP || direction == Direction.DOWN)
+				continue;
+			for (int i = 0; i < rotation; i++) {
 				direction = direction.getClockWise();
 			}
 			return state.setValue(prop, direction);
-    	}
+		}
     	
     	return state;
     }
@@ -149,7 +146,7 @@ public class SchematicWrapper {
     	CompoundNBT compound = tileEntities[y].get(new ChunkPos(x, z));
     	if(compound == null)
     		return null;
-    	compound = (CompoundNBT) compound.copy();
+    	compound = compound.copy();
     	compound.putInt("x", pos.getX());
     	compound.putInt("y", pos.getY());
     	compound.putInt("z", pos.getZ());

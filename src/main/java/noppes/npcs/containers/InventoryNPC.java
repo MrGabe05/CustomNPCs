@@ -9,16 +9,16 @@ import net.minecraft.util.NonNullList;
 import noppes.npcs.NoppesUtilServer;
 
 public class InventoryNPC implements IInventory{
-    private String inventoryTitle;
-    private int slotsCount;
+    private final String inventoryTitle;
+    private final int slotsCount;
     public final NonNullList<ItemStack> inventoryContents;
-    private Container con;
+    private final Container con;
 
     public InventoryNPC(String s, int i,Container con){
     	this.con = con;
         inventoryTitle = s;
         slotsCount = i;
-        inventoryContents = NonNullList.<ItemStack>withSize(i, ItemStack.EMPTY);
+        inventoryContents = NonNullList.withSize(i, ItemStack.EMPTY);
     }
     
     @Override

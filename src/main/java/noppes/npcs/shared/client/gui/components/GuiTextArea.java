@@ -29,7 +29,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
     
     private ITextChangeListener listener;
     
-	private static TrueTypeFont font = new TrueTypeFont(new Font("Arial Unicode MS", Font.PLAIN, CustomNpcs.FontSize), 1);
+	private static final TrueTypeFont font = new TrueTypeFont(new Font("Arial Unicode MS", Font.PLAIN, CustomNpcs.FontSize), 1);
     
     public String text = null;
     
@@ -44,9 +44,9 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
 	private boolean enableCodeHighlighting = false;
 	private static final char colorChar = '\uFFFF';
 
-	public List<UndoData> undoList = new ArrayList<UndoData>();
-	public List<UndoData> redoList = new ArrayList<UndoData>();
-	public boolean undoing = false;
+	public List<UndoData> undoList = new ArrayList<>();
+	public List<UndoData> redoList = new ArrayList<>();
+	public boolean undoing;
 	
     private long lastClicked = 0;
     
@@ -59,7 +59,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
 		undoing = true;
 		setText(text);
 		undoing = false;
-		this.font.setSpecial(colorChar);
+		font.setSpecial(colorChar);
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
         	}
         }
 
-        List<LineData> list = new ArrayList<LineData>(container.lines); 
+        List<LineData> list = new ArrayList<>(container.lines);
 
         String wordHightLight = null;
         if(startSelection != endSelection){
@@ -227,7 +227,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
         xMouse -= x + 1;
         yMouse -= y + 1;
               
-        List<LineData> list = new ArrayList<LineData>(container.lines);
+        List<LineData> list = new ArrayList<>(container.lines);
         for(int i = 0; i < list.size(); i++){
         	LineData data = list.get(i);
         	if(i >= scrolledLine && i < scrolledLine + container.visibleLines){
@@ -374,7 +374,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
 			addText("    ");
 		}
 		if(keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER){
-			addText(Character.toString('\n') + getIndentCurrentLine());
+			addText('\n' + getIndentCurrentLine());
 		}
 
 		return true;
@@ -549,7 +549,7 @@ public class GuiTextArea extends AbstractGui implements IGui, IKeyListener, IMou
 		this.listener = listener;
 	}
 
-    class UndoData {
+    static class UndoData {
 		public String text;
 		public int cursorPosition;
 		

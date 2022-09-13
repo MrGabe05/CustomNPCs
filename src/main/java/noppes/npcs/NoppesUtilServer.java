@@ -55,8 +55,8 @@ import java.util.function.Consumer;
 import java.util.zip.GZIPOutputStream;
 
 public class NoppesUtilServer {
-	private static HashMap<UUID,Quest> editingQuests = new HashMap<UUID,Quest>();
-	private static HashMap<UUID,Quest> editingQuestsClient = new HashMap<UUID,Quest>();
+	private static final HashMap<UUID,Quest> editingQuests = new HashMap<>();
+	private static final HashMap<UUID,Quest> editingQuestsClient = new HashMap<>();
 
     public static void setEditingNpc(PlayerEntity player, EntityNPCInterface npc){
     	PlayerData data = PlayerData.get(player);
@@ -336,15 +336,11 @@ public class NoppesUtilServer {
 	}
 
 	public static void NotifyOPs(TextComponent message){
-		ITextComponent chatcomponenttranslation = message.withStyle(new TextFormatting[]{TextFormatting.GRAY, TextFormatting.ITALIC});
+		ITextComponent chatcomponenttranslation = message.withStyle(TextFormatting.GRAY, TextFormatting.ITALIC);
 
-		Iterator iterator = CustomNpcs.Server.getPlayerList().getPlayers().iterator();
-
-		while (iterator.hasNext()){
-			PlayerEntity entityplayer = (PlayerEntity)iterator.next();
-
-			if (entityplayer.shouldInformAdmins() && isOp(entityplayer)){
-				entityplayer.sendMessage(chatcomponenttranslation, Util.NIL_UUID);
+		for (ServerPlayerEntity serverPlayerEntity : CustomNpcs.Server.getPlayerList().getPlayers()) {
+			if (serverPlayerEntity.shouldInformAdmins() && isOp(serverPlayerEntity)) {
+				((PlayerEntity) serverPlayerEntity).sendMessage(chatcomponenttranslation, Util.NIL_UUID);
 			}
 		}
 

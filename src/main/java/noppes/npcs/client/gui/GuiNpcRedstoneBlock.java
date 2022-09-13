@@ -15,7 +15,7 @@ import noppes.npcs.packets.server.SPacketTileEntitySave;
 
 public class GuiNpcRedstoneBlock extends GuiNPCInterface implements IGuiData{
 
-	private TileRedstoneBlock tile;
+	private final TileRedstoneBlock tile;
 	
     public GuiNpcRedstoneBlock(BlockPos pos) {
 		super();
@@ -79,7 +79,7 @@ public class GuiNpcRedstoneBlock extends GuiNPCInterface implements IGuiData{
 		if(id == 0)
 			close();
 		if(id == 1){
-			tile.isDetailed = ((GuiButtonNop)guibutton).getValue() == 1;
+			tile.isDetailed = guibutton.getValue() == 1;
 			init();
 		}
 		if (id == 4) {

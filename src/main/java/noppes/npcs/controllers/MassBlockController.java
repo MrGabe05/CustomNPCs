@@ -20,7 +20,7 @@ public class MassBlockController {
 	}
 	
 	public static void Update(){		
-		if(Instance.queue.isEmpty())
+		if(queue.isEmpty())
 			return;
 		IMassBlock imb = queue.remove();
 		World level = imb.getNpc().level;
@@ -42,13 +42,13 @@ public class MassBlockController {
 	}
 
 	public static void Queue(IMassBlock imb) {
-		Instance.queue.add(imb);
+		queue.add(imb);
 	}
 	
-	public static interface IMassBlock{
+	public interface IMassBlock{
 
-		public EntityNPCInterface getNpc();
-		public int getRange();
-		public void processed(List<BlockData> list);
+		EntityNPCInterface getNpc();
+		int getRange();
+		void processed(List<BlockData> list);
 	}
 }

@@ -192,10 +192,8 @@ public class JobPuppet extends JobInterface implements IJobPuppet{
 	public boolean isActive() {
 		if(!npc.isAlive())
 			return false;
-		
-		if(whileAttacking && npc.isAttacking() || whileMoving && npc.isWalking() || whileStanding && !npc.isWalking())
-			return true;
-		return false;
+
+		return whileAttacking && npc.isAttacking() || whileMoving && npc.isWalking() || whileStanding && !npc.isWalking();
 	}
 	
 	public class PartConfig implements IJobPuppetPart{

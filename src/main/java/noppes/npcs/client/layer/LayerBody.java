@@ -198,7 +198,7 @@ public class LayerBody extends LayerInterface{
 
 		float motion = Math.abs(MathHelper.sin(limbSwing * 0.033F + (float)Math.PI) * 0.4F) * limbSwingAmount;
 		if(!npc.isOnGround() || motion > 0.01){
-			float speed = (float) (0.55f + 0.5f * motion);
+			float speed = 0.55f + 0.5f * motion;
             float y = MathHelper.sin(ageInTicks * 0.55F);
 
             rWing.zRot += y * 0.5f * speed;

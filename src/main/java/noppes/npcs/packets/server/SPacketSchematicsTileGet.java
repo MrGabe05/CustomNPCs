@@ -17,7 +17,7 @@ import java.util.Vector;
 
 public class SPacketSchematicsTileGet extends PacketServerBasic {
 
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public SPacketSchematicsTileGet(BlockPos pos) {
         this.pos = pos;

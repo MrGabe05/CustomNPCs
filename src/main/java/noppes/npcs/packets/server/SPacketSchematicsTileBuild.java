@@ -12,7 +12,7 @@ import noppes.npcs.schematics.SchematicWrapper;
 
 public class SPacketSchematicsTileBuild extends PacketServerBasic {
 
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public SPacketSchematicsTileBuild(BlockPos pos) {
         this.pos = pos;

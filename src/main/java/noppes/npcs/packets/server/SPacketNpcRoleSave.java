@@ -6,7 +6,7 @@ import noppes.npcs.CustomNpcsPermissions;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketNpcRoleSave extends PacketServerBasic {
-    private CompoundNBT data;
+    private final CompoundNBT data;
 
     public SPacketNpcRoleSave(CompoundNBT data) {
         this.data = data;

@@ -8,7 +8,7 @@ import noppes.npcs.packets.server.SPacketScriptGet;
 import noppes.npcs.packets.server.SPacketScriptSave;
 
 public class GuiScriptDoor extends GuiScriptInterface {
-	private TileScriptedDoor script;
+	private final TileScriptedDoor script;
 		
 	public GuiScriptDoor(BlockPos pos) {
 		handler = script = (TileScriptedDoor) player.level.getBlockEntity(pos);

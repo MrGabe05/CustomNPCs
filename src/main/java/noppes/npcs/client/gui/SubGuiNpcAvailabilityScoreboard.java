@@ -10,9 +10,9 @@ import noppes.npcs.shared.client.gui.components.GuiButtonNop;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcAvailabilityScoreboard extends GuiBasic implements ITextfieldListener {
-	private Availability availabitily;
-	private boolean selectFaction = false;
-	private int slot = 0;
+	private final Availability availabitily;
+	private final boolean selectFaction = false;
+	private final int slot = 0;
 	
     public SubGuiNpcAvailabilityScoreboard(Availability availabitily){
     	this.availabitily = availabitily;
@@ -43,7 +43,7 @@ public class SubGuiNpcAvailabilityScoreboard extends GuiBasic implements ITextfi
 
     @Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
         if(guibutton.id == 0){
         	availabitily.scoreboardType = EnumAvailabilityScoreboard.values()[button.getValue()];
         }

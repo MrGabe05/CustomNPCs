@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class EntityRainbowFX extends Particle
 {
     private float quadSize;
-    public static float colorTable[][] = {
+    public static float[][] colorTable = {
             {
                     1.0F, 0, 0
             },

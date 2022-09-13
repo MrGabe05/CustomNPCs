@@ -13,8 +13,8 @@ import noppes.npcs.packets.client.PacketGuiData;
 
 public class SPacketSchematicsTileSet extends PacketServerBasic {
 
-    private BlockPos pos;
-    private String name;
+    private final BlockPos pos;
+    private final String name;
 
     public SPacketSchematicsTileSet(BlockPos pos, String name) {
         this.pos = pos;

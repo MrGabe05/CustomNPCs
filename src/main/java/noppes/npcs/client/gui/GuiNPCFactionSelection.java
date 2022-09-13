@@ -17,7 +17,7 @@ import noppes.npcs.entity.EntityNPCInterface;
 
 public class GuiNPCFactionSelection extends GuiNPCInterface {
 	private GuiStringSlotNop slot;
-	private Screen parent;
+	private final Screen parent;
 	private int factionId;
 	public GuiSelectionListener listener;
 	

@@ -3,6 +3,7 @@ package noppes.npcs.client.gui.player.companion;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GuiNpcCompanionTalents extends GuiNPCInterface{
-	private RoleCompanion role;
+	private final RoleCompanion role;
 	private Map<Integer,GuiTalent> talents = new HashMap<Integer,GuiTalent>();	
 	private GuiButtonNop selected;
 
@@ -77,7 +78,7 @@ public class GuiNpcCompanionTalents extends GuiNPCInterface{
 			Packets.sendServer(new SPacketCompanionOpenInv());
 		}
 		if(id >= 10){
-			selected = (GuiButtonNop) guibutton;
+			selected = guibutton;
 			lastPressedTime = startPressedTime = minecraft.level.getDayTime();
 			addExperience(1);
 		}
@@ -145,9 +146,10 @@ public class GuiNpcCompanionTalents extends GuiNPCInterface{
 	}
 	
 	public static class GuiTalent extends Screen {
-		private EnumCompanionTalent talent;
-		private int x, y;
-		private RoleCompanion role;
+		private final EnumCompanionTalent talent;
+		private final int x;
+		private final int y;
+		private final RoleCompanion role;
 		private static final ResourceLocation resource = new ResourceLocation("customnpcs:textures/gui/talent.png");
 		public GuiTalent(RoleCompanion role, EnumCompanionTalent talent, int x, int y){
 			super(null);
@@ -179,7 +181,7 @@ public class GuiNpcCompanionTalents extends GuiNPCInterface{
 	        //RenderHelper.disableStandardItemLighting();
 	        RenderSystem.disableLighting();
 	        RenderSystem.translatef(0, 0, 200);
-            this.drawCenteredString(matrixStack, mc.font, role.getTalentLevel(talent) + "", x + 20, y + 16, 0xFFFFFF);
+            drawCenteredString(matrixStack, mc.font, role.getTalentLevel(talent) + "", x + 20, y + 16, 0xFFFFFF);
 	        itemRenderer.blitOffset = 0.0F;
 	        this.setBlitOffset(0);
 	        RenderSystem.popMatrix();

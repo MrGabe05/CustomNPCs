@@ -244,10 +244,10 @@ public class GuiScriptInterface extends GuiNPCInterface implements IGuiData, ITe
 			init();
 		}
 		if (guibutton.id == 103) {
-			handler.setLanguage(((GuiButtonNop)guibutton).getMessage().getString());
+			handler.setLanguage(guibutton.getMessage().getString());
 		}
 		if (guibutton.id == 104) {
-			handler.setEnabled(((GuiButtonNop)guibutton).getValue() == 1);
+			handler.setEnabled(guibutton.getValue() == 1);
 		}
 		if (guibutton.id == 105) {
             ConfirmScreen guiyesno = new ConfirmScreen((bo) -> {

@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class CustomTileEntityItemStackRenderer extends ItemStackTileEntityRenderer {
     public static CustomTileEntityItemStackRenderer i = new CustomTileEntityItemStackRenderer();
 
-    private HashMap<Block, TileEntity> data = new HashMap<Block, TileEntity>();
+    private final HashMap<Block, TileEntity> data = new HashMap<Block, TileEntity>();
 
     @Override
     public void renderByItem(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {

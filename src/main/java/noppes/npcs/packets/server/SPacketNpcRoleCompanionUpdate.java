@@ -8,7 +8,7 @@ import noppes.npcs.packets.PacketServerBasic;
 import noppes.npcs.roles.RoleCompanion;
 
 public class SPacketNpcRoleCompanionUpdate extends PacketServerBasic {
-    private EnumCompanionStage stage;
+    private final EnumCompanionStage stage;
 
     public SPacketNpcRoleCompanionUpdate(EnumCompanionStage stage) {
         this.stage = stage;

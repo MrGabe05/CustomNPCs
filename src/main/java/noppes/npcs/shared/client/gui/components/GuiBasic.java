@@ -18,6 +18,7 @@ import java.net.URI;
 import java.util.ArrayList;
 
 public class GuiBasic  extends Screen implements IGuiInterface {
+
     public ClientPlayerEntity player;
     public boolean drawDefaultBackground = true;
     public String title;
@@ -67,8 +68,6 @@ public class GuiBasic  extends Screen implements IGuiInterface {
 
     public void buttonEvent(GuiButtonNop guibutton) {
     }
-
-    ;
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double scrolled) {
@@ -273,17 +272,17 @@ public class GuiBasic  extends Screen implements IGuiInterface {
         }
 
         drawCenteredString(matrixStack, this.font, title, width / 2, 8, 0xffffff);
-        for (GuiLabel label : new ArrayList<GuiLabel>(wrapper.labels.values()))
+        for (GuiLabel label : new ArrayList<>(wrapper.labels.values()))
             label.render(matrixStack, mouseX, mouseY, partialTicks);
-        for (GuiTextFieldNop tf : new ArrayList<GuiTextFieldNop>(wrapper.textfields.values())) {
+        for (GuiTextFieldNop tf : new ArrayList<>(wrapper.textfields.values())) {
             tf.renderButton(matrixStack, x, y, partialTicks);
         }
-        for (GuiCustomScroll scroll : new ArrayList<GuiCustomScroll>(wrapper.scrolls.values()))
+        for (GuiCustomScroll scroll : new ArrayList<>(wrapper.scrolls.values()))
             scroll.render(matrixStack, x, y, partialTicks);
-        for (IGui comp : new ArrayList<IGui>(wrapper.components)) {
+        for (IGui comp : new ArrayList<>(wrapper.components)) {
             comp.render(matrixStack, x, y);
         }
-        for (Screen gui : new ArrayList<Screen>(wrapper.extra.values()))
+        for (Screen gui : new ArrayList<>(wrapper.extra.values()))
             gui.render(matrixStack, x, y, partialTicks);
         super.render(matrixStack, x, y, partialTicks);
         if (wrapper.subgui != null) {
@@ -339,9 +338,9 @@ public class GuiBasic  extends Screen implements IGuiInterface {
     public void openLink(String link) {
         try {
             Class oclass = Class.forName("java.awt.Desktop");
-            Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
-            oclass.getMethod("browse", new Class[]{URI.class}).invoke(object, new Object[]{new URI(link)});
-        } catch (Throwable throwable) {
+            Object object = oclass.getMethod("getDesktop", new Class[0]).invoke(null);
+            oclass.getMethod("browse", new Class[]{URI.class}).invoke(object, new URI(link));
+        } catch (Throwable ignored) {
         }
     }
 

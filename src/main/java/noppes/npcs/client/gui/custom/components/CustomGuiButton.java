@@ -3,6 +3,7 @@ package noppes.npcs.client.gui.custom.components;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.widget.button.Button;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -93,7 +94,7 @@ public class CustomGuiButton extends Button implements IGuiComponent {
                 j = 16777120;
             }
             matrixStack.translate(0, 0, .1f);
-            this.drawCenteredString(matrixStack, font, this.label, this.x + this.width / 2, this.y + (this.height - 8) / 2, j);
+            drawCenteredString(matrixStack, font, this.label, this.x + this.width / 2, this.y + (this.height - 8) / 2, j);
 
             if(hovered && this.hoverText!=null && this.hoverText.size() > 0) {
                 this.parent.hoverText = hoverText;
@@ -109,7 +110,7 @@ public class CustomGuiButton extends Button implements IGuiComponent {
 
             this.blit(matrixStack, this.x, this.y, this.textureX, this.textureY + i * this.height, this.width, this.height);
 
-            this.drawCenteredString(matrixStack, font, this.label, this.x + this.width / 2, this.y + (this.height - 8) / 2, this.colour);
+            drawCenteredString(matrixStack, font, this.label, this.x + this.width / 2, this.y + (this.height - 8) / 2, this.colour);
 
             if(hovered && this.hoverText!=null && this.hoverText.size() > 0) {
                 this.parent.hoverText = hoverText;

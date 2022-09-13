@@ -181,7 +181,7 @@ public class SpawnController {
 		List<SpawnData> list = getSpawnList(biome);
 		if(list == null || list.isEmpty())
 			return null;
-		return (SpawnData) WeightedRandom.getRandomItem(this.random, list);
+		return WeightedRandom.getRandomItem(this.random, list);
 	}
 
 	public boolean hasSpawnList(ResourceLocation biome) {

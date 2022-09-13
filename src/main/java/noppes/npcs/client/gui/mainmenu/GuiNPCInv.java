@@ -25,9 +25,9 @@ import noppes.npcs.packets.server.SPacketMenuGet;
 import noppes.npcs.packets.server.SPacketMenuSave;
 
 public class GuiNPCInv extends GuiContainerNPCInterface2<ContainerNPCInv> implements ISliderListener, IGuiData{
-	private HashMap<Integer,Integer> chances = new HashMap<Integer, Integer>();
-	private ContainerNPCInv container;
-	private ResourceLocation slot;
+	private final HashMap<Integer,Integer> chances = new HashMap<Integer, Integer>();
+	private final ContainerNPCInv container;
+	private final ResourceLocation slot;
 
 	public GuiNPCInv(ContainerNPCInv container, PlayerInventory inv, ITextComponent titleIn) {
         super(NoppesUtil.getLastNpc(), container, inv, titleIn,4);
@@ -71,7 +71,7 @@ public class GuiNPCInv extends GuiContainerNPCInterface2<ContainerNPCInv> implem
     @Override
 	public void buttonEvent(GuiButtonNop guibutton) {
     	if(guibutton.id == 10){
-    		npc.inventory.lootMode = ((GuiButtonNop)guibutton).getValue();
+    		npc.inventory.lootMode = guibutton.getValue();
     	}
     }
 

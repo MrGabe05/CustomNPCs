@@ -17,7 +17,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiMailmanSendSetup extends GuiBasic implements ITextfieldListener, GuiSelectionListener {
 	
-	private PlayerMail mail;
+	private final PlayerMail mail;
 	
 	public SubGuiMailmanSendSetup(PlayerMail mail){
         imageWidth = 256;

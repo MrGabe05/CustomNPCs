@@ -59,9 +59,7 @@ public class QuestLocation extends QuestInterface{
 			return false;
 		if(!location2.isEmpty() && !data.extraData.getBoolean("Location2Found"))
 			return false;
-		if(!location3.isEmpty() && !data.extraData.getBoolean("Location3Found"))
-			return false;
-		return true;
+		return location3.isEmpty() || data.extraData.getBoolean("Location3Found");
 	}
 	public boolean setFound(QuestData data, String location) {
 		if(location.equalsIgnoreCase(this.location) && !data.extraData.getBoolean("LocationFound")){

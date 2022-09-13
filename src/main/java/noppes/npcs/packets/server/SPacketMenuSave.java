@@ -12,8 +12,8 @@ import noppes.npcs.entity.EntityCustomNpc;
 import noppes.npcs.packets.PacketServerBasic;
 
 public class SPacketMenuSave extends PacketServerBasic {
-    private EnumMenuType type;
-    private CompoundNBT data;
+    private final EnumMenuType type;
+    private final CompoundNBT data;
     public SPacketMenuSave(EnumMenuType type, CompoundNBT data) {
         this.type = type;
         this.data = data;

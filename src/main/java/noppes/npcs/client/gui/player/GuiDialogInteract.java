@@ -31,15 +31,15 @@ public class GuiDialogInteract extends GuiNPCInterface implements IGuiClose
 {
 	private Dialog dialog;
     private int selected = 0;
-    private List<TextBlockClient> lines = new ArrayList<TextBlockClient>();
+    private final List<TextBlockClient> lines = new ArrayList<TextBlockClient>();
     private List<Integer> options = new ArrayList<Integer>();
     private int rowStart = 0;
     private int rowTotal = 0;
     private int dialogHeight = 180;
 
-	private ResourceLocation wheel;
-	private ResourceLocation[] wheelparts;
-	private ResourceLocation indicator;
+	private final ResourceLocation wheel;
+	private final ResourceLocation[] wheelparts;
+	private final ResourceLocation indicator;
 	
 	private boolean isGrabbed = false;
 	
@@ -173,8 +173,8 @@ public class GuiDialogInteract extends GuiNPCInterface implements IGuiClose
     private void drawLinedOptions(MatrixStack matrixStack, int j){
     	hLine(matrixStack, guiLeft - 60, guiLeft + imageWidth + 120, guiTop + dialogHeight - ClientProxy.Font.height(null) / 3, 0xFFFFFFFF);
         int offset = dialogHeight;
-        if(j >= (int)((guiTop + offset))){
-        	int selected = (int) ((j - (guiTop + offset)) / (ClientProxy.Font.height(null)));
+        if(j >= (guiTop + offset)){
+        	int selected = (j - (guiTop + offset)) / (ClientProxy.Font.height(null));
 	        if(selected < options.size())
 		        this.selected = selected;
         }
@@ -186,7 +186,7 @@ public class GuiDialogInteract extends GuiNPCInterface implements IGuiClose
         for(int k = 0; k < options.size(); k++){
         	int id = options.get(k);
         	DialogOption option = dialog.options.get(id);
-        	int y = (int)((guiTop + offset  + (k * ClientProxy.Font.height(null))));
+        	int y = (guiTop + offset  + (k * ClientProxy.Font.height(null)));
         	if(selected == k){
         		drawString(matrixStack, font, ">", guiLeft - 60, y, 0xe0e0e0);
         	}

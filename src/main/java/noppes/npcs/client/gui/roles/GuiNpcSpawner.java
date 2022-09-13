@@ -18,7 +18,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 
 public class GuiNpcSpawner extends GuiNPCInterface2 implements ITextfieldListener {
-	private JobSpawner job;
+	private final JobSpawner job;
 	
 	private int slot = -1;
 	
@@ -94,7 +94,7 @@ public class GuiNpcSpawner extends GuiNPCInterface2 implements ITextfieldListene
 
 	@Override
     public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
     	if(button.id >= 0 && button.id < 6){
     		slot = button.id + 1;
     		setSubGui(new GuiNpcMobSpawnerSelector());

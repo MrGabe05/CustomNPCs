@@ -11,11 +11,11 @@ import net.minecraft.util.math.MathHelper;
 
 public class ModelNagaLegs extends ModelRenderer{
 
-    private ModelRenderer nagaPart1;
-    private ModelRenderer nagaPart2;
-    private ModelRenderer nagaPart3;
-    private ModelRenderer nagaPart4;
-    private ModelRenderer nagaPart5;
+    private final ModelRenderer nagaPart1;
+    private final ModelRenderer nagaPart2;
+    private final ModelRenderer nagaPart3;
+    private final ModelRenderer nagaPart4;
+    private final ModelRenderer nagaPart5;
 
     public boolean riding = false;
     public boolean isSneaking = false;
@@ -78,7 +78,7 @@ public class ModelNagaLegs extends ModelRenderer{
 		plane = new ModelPlaneNpcsRenderer(base, 8, 26);
 		plane.mirror = true;
 		plane.addTopPlane(0,-2, 0, 4, 6);
-		nagaPart3.addChild(plane);;
+		nagaPart3.addChild(plane);
 
 		plane = new ModelPlaneNpcsRenderer(base, 0, 26);
 		plane.xRot = (float) (Math.PI / 2);

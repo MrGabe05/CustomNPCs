@@ -16,9 +16,9 @@ import javax.annotation.Nullable;
 
 @OnlyIn(Dist.CLIENT)
 public class GuiAchievement implements IToast{
-    private String title;
-    private String subtitle;
-    private int type;
+    private final String title;
+    private final String subtitle;
+    private final int type;
     
     private long firstDrawTime;
     private boolean newDisplay;

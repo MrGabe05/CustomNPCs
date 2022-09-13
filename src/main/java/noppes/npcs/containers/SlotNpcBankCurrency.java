@@ -22,9 +22,6 @@ public class SlotNpcBankCurrency extends Slot{
     public boolean mayPlace(ItemStack itemstack) {
     	if(NoppesUtilServer.IsItemStackNull(itemstack))
     		return false;
-		if(item.getItem() == itemstack.getItem()){
-		    return true;
-		}
-		return false;
+        return item.getItem() == itemstack.getItem();
     }
 }

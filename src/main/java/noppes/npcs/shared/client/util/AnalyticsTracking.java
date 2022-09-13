@@ -60,7 +60,7 @@ public class AnalyticsTracking {
 //                int code = connection.getResponseCode();
                 connection.getInputStream().close();
                 connection.disconnect();
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
         }).start();
     }

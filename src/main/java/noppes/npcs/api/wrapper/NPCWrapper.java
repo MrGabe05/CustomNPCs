@@ -220,7 +220,7 @@ public class NPCWrapper<T extends EntityNPCInterface> extends EntityLivingWrappe
 
 	@Override
 	public boolean typeOf(int type){
-		return type == EntitiesType.NPC?true:super.typeOf(type);
+		return type == EntitiesType.NPC || super.typeOf(type);
 	}
 
 	@Override

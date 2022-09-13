@@ -25,10 +25,10 @@ public class GuiRecipes extends GuiNPCInterface
 {
 	private static final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/slot.png");
     private int page = 0;
-    private boolean npcRecipes = true;
+    private final boolean npcRecipes = true;
     private GuiLabel label;
     private GuiButtonNop left, right;
-    private List<IRecipe> recipes = new ArrayList<IRecipe>();
+    private final List<IRecipe> recipes = new ArrayList<IRecipe>();
 
     public GuiRecipes(){
         this.imageHeight = 182;

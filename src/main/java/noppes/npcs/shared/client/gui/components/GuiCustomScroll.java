@@ -40,7 +40,7 @@ public class GuiCustomScroll extends Screen {
 	private int lastClickedItem = -1;
 	private long lastClickedTime = 0;
 
-	private GuiTextFieldNop textField;
+	private final GuiTextFieldNop textField;
 	private boolean hasSearch = true;
 
 	private String searchStr = "";
@@ -57,7 +57,7 @@ public class GuiCustomScroll extends Screen {
 		isScrolling = false;
 		if(parent instanceof ICustomScrollListener)
 			listener = (ICustomScrollListener) parent;
-		this.list = new ArrayList<String>();
+		this.list = new ArrayList<>();
 		this.id = id;
 
 		textField = new GuiTextFieldNop(0, null, 0, 0, 176, 20, "");
@@ -343,7 +343,7 @@ public class GuiCustomScroll extends Screen {
 			return;
 		isSorted = true;
 		scrollY = 0;
-		Collections.sort(list, new NaturalOrderComparator());
+		list.sort(new NaturalOrderComparator());
 		this.list = list;
 		reset();
 	}
@@ -373,7 +373,7 @@ public class GuiCustomScroll extends Screen {
 		list.remove(old);
 		list.add(name);
 		if(isSorted)
-			Collections.sort(list, new NaturalOrderComparator());
+			list.sort(new NaturalOrderComparator());
 		if(old.equals(select))
 			select = name;
 
@@ -384,7 +384,7 @@ public class GuiCustomScroll extends Screen {
 		selected = list.indexOf(name);
 	}
 	public void clear() {
-		list = new ArrayList<String>();
+		list = new ArrayList<>();
 		selected = -1;
 		scrollY = 0;
 		searchStr = "";
@@ -394,7 +394,7 @@ public class GuiCustomScroll extends Screen {
 	}
 
 	public void clearSelection() {
-		list = new ArrayList<String>();
+		list = new ArrayList<>();
 		selected = -1;
 	}
 	public List<String> getList() {

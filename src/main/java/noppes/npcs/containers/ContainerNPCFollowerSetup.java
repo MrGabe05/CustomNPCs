@@ -11,7 +11,7 @@ import noppes.npcs.roles.RoleFollower;
 
 public class ContainerNPCFollowerSetup extends Container
 {
-	private RoleFollower role;
+	private final RoleFollower role;
 
     public ContainerNPCFollowerSetup(int containerId, PlayerInventory playerInventory, int entityId){
         super(CustomContainer.container_followersetup, containerId);
@@ -40,7 +40,7 @@ public class ContainerNPCFollowerSetup extends Container
     public ItemStack quickMoveStack(PlayerEntity par1PlayerEntity, int i)
     {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = (Slot)slots.get(i);
+        Slot slot = slots.get(i);
         if(slot != null && slot.hasItem())
         {
             ItemStack itemstack1 = slot.getItem();

@@ -497,9 +497,7 @@ public class RoleCompanion extends RoleInterface {
 			return true;
 		if(reduction <= 15 && level >= 3)
 			return true;
-		if(reduction <= 33 && level >= 4)
-			return true;
-		return false;
+		return reduction <= 33 && level >= 4;
 	}
 	public boolean canWearSword(IItemStack item){
 		int level = getTalentLevel(EnumCompanionTalent.SWORD);
@@ -627,9 +625,7 @@ public class RoleCompanion extends RoleInterface {
 
 	@Override
 	public boolean defendOwner() {
-		if(!defendOwner || owner == null || stage == EnumCompanionStage.BABY || companionJobInterface.isSelfSufficient())
-			return false;
-		return true;
+		return defendOwner && owner != null && stage != EnumCompanionStage.BABY && !companionJobInterface.isSelfSufficient();
 	}
 
 	public boolean hasOwner() {

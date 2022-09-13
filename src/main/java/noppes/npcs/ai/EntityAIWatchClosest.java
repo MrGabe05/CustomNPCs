@@ -10,14 +10,14 @@ import noppes.npcs.entity.EntityNPCInterface;
 import java.util.EnumSet;
 
 public class EntityAIWatchClosest extends Goal{
-    private EntityNPCInterface npc;
+    private final EntityNPCInterface npc;
 
     /** The closest entity which is being watched by this one. */
     protected Entity closestEntity;
-    private float maxDistance;
+    private final float maxDistance;
     private int lookTime;
-    private float change;
-    private Class<? extends LivingEntity> watchedClass;
+    private final float change;
+    private final Class<? extends LivingEntity> watchedClass;
     protected final EntityPredicate predicate;
 
     public EntityAIWatchClosest(EntityNPCInterface par1EntityLiving, Class<? extends LivingEntity> limbSwingAmountClass, float par3){
@@ -26,7 +26,7 @@ public class EntityAIWatchClosest extends Goal{
         this.maxDistance = par3;
         this.change = 0.002F;
         this.setFlags(EnumSet.of(Goal.Flag.LOOK));
-        this.predicate = (new EntityPredicate()).range((double)par3).allowSameTeam().allowInvulnerable().allowNonAttackable();
+        this.predicate = (new EntityPredicate()).range(par3).allowSameTeam().allowInvulnerable().allowNonAttackable();
     }
 
     @Override
@@ -40,10 +40,10 @@ public class EntityAIWatchClosest extends Goal{
         }
 
         if (this.watchedClass == PlayerEntity.class){
-            this.closestEntity = this.npc.level.getNearestPlayer(this.npc, (double)this.maxDistance);
+            this.closestEntity = this.npc.level.getNearestPlayer(this.npc, this.maxDistance);
         }
         else{
-            this.closestEntity = this.npc.level.getNearestEntity(this.watchedClass, predicate, this.npc, this.npc.getX(), this.npc.getEyeY(), this.npc.getZ(), this.npc.getBoundingBox().inflate((double)this.maxDistance, 3.0D, (double)this.maxDistance));
+            this.closestEntity = this.npc.level.getNearestEntity(this.watchedClass, predicate, this.npc, this.npc.getX(), this.npc.getEyeY(), this.npc.getZ(), this.npc.getBoundingBox().inflate(this.maxDistance, 3.0D, this.maxDistance));
             if (this.closestEntity != null){
             	return this.npc.canNpcSee(this.closestEntity);
             }
@@ -57,7 +57,7 @@ public class EntityAIWatchClosest extends Goal{
     public boolean canContinueToUse(){
     	if(npc.isInteracting() || npc.isAttacking() || !this.closestEntity.isAlive() || !npc.isAlive())
     		return false;
-        return !this.npc.isInRange(this.closestEntity, maxDistance)? false : this.lookTime > 0;
+        return this.npc.isInRange(this.closestEntity, maxDistance) && this.lookTime > 0;
     }
 
     @Override

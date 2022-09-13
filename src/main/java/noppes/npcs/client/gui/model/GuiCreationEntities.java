@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class GuiCreationEntities extends GuiCreationScreenInterface implements ICustomScrollListener {
-	private List<EntityType<? extends Entity>> types;
+	private final List<EntityType<? extends Entity>> types;
 	private GuiCustomScroll scroll;
 	private boolean resetToSelected = true;
 	

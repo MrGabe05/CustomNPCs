@@ -25,7 +25,7 @@ public class VisibilityController {
         if((hasOptions || npc.display.getVisible() != 0) && !trackedEntityHashTable.containsKey(npc.getId())) {
             trackedEntityHashTable.put(npc.getId(), npc);
         }
-        if(!hasOptions && npc.display.getVisible() == 0 && trackedEntityHashTable.containsKey(npc.getId())) {
+        if(!hasOptions && npc.display.getVisible() == 0) {
             trackedEntityHashTable.remove(npc.getId());
         }
     }

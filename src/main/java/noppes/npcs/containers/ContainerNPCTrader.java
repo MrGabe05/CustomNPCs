@@ -16,7 +16,7 @@ import noppes.npcs.roles.RoleTrader;
 
 public class ContainerNPCTrader extends ContainerNpcInterface{
 	public RoleTrader role;
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 
     public ContainerNPCTrader(int containerId, PlayerInventory playerInventory, int entityId){
         super(CustomContainer.container_trader, containerId, playerInventory);
@@ -124,10 +124,7 @@ public class ContainerNPCTrader extends ContainerNpcInterface{
         }
         else if(NoppesUtilPlayer.compareItems(itemstack3, item, false, false)){
             int k1 = item.getCount();
-            if(k1 > 0 && k1 + itemstack3.getCount() <= itemstack3.getMaxStackSize())
-            {
-                return true;
-            }
+            return k1 > 0 && k1 + itemstack3.getCount() <= itemstack3.getMaxStackSize();
         }
         return false;
     }

@@ -12,8 +12,8 @@ import noppes.npcs.controllers.ScriptContainer;
 public class GuiScriptList extends GuiBasic {
 	private GuiCustomScroll scroll1;
 	private GuiCustomScroll scroll2;
-	private ScriptContainer container;
-	private List<String> scripts;
+	private final ScriptContainer container;
+	private final List<String> scripts;
 	
 	public GuiScriptList(List<String> scripts, ScriptContainer container){
 		this.container = container;
@@ -61,7 +61,7 @@ public class GuiScriptList extends GuiBasic {
 
 	@Override
 	public void buttonEvent(GuiButtonNop guibutton){
-    	GuiButtonNop button = (GuiButtonNop) guibutton;
+    	GuiButtonNop button = guibutton;
 		if(button.id == 1){
 			if(scroll1.hasSelected()){
 				container.scripts.add(scroll1.getSelected());

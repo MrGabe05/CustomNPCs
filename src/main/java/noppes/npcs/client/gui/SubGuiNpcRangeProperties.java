@@ -8,8 +8,8 @@ import noppes.npcs.shared.client.gui.components.*;
 import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 
 public class SubGuiNpcRangeProperties extends GuiBasic implements ITextfieldListener {
-	private DataRanged ranged;
-	private DataStats stats;
+	private final DataRanged ranged;
+	private final DataStats stats;
 	private GuiSoundSelection gui;
 	private int soundSelected = -1;
 	
@@ -144,7 +144,7 @@ public class SubGuiNpcRangeProperties extends GuiBasic implements ITextfieldList
 			ranged.setHasAimAnimation(((GuiButtonYesNo)guibutton).getBoolean());
 		}
 		else if(id == 13){
-			ranged.setFireType(((GuiButtonNop)guibutton).getValue());
+			ranged.setFireType(guibutton.getValue());
 		}
     }
 

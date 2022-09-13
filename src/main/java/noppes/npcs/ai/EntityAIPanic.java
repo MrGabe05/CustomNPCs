@@ -9,8 +9,8 @@ import java.util.EnumSet;
 
 public class EntityAIPanic extends Goal
 {
-    private CreatureEntity entityCreature;
-    private float speed;
+    private final CreatureEntity entityCreature;
+    private final float speed;
     private double randPosX;
     private double randPosY;
     private double randPosZ;

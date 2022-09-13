@@ -8,7 +8,7 @@ import noppes.npcs.packets.Packets;
 import noppes.npcs.packets.client.PacketEyeBlink;
 
 public class ModelEyeData extends ModelPartData{
-	private Random r = new Random();
+	private final Random r = new Random();
 	public boolean glint = true;
 	
 	public int browThickness = 4;

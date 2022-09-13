@@ -13,8 +13,8 @@ import noppes.npcs.api.CustomNPCsException;
 import noppes.npcs.api.IScoreboardTeam;
 
 public class ScoreboardTeamWrapper implements IScoreboardTeam{
-	private ScorePlayerTeam team;
-	private Scoreboard board;
+	private final ScorePlayerTeam team;
+	private final Scoreboard board;
 	protected ScoreboardTeamWrapper(ScorePlayerTeam team, Scoreboard board){
 		this.team = team;
 		this.board = board;

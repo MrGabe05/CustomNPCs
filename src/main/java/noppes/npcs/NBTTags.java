@@ -2,10 +2,9 @@ package noppes.npcs;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
 import net.minecraft.nbt.DoubleNBT;
+import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -33,7 +32,7 @@ public class NBTTags {
 	}
 
 	public static Map<Integer, IItemStack> getIItemStackMap(ListNBT tagList) {
-		Map<Integer, IItemStack> list = new HashMap<Integer, IItemStack>();
+		Map<Integer, IItemStack> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++){
             CompoundNBT nbttagcompound = tagList.getCompound(i);
             ItemStack item = ItemStack.of(nbttagcompound);
@@ -71,7 +70,7 @@ public class NBTTags {
 	}
 	
 	public static ArrayList<int[]> getIntegerArraySet(ListNBT tagList) {
-		ArrayList<int[]> set = new ArrayList<int[]>();
+		ArrayList<int[]> set = new ArrayList<>();
         for(int i = 0; i < tagList.size(); i++)
         {
         	CompoundNBT compound = tagList.getCompound(i);
@@ -81,7 +80,7 @@ public class NBTTags {
 	}
 
 	public static HashMap<Integer, Boolean> getBooleanList(ListNBT tagList) {
-		HashMap<Integer, Boolean> list = new HashMap<Integer, Boolean>();
+		HashMap<Integer, Boolean> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -92,7 +91,7 @@ public class NBTTags {
 	
 	public static HashMap<Integer, Integer> getIntegerIntegerMap(
 			ListNBT tagList) {
-		HashMap<Integer, Integer> list = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -103,7 +102,7 @@ public class NBTTags {
 	
 	public static HashMap<Integer, Long> getIntegerLongMap(
 			ListNBT tagList) {
-		HashMap<Integer, Long> list = new HashMap<Integer, Long>();
+		HashMap<Integer, Long> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -113,7 +112,7 @@ public class NBTTags {
 	}
 	
 	public static HashSet<Integer> getIntegerSet(ListNBT tagList) {
-		HashSet<Integer> list = new HashSet<Integer>();
+		HashSet<Integer> list = new HashSet<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -123,7 +122,7 @@ public class NBTTags {
 	}
 	
 	public static List<Integer> getIntegerList(ListNBT tagList) {
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -133,7 +132,7 @@ public class NBTTags {
 	}
 
 	public static HashMap<String, String> getStringStringMap(ListNBT tagList) {
-		HashMap<String, String> list = new HashMap<String, String>();
+		HashMap<String, String> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -143,7 +142,7 @@ public class NBTTags {
 	}
 
 	public static HashMap<Integer, String> getIntegerStringMap(ListNBT tagList) {
-		HashMap<Integer, String> list = new HashMap<Integer, String>();
+		HashMap<Integer, String> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -153,7 +152,7 @@ public class NBTTags {
 	}
 	
 	public static HashMap<String, Integer> getStringIntegerMap(ListNBT tagList) {
-		HashMap<String, Integer> list = new HashMap<String, Integer>();
+		HashMap<String, Integer> list = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -162,10 +161,10 @@ public class NBTTags {
 		return list;
 	}
 	public static HashMap<String, Vector<String>> getVectorMap(ListNBT tagList) {
-		HashMap<String, Vector<String>> map = new HashMap<String, Vector<String>>();
+		HashMap<String, Vector<String>> map = new HashMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
-        	Vector<String> values = new Vector<String>();
+        	Vector<String> values = new Vector<>();
             CompoundNBT nbttagcompound = tagList.getCompound(i);
             ListNBT list = nbttagcompound.getList("Values", 10);
             for(int j = 0; j < list.size(); j++)
@@ -181,7 +180,7 @@ public class NBTTags {
 
 
 	public static List<String> getStringList(ListNBT tagList) {
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (int i = 0; i < tagList.size(); i++) {
 			CompoundNBT nbttagcompound = tagList.getCompound(i);
 			String line = nbttagcompound.getString("Line");
@@ -191,7 +190,7 @@ public class NBTTags {
 	}
 
 	public static List<ResourceLocation> getResourceLocationList(ListNBT tagList) {
-		List<ResourceLocation> list = new ArrayList<ResourceLocation>();
+		List<ResourceLocation> list = new ArrayList<>();
 		for (int i = 0; i < tagList.size(); i++) {
 			CompoundNBT nbttagcompound = tagList.getCompound(i);
 			ResourceLocation line = new ResourceLocation(nbttagcompound.getString("Line"));
@@ -298,12 +297,11 @@ public class NBTTags {
         ListNBT nbttaglist = new ListNBT();
     	if(updatedSlots == null)
     		return nbttaglist;
-        HashMap<Integer,Boolean> inventory2 = updatedSlots;
-        for(Integer slot : inventory2.keySet())
+		for(Integer slot : updatedSlots.keySet())
         {
             CompoundNBT nbttagcompound = new CompoundNBT();
             nbttagcompound.putInt("Slot", slot);
-            nbttagcompound.putBoolean("Boolean", inventory2.get(slot));
+            nbttagcompound.putBoolean("Boolean", updatedSlots.get(slot));
             
             nbttaglist.add(nbttagcompound);
         }
@@ -449,20 +447,17 @@ public class NBTTags {
 
 	public static ListNBT nbtDoubleList(double ... par1ArrayOfDouble){
         ListNBT nbttaglist = new ListNBT();
-        double[] adouble = par1ArrayOfDouble;
-        int i = par1ArrayOfDouble.length;
+		int i = par1ArrayOfDouble.length;
 
-        for (int j = 0; j < i; ++j)
-        {
-            double d1 = adouble[j];
-            nbttaglist.add(DoubleNBT.valueOf(d1));
-        }
+		for (double d1 : par1ArrayOfDouble) {
+			nbttaglist.add(DoubleNBT.valueOf(d1));
+		}
 
         return nbttaglist;
     }
 
 	public static CompoundNBT NBTMerge(CompoundNBT data, CompoundNBT merge) {
-		CompoundNBT compound = (CompoundNBT) data.copy();
+		CompoundNBT compound = data.copy();
 		Set<String> names = merge.getAllKeys();
 		for(String name : names){
 			INBT base = merge.get(name);
@@ -474,7 +469,7 @@ public class NBTTags {
 	}
 	
 	public static List<ScriptContainer> GetScript(ListNBT list, IScriptHandler handler){
-		List<ScriptContainer> scripts = new ArrayList<ScriptContainer>();
+		List<ScriptContainer> scripts = new ArrayList<>();
 		for(int i = 0; i < list.size(); i++){
 			CompoundNBT compoundd = list.getCompound(i);
 			ScriptContainer script = new ScriptContainer(handler);
@@ -495,7 +490,7 @@ public class NBTTags {
 	}
 
 	public static TreeMap<Long, String> GetLongStringMap(ListNBT tagList) {
-		TreeMap<Long, String> list = new TreeMap<Long, String>();
+		TreeMap<Long, String> list = new TreeMap<>();
         for(int i = 0; i < tagList.size(); i++)
         {
             CompoundNBT nbttagcompound = tagList.getCompound(i);
@@ -508,8 +503,7 @@ public class NBTTags {
         ListNBT nbttaglist = new ListNBT();
     	if(map == null)
     		return nbttaglist;
-        for(long slot : map.keySet())
-        {
+        for(long slot : map.keySet()) {
             CompoundNBT nbttagcompound = new CompoundNBT();
             nbttagcompound.putLong("Long", slot);
             nbttagcompound.putString("String", map.get(slot));

@@ -18,8 +18,8 @@ import noppes.npcs.shared.client.gui.listeners.IGuiData;
 
 public class GuiNpcMobSpawnerAdd extends GuiNPCInterface implements IGuiData {
 	
-	private Entity toClone;
-	private CompoundNBT compound;
+	private final Entity toClone;
+	private final CompoundNBT compound;
 	private static boolean serverSide = true;
 	private static int tab = 1;
 
@@ -53,7 +53,7 @@ public class GuiNpcMobSpawnerAdd extends GuiNPCInterface implements IGuiData {
 			String name = getTextField(0).getValue();
 			if(name.isEmpty())
 				return;
-			int tab = ((GuiButtonNop)guibutton).getValue() + 1;
+			int tab = guibutton.getValue() + 1;
 			if(!serverSide){
 				if(ClientCloneController.Instance.getCloneData(null, name, tab) != null)
 					setScreen(new ConfirmScreen(this::accept, new TranslationTextComponent(""), new TranslationTextComponent("clone.overwrite")));
@@ -67,10 +67,10 @@ public class GuiNpcMobSpawnerAdd extends GuiNPCInterface implements IGuiData {
 			close();
 		}
 		if(id == 2){
-			tab = ((GuiButtonNop)guibutton).getValue() + 1;
+			tab = guibutton.getValue() + 1;
 		}
 		if(id == 3){
-			serverSide = ((GuiButtonNop)guibutton).getValue() == 1;
+			serverSide = guibutton.getValue() == 1;
 		}
 	}
 

@@ -8,7 +8,7 @@ import noppes.npcs.util.NBTJsonUtil;
 
 public class NBTWrapper implements INbt {
 	
-	private CompoundNBT compound;
+	private final CompoundNBT compound;
 	
 	public NBTWrapper(CompoundNBT compound){
 		this.compound = compound;

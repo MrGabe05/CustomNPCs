@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -15,10 +16,10 @@ import noppes.npcs.shared.common.util.LogWriter;
 
 public class ConfigLoader {
 	private boolean updateFile = false;
-	private File dir;
-	private String fileName;
-	private Class<?> configClass;
-	private LinkedList<Field> configFields;
+	private final File dir;
+	private final String fileName;
+	private final Class<?> configClass;
+	private final LinkedList<Field> configFields;
 	
 	public ConfigLoader(Class<?> clss, File dir, String fileName){
 		if(!dir.exists())
@@ -27,7 +28,7 @@ public class ConfigLoader {
 		configClass = clss;
 		configFields = new LinkedList<Field>();
 		this.fileName = fileName+".cfg";
-		Field fields[] = configClass.getDeclaredFields();
+		Field[] fields = configClass.getDeclaredFields();
 		for (Field field : fields) {
 			if (field.isAnnotationPresent(ConfigProp.class)){
 				configFields.add(field);
@@ -39,7 +40,7 @@ public class ConfigLoader {
 			File configFile = new File(dir,fileName);
 			HashMap<String, Field> types = new HashMap<String, Field>();
 			for(Field field : configFields){
-				ConfigProp prop = (ConfigProp)field.getAnnotation(ConfigProp.class);
+				ConfigProp prop = field.getAnnotation(ConfigProp.class);
 				types.put(!prop.name().isEmpty()? prop.name() : field.getName(), field);
 			}
 			if(configFile.exists()){
@@ -69,7 +70,7 @@ public class ConfigLoader {
 	}
 	private HashMap<String, Object> parseConfig(File file, HashMap<String, Field> types) throws Exception {
 		HashMap<String, Object> config = new HashMap<String, Object>();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
 		String strLine;
 		while ((strLine = reader.readLine()) != null) {
 			if(strLine.startsWith("#") || strLine.length() == 0)
@@ -129,7 +130,7 @@ public class ConfigLoader {
 				file.createNewFile();
 			BufferedWriter out = new BufferedWriter(new FileWriter(file));
 			for(Field field : configFields){
-				ConfigProp prop = (ConfigProp)field.getAnnotation(ConfigProp.class);
+				ConfigProp prop = field.getAnnotation(ConfigProp.class);
 				if(prop.info().length() != 0)
 					out.write("#"+prop.info() + System.getProperty( "line.separator" ));
 				String name = !prop.name().isEmpty()? prop.name() : field.getName();

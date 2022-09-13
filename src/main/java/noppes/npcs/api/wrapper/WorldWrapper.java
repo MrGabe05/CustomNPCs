@@ -61,7 +61,7 @@ public class WorldWrapper implements IWorld{
 	
 	public IDimension dimension;
 	
-	private IData tempdata = new IData(){
+	private final IData tempdata = new IData(){
 
 		@Override
 		public void put(String key, Object value) {
@@ -95,7 +95,7 @@ public class WorldWrapper implements IWorld{
 		
 	};
 
-	private IData storeddata = new IData(){
+	private final IData storeddata = new IData(){
 
 		@Override
 		public void put(String key, Object value) {
@@ -115,7 +115,7 @@ public class WorldWrapper implements IWorld{
 			INBT base = compound.get(key);
 			if(base instanceof NumberNBT)
 				return ((NumberNBT)base).getAsDouble();
-			return ((StringNBT)base).getAsString();
+			return base.getAsString();
 		}
 
 		@Override
@@ -409,7 +409,7 @@ public class WorldWrapper implements IWorld{
 	
 	@Override
 	public IItemStack createItem(String name, int size){
-		Item item = (Item)ForgeRegistries.ITEMS.getValue(new ResourceLocation(name));
+		Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(name));
 		if(item == null)
 			throw new CustomNPCsException("Unknown item id: " + name);
 		return NpcAPI.Instance().getIItemStack(new ItemStack(item, size));

@@ -23,7 +23,7 @@ import noppes.npcs.roles.RoleFollower;
 
 public class GuiNpcFollower extends GuiContainerNPCInterface<ContainerNPCFollower>  implements IGuiData{
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/follower.png");
-	private RoleFollower role;
+	private final RoleFollower role;
 
 	public GuiNpcFollower(ContainerNPCFollower container, PlayerInventory inv, ITextComponent titleIn) {
         super(NoppesUtil.getLastNpc(), container, inv, titleIn);

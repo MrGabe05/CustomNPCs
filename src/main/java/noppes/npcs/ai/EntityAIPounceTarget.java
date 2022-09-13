@@ -9,9 +9,9 @@ import noppes.npcs.entity.EntityNPCInterface;
 import java.util.EnumSet;
 
 public class EntityAIPounceTarget extends Goal{
-	private EntityNPCInterface npc;
+	private final EntityNPCInterface npc;
 	private LivingEntity leapTarget;
-	private float leapSpeed = 1.3F;
+	private final float leapSpeed = 1.3F;
 
     public EntityAIPounceTarget(EntityNPCInterface leapingEntity){
         this.npc = leapingEntity;
@@ -28,7 +28,7 @@ public class EntityAIPounceTarget extends Goal{
         if (this.leapTarget == null || !this.npc.getSensing().canSee(leapTarget))
         	return false;
         
-        return !npc.isInRange(leapTarget, 4) && npc.isInRange(leapTarget, 8)? this.npc.getRandom().nextInt(5) == 0 : false;
+        return !npc.isInRange(leapTarget, 4) && npc.isInRange(leapTarget, 8) && this.npc.getRandom().nextInt(5) == 0;
     }
 
     @Override

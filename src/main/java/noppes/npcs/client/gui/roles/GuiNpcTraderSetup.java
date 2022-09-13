@@ -23,7 +23,7 @@ import noppes.npcs.shared.client.gui.listeners.ITextfieldListener;
 public class GuiNpcTraderSetup extends GuiContainerNPCInterface2<ContainerNPCTraderSetup> implements ITextfieldListener {
 	
 	private final ResourceLocation slot = new ResourceLocation("customnpcs","textures/gui/slot.png");
-	private RoleTrader role;
+	private final RoleTrader role;
 
 	public GuiNpcTraderSetup(ContainerNPCTraderSetup container, PlayerInventory inv, ITextComponent titleIn) {
         super(NoppesUtil.getLastNpc(), container, inv, titleIn);
